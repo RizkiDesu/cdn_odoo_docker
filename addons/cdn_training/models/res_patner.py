@@ -9,7 +9,3 @@ class ResPartner(models.Model):
     kota_id         = fields.Many2one(comodel_name='ref.kota', string='Kota/Kabupaten')
     kecamatan_id    = fields.Many2one(comodel_name='ref.kecamatan', string='Kecamatan')
     desa_id         = fields.Many2one(comodel_name='ref.desa', string='Desa/Kelurahan')
-    
-    
-    
-    

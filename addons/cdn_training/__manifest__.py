@@ -34,6 +34,8 @@
         'views/kota.xml',
         'views/kecamatan.xml',
         'views/desa.xml',
+        'views/peserta.xml',
+        
     ],
     # only loaded in demonstration mode
     'demo': [

@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        <!-- peserta tree view -->
+        <record id="peserta_view_tree" model="ir.ui.view">
+            <field name="name">peserta.view.tree</field>
+            <field name="model">peserta</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <!-- Add your fields here -->
+                    <field name="name"/>
+                    <field name="jenis_kel"/>
+                    <field name="street"/>
+                    <field name="mobile"/>
+                    <field name="pendidikan"/>
+                    <field name="pekerjaan"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- peserta form view -->
+        <record id="peserta_view_form" model="ir.ui.view">
+            <field name="name">peserta.view.form</field>
+            <field name="model">peserta</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="image_1920" widget="image" class="oe_avatar"/>
+                        </group>
+                        
+                        <group name="peserta" string="peserta">
+                            <!-- Add your fields here -->
+                            <group>
+                                <field name="name" required="1"/>
+                                <field name="jenis_kel" widget="radio"/>
+                                <field name="email" required="1"/>
+                            </group>
+                            <group>
+                                <field name="tmp_lahir" required="1"/>
+                                <field name="tgl_lahir" required="1"/>
+                                <field name="mobile" required="1"/>
+                            </group>
+                        </group>
+                        <group name="alamat" string="Tempat Tinggal Siswa">
+                            <group colspan="4">
+                                <field name="street"/>
+                            </group>
+                            <group>
+                                <field name="propinsi_id"/>
+                                <field name="kota_id" domain="[('propinsi_id','=',propinsi_id)]"/>
+                            </group>
+                            <group>
+                                <field name="kecamatan_id" domain="[('kota_id','=',kota_id)]"/>
+                                <field name="desa_id" domain="[('kecamatan_id','=',kecamatan_id)]"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="pendidikan" />
+                                <field name="is_menikah"/>
+                            </group>
+                            <group>
+                                <field name="pekerjaan"/>
+                            </group>
+                        </group>
+                        <group name="pasangan" string="Identitas Pasangan" attrs="{'invisible':[('is_menikah','=',False)]}">
+                            <group>
+                                <field name="nama_pasangan" attrs="{'required':[('is_menikah','=',True)]}"/>
+                            </group>
+                            <group>
+                                <field name="hp_pasangan" attrs="{'required':[('is_menikah','=',True)]}"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- peserta action window -->
+        <record id="peserta_action" model="ir.actions.act_window">
+            <field name="name">Daftar Peserta</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">peserta</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p><p>
+                    <!-- More details about what a user can do with this object will be OK --> 
+                
+                </p>
+            </field>
+        </record>
+
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="peserta_menu_act" name="Perserta" parent="session_menu_categ" action="peserta_action" sequence="5"/>
+        
+    
+    </data>
+    
+</odoo>

@@ -8,11 +8,13 @@ access_user_propinsi,access_user_propinsi,model_ref_propinsi,group_pelatihan_use
 access_user_kota,access_user_kota,model_ref_kota,group_pelatihan_user,1,0,0,0
 access_user_kecamatan,access_user_kecamatan,model_ref_kecamatan,group_pelatihan_user,1,0,0,0
 access_user_desa,access_user_desa,model_ref_desa,group_pelatihan_user,1,0,0,0
+access_user_peserta,access_user_peserta,model_peserta,group_pelatihan_user,1,0,0,0
 
 access_opr_training_course,access_opr_training_course,model_training_course,group_pelatihan_opr,1,1,1,0
 access_opr_training_session,access_opr_training_session,model_training_session,group_pelatihan_opr,1,1,1,0
 access_opr_instruktur,access_opr_instruktur,model_instruktur,group_pelatihan_opr,1,1,1,0
 access_opr_keahlian,access_opr_keahlian,model_keahlian,group_pelatihan_opr,1,1,1,0
+access_opr_peserta,access_opr_peserta,model_peserta,group_pelatihan_opr,1,1,1,0
 
 access_admin_training_course,access_admin_training_course,model_training_course,group_pelatihan_admin,1,1,1,1
 access_admin_training_session,access_admin_training_session,model_training_session,group_pelatihan_admin,1,1,1,1
@@ -22,4 +24,5 @@ access_admin_propinsi,access_admin_propinsi,model_ref_propinsi,group_pelatihan_a
 access_admin_kota,access_admin_kota,model_ref_kota,group_pelatihan_admin,1,1,1,1
 access_admin_kecamatan,access_admin_kecamatan,model_ref_kecamatan,group_pelatihan_admin,1,1,1,1
 access_admin_desa,access_admin_desa,model_ref_desa,group_pelatihan_admin,1,1,1,1
+access_admin_peserta,access_admin_peserta,model_peserta,group_pelatihan_admin,1,1,1,1
 
