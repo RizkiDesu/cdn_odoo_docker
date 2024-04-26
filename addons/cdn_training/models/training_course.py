@@ -35,9 +35,11 @@ class TrainingSession(models.Model):
 
     # oocom 
     jml_peserta = fields.Char(compute='_compute_jml_peserta', string='jml_peserta')
-    state = fields.Selection(string='Status', selection=[('draf', 'Draft'), ('progres', 'Sedang Berlangsung'),('done', 'Selesai')],default='draf')
-
     
+    
+    state = fields.Selection(string='Status', selection=[('draf', 'Draft'), ('progres', 'Sedang Berlangsung'),('done', 'Selesai')], default='draf')
+
+
     @api.depends('peserta_ids')
     def _compute_jml_peserta(self):
         for rec in self:
@@ -47,7 +49,9 @@ class TrainingSession(models.Model):
 
     def action_konfirmasi(self):
         self.state='progres'
+
     def action_selesai(self):
         self.state='done'
+
     def action_draf(self):
         self.state='draf'
