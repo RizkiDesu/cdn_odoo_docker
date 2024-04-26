@@ -30,3 +30,24 @@ class TrainingSession(models.Model):
     no_hp               = fields.Char(string='No Hp', related='instruktur_id.mobile')
     email               = fields.Char(string='Email', related='instruktur_id.email')
     jenis_kel           = fields.Selection(string='Jenis Kelamin', related='instruktur_id.jenis_kel')
+
+    peserta_ids = fields.Many2many(comodel_name='peserta', string='Peserta')
+
+    # oocom 
+    jml_peserta = fields.Char(compute='_compute_jml_peserta', string='jml_peserta')
+    state = fields.Selection(string='Status', selection=[('draf', 'Draft'), ('progres', 'Sedang Berlangsung'),('done', 'Selesai')],default='draf')
+
+    
+    @api.depends('peserta_ids')
+    def _compute_jml_peserta(self):
+        for rec in self:
+            rec.jml_peserta = len(rec.peserta_ids)
+
+
+
+    def action_konfirmasi(self):
+        self.state='progres'
+    def action_selesai(self):
+        self.state='done'
+    def action_draf(self):
+        self.state='draf'

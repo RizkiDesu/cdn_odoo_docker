@@ -53,8 +53,6 @@
         <record id="instruktur_action" model="ir.actions.act_window">
             <!-- label -->
             <field name="name">Data Instruktur</field> 
-
-
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">instruktur</field>
             <field name="view_mode">tree,form</field>

@@ -67,9 +67,7 @@ docker-compose down
 
 ## CDN Ttaining screenshots.
 
-### posgree konfigurasi 
 
 <img src="screenshots/posgree.png" width="50%">
 
-### home menu
 <img src="screenshots/home.png" width="100%">

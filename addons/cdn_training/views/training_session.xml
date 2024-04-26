@@ -24,6 +24,19 @@
             <field name="model">training.session</field>
             <field name="arch" type="xml">
                 <form string="">
+                <!-- <header>
+                    <button string="Prog" states="draf" name="action_konfirmasi" type="object" class="oe_highlight"/>
+                    <button string="Selesai" states="progres" name="action_selesai" type="object" class="oe_highlight"/>
+                    <button string="Set Awal" states="progres" name="action_draf" type="object" groups="cdn_training.group_pelatihan_admin"/>
+
+                    <field name="state" widget="statusbar" statusbar_visible="draf,progres,done"/>
+                </header> -->
+                <header>
+                    <button string="Konfirmasi" name="action_konfirmasi" type="object" class="oe_highlight" states="draf"/>
+                    <button string="Done" name="action_selesai" type="object"  states="progres"/>
+                    <button string="Draft" name="action_draf" type="object"  states="progres,done"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draf,progres,done"/>
+                </header>
                     <sheet>
                         <group name="detail_sesi" string="Sesi">
                             <!-- Add your fields here -->
@@ -50,6 +63,22 @@
                                 <field name="jenis_kel"/>
                             </group>
                         </group>
+                        <group>
+                            <field name="jml_peserta"/>
+                            
+                        </group>
+                        <notebook>
+                            <page name="peserta" string="Peserta">
+                                <field name="peserta_ids">
+                                    <tree>
+                                        <field name="name"/>
+                                        <field name="jenis_kel"/>
+                                        <field name="mobile"/>
+                                    </tree>
+                                </field>
+                                
+                            </page>
+                        </notebook>
 
                     </sheet>
                 </form>

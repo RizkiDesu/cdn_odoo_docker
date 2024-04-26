@@ -32,13 +32,13 @@
                         <group name="peserta" string="peserta">
                             <!-- Add your fields here -->
                             <group>
-                                <field name="name" required="1"/>
+                                <field name="name" />
                                 <field name="jenis_kel" widget="radio"/>
-                                <field name="email" required="1"/>
+                                <field name="email" />
                             </group>
                             <group>
-                                <field name="tmp_lahir" required="1"/>
-                                <field name="tgl_lahir" required="1"/>
+                                <field name="tmp_lahir" />
+                                <field name="tgl_lahir" />
                                 <field name="mobile" required="1"/>
                             </group>
                         </group>
