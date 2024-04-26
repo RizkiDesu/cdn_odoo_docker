@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+    
+        <!-- ref.kecamatan tree view -->
+        <record id="ref_kecamatan_view_tree" model="ir.ui.view">
+            <field name="name">ref.kecamatan.view.tree</field>
+            <field name="model">ref.kecamatan</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <!-- Add your fields here -->
+                    <field name="name"/>
+                    <field name="kode"/>
+                    <field name="singkat"/>
+                    <!-- <field name="keterangan"/> -->
+                    <field name="kota_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- ref.kecamatan form view -->
+        <record id="ref_kecamatan_view_form" model="ir.ui.view">
+            <field name="name">ref.kecamatan.view.form</field>
+            <field name="model">ref.kecamatan</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <!-- Add your fields here -->
+                            <field name="name"/>
+                            <field name="kode"/>
+                            <field name="singkat"/>
+                            <field name="keterangan"/>
+                            <field name="kota_id"/>
+                        </group>
+                        <notebook>
+                            <page name="desa" string="Data Desa">
+                                <field name="desa_ids">
+                                    <tree>
+                                        <field name="name"/>
+                                        <field name="kode"/>
+                                    </tree>
+                            </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- ref.kecamatan action window -->
+        <record id="ref_kecamatan_action" model="ir.actions.act_window">
+            <field name="name">Data Kecamatan</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">ref.kecamatan</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p><p>
+                    <!-- More details about what a user can do with this object will be OK --> 
+                
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="kecamatan" name="Kecamatan" parent="tempat_menu_categ" action="ref_kecamatan_action" sequence="40"/>
+    
+    </data>
+    
+</odoo>

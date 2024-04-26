@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+
+        <record id="kategori_pelatihan" model="ir.module.category">
+            <field name="name">Pelatihan Odoo</field>
+            <field name="description">Keterangan pelatihan odoo</field>
+        </record>
+
+        <record id="group_pelatihan_user" model="res.groups">
+            <field name="name">Pengguna</field>
+            <field name="category_id" ref="kategori_pelatihan"/>
+        </record>
+
+        <record id="group_pelatihan_opr" model="res.groups">
+            <field name="name">Staff Operator</field>
+            <field name="category_id" ref="kategori_pelatihan"/>
+            <field name="implied_ids" eval="[4, ref('group_pelatihan_user')]"/>
+        </record>
+
+        <record id="group_pelatihan_admin" model="res.groups">
+            <field name="name">Admin Manager</field>
+            <field name="category_id" ref="kategori_pelatihan"/>
+            <field name="implied_ids" eval="[4, ref('group_pelatihan_opr')]"/>
+            <field name="users" eval="[(4, ref('base.user_admin'))]"/>
+        </record>
+    
+    </data>
+    
+</odoo>

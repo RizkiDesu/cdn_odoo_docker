@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+    
+        <menuitem id="training_menu_root" name="Pelatihan Odoo" sequence="1" web_icon= "cdn_training,static/description/icon.png"/>
+
+        <menuitem id="session_menu_categ" name="Pelatihan" parent="training_menu_root" sequence="40"/>
+
+        <menuitem id="pengaturan_menu_categ" name="Pengaturan" parent="training_menu_root" sequence="50"/>
+        
+        <menuitem id="tempat_menu_categ" name="Wilayah" parent="pengaturan_menu_categ" sequence="30"/>
+        
+    
+    </data>
+    
+</odoo>

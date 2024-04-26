@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+    
+        <!-- ref.desa tree view -->
+        <record id="ref_desa_view_tree" model="ir.ui.view">
+            <field name="name">ref.desa.view.tree</field>
+            <field name="model">ref.desa</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <!-- Add your fields here -->
+                    <field name="name"/>
+                    <field name="kode"/>
+                    <!-- <field name="keterangan"/> -->
+                    <field name="kecamatan_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- ref.desa form view -->
+        <record id="ref_desa_view_form" model="ir.ui.view">
+            <field name="name">ref.desa.view.form</field>
+            <field name="model">ref.desa</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <!-- Add your fields here -->
+                            <field name="name"/>
+                            <field name="kode"/>
+                            <field name="keterangan"/>
+                            <field name="kecamatan_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- ref.desa action window -->
+        <record id="ref_desa_action" model="ir.actions.act_window">
+            <field name="name">Data Desa</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">ref.desa</field>
+            <field name="view_mode">tree,form</field>
+
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p><p>
+                    <!-- More details about what a user can do with this object will be OK --> 
+                
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="desa" name="Desa/Kelurahan" parent="tempat_menu_categ" action="ref_desa_action" sequence="50"/>
+    
+    </data>
+    
+</odoo>

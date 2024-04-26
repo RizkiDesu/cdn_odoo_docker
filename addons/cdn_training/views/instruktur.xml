@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        <!-- instruktur tree view -->
+        <record id="instruktur_view_tree" model="ir.ui.view">
+            <field name="name">instruktur.view.tree</field>
+            <field name="model">instruktur</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="street"/>
+                    <field name="city"/>
+                    <field name="mobile"/>
+                    <field name="email"/>
+                    <field name="keahlian_ids"/>
+                </tree>
+            </field>
+        </record>
+        <!-- instruktur form view ofo -->
+        <record id="instruktur_view_form" model="ir.ui.view">
+            <field name="name">instruktur.view.form</field>
+            <field name="model">instruktur</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                    <group name="identitas" string="identitas">
+                        <group>
+                            <field name="name"/>
+                            <field name="street"/>
+                            <field name="city"/>
+                        </group>
+                        <group>
+                            <field name="mobile"/>
+                            <field name="email"/>
+                            <field name="keahlian_ids" widget="many2many_tags"/>
+                        </group>
+                    </group>
+                    <group name="alamat" string="Alamat Instruktur">
+                        <group>
+                            <field name="propinsi_id"/>
+                            <field name="kota_id" domain="[('propinsi_id','=',propinsi_id)]"/>
+                        </group>
+                        <group>
+                            <field name="kecamatan_id" domain="[('kota_id','=',kota_id)]"/>
+                            <field name="desa_id" domain="[('kecamatan_id','=',kecamatan_id)]"/>
+                        </group>
+                    </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- instruktur action window -->
+        <record id="instruktur_action" model="ir.actions.act_window">
+            <!-- label -->
+            <field name="name">Data Instruktur</field> 
+
+
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">instruktur</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p><p>
+                </p>
+            </field>
+        </record>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="instruktur_menu_act" name="Data Instruktur" parent="pengaturan_menu_categ" action="instruktur_action" sequence="20"/>
+        
+    </data>
+</odoo>
