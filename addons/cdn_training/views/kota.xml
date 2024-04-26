@@ -48,6 +48,20 @@
                 </form>
             </field>
         </record>
+
+        <!-- ref.kota search view -->
+        <record id="ref_kota_view_search" model="ir.ui.view">
+            <field name="name">ref.kota.view.search</field>
+            <field name="model">ref.kota</field>
+            <field name="arch" type="xml">
+                <search string="Search Description">
+                    <!-- Add your fields here -->
+                    <filter name="group_by_propinsi" string="grubkan berdasarkan propinsi" context="{'group_by': 'propinsi_id'}" />
+                    <field name="name"/>
+                    <field name="kode"/>
+                </search>
+            </field>
+        </record>
         <!-- ref.kota action window -->
         <record id="ref_kota_action" model="ir.actions.act_window">
             <field name="name">Data Kota/Kabupaten</field>

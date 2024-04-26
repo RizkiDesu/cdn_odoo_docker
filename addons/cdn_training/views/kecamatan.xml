@@ -48,6 +48,21 @@
             </field>
         </record>
 
+        <!-- ref.kecamatan search view -->
+        <record id="ref_kecamatan_view_search" model="ir.ui.view">
+            <field name="name">ref.kecamatan.view.search</field>
+            <field name="model">ref.kecamatan</field>
+            <field name="arch" type="xml">
+                <search string="Search Description">
+                    <!-- Add your fields here -->
+                    <filter name="group_by_kota" string="grubkan berdasarkan kota/kabupaten" context="{'group_by': 'kota_id'}" />
+                    <field name="name"/>
+                    <field name="kode"/>
+                    
+                </search>
+            </field>
+        </record>
+
         <!-- ref.kecamatan action window -->
         <record id="ref_kecamatan_action" model="ir.actions.act_window">
             <field name="name">Data Kecamatan</field>

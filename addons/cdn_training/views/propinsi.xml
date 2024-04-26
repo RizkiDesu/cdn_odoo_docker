@@ -49,6 +49,18 @@
         </record>
 
         <!-- ose  -->
+        <!-- ref.propinsi search view -->
+        <record id="ref_propinsi_view_search" model="ir.ui.view">
+            <field name="name">ref.propinsi.view.search</field>
+            <field name="model">ref.propinsi</field>
+            <field name="arch" type="xml">
+                <search string="Search Description">
+                    <!-- Add your fields here -->
+                    <field name="name"/>
+                    <field name="kode"/>
+                </search>
+            </field>
+        </record>
 
         
         <!-- oact  -->

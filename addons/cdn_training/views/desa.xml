@@ -36,6 +36,21 @@
             </field>
         </record>
 
+        <!-- ref.desa search view -->
+        <record id="ref_desa_view_search" model="ir.ui.view">
+            <field name="name">ref.desa.view.search</field>
+            <field name="model">ref.desa</field>
+            <field name="arch" type="xml">
+                <search string="Search Description">
+                    <!-- Add your fields here -->
+                    <filter name="group_by_kecamatan" string="grubkan berdasarkan kecamatan" context="{'group_by': 'kecamatan_id'}" />
+                    <field name="name"/>
+                    <field name="kode"/>
+                    
+                </search>
+            </field>
+        </record>
+
         <!-- ref.desa action window -->
         <record id="ref_desa_action" model="ir.actions.act_window">
             <field name="name">Data Desa</field>
