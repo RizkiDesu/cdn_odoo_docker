@@ -38,6 +38,7 @@
                     <field name="state" widget="statusbar" statusbar_visible="draf,progres,done"/>
                 </header> -->
                     <sheet>
+                        <widget name="web_ribbon" text="Selesai" bg_color="bg-info" attrs="{'invisible':[('state','!=','done')]}" />
                         <group name="detail_sesi" string="Sesi">
                             <!-- Add your fields here -->
                             <group>
