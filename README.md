@@ -1,5 +1,7 @@
 # Odoo CDN Training with docker
 * berjalan di linux ubuntu 22.04
+* default master pasword odoo`minhng.info`
+* managae database `localhost:10016/web/database/selectorweb/database/selector` in login page
 
 ## Usage
 
