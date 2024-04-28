@@ -1,36 +1,24 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Om Hospital",
-
-    'summary': """
-        Dibuat dalam rangka pelatihan odoo denga refrensi pada youtube""",
-
-    'description': """
-      halaman deskripsi pajang
-    """,
-
-    'author': "rizki desu",
-    'website': "rizkidesu.github.io",
-
-    # Categories can be used to filter modules in modules listing
-    # Check https://github.com/odoo/odoo/blob/16.0/odoo/addons/base/data/ir_module_category_data.xml
-    # for the full list
+    'name': 'Hospital',
+    'version': '1.0.0',
+    'summary': 'Odoo 16 Development Tutorials',
+    'sequence': -100,
+    'description': """Odoo 16 Development Tutorials""",
     'category': 'Hospital',
-    'version': '0.1',
-
-    # any module necessary for this one to work correctly
+    'author': 'rizki',
+    'maintainer': 'Odoo Mates',
+    'website': 'https://www.odoomates.tech',
+    'license': 'AGPL-3',
     'depends': ['base'],
-
-    # always loaded
     'data': [
+        # 'security/groups.xml',
         # 'security/ir.model.access.csv',
-        'views/views.xml',
-        'views/templates.xml',
-        'views/menu.xml'
+        'views/menu.xml',
+        'views/dokter_list.xml',
+
     ],
-    # only loaded in demonstration mode
-    'demo': [
-        'demo/demo.xml',
-    ],
+
     'aplication':True,
+
 }

@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+    
+        <!-- This Menu Item will appear in the Upper bar, that's why It needs NO parent or action -->
+        <menuitem id="rumahsakit_menu_root" name="Hospital" sequence="1" web_icon= "om_hospital,static/description/icon.png"/>
+
+        <!-- This Menu Item Must have a parent -->
+        <menuitem id="dokter_menu_categ" name="Doctor" parent="rumahsakit_menu_root" sequence="10"/>
+
+    
+    </data>
+    
+</odoo>
