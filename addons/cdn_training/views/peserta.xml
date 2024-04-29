@@ -78,13 +78,47 @@
                 </form>
             </field>
         </record>
-
         <!-- peserta action window -->
         <record id="peserta_action" model="ir.actions.act_window">
             <field name="name">Daftar Peserta</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">peserta</field>
             <field name="view_mode">tree,form</field>
+            <!-- <field name="domain">[('jenis_kel','=','l')]</field> -->
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p><p>
+                    <!-- More details about what a user can do with this object will be OK --> 
+                </p>
+            </field>
+        </record>
+
+        <!-- peserta action window -->
+        <record id="peserta_action_laki_laki" model="ir.actions.act_window">
+            <field name="name">Daftar Peserta Laki Laki</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">peserta</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('jenis_kel','=','l')]</field>
+            <field name="context">{'default_jenis_kel':'l'}</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p><p>
+                    <!-- More details about what a user can do with this object will be OK --> 
+                
+                </p>
+            </field>
+        </record>
+        <!-- peserta action window -->
+        <record id="peserta_action_perempuan" model="ir.actions.act_window">
+            <field name="name">Daftar Peserta Perempuan</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">peserta</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('jenis_kel','=','p')]</field>
+            <field name="context">{'default_jenis_kel':'p'}</field>
             <field name="help" type="html">
                 <p class="oe_view_nocontent_create">
                     <!-- Add Text Here -->
@@ -97,6 +131,9 @@
 
         <!-- This Menu Item must have a parent and an action -->
         <menuitem id="peserta_menu_act" name="Perserta" parent="session_menu_categ" action="peserta_action" sequence="8"/>
+
+        <menuitem id="l_menu_act" name="Laki Laki" parent="peserta_menu_act" action="peserta_action_laki_laki" sequence="9"/>
+        <menuitem id="p_menu_act" name="Perempuan" parent="peserta_menu_act" action="peserta_action_perempuan" sequence="11"/>
         
     
     </data>
