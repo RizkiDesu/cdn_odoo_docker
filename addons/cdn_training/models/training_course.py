@@ -35,7 +35,8 @@ class TrainingSession(models.Model):
     peserta_ids = fields.Many2many(comodel_name='peserta', string='Peserta', tracking=True)
 
     # oocom 
-    jml_peserta = fields.Char(compute='_compute_jml_peserta', string='Jumlah Peserta', tracking=True)
+    jml_peserta = fields.Integer(compute='_compute_jml_peserta', string='Jumlah Peserta', tracking=True)
+    # field_name = fields.Integer('field_name')
     
     
     state = fields.Selection(string='Status', selection=[('draf', 'Draft'), ('progres', 'Sedang Berlangsung'),('done', 'Selesai')], default='draf', tracking=True)

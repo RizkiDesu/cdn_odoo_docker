@@ -7,13 +7,16 @@
             <field name="name">training.session.view.tree</field>
             <field name="model">training.session</field>
             <field name="arch" type="xml">
-                <tree>
+
+            <!-- tree decoration -->
+                <tree decoration-danger="jml_peserta==0">
                     <field name="name"/>
                     <field name="course_id"/>
                     <field name="start_date"/>
                     <field name="duration"/>
                     <field name="seats"/>
                     <field name="instruktur_id"/>
+                    <field name="jml_peserta"/>
                 </tree>
             </field>
         </record>
