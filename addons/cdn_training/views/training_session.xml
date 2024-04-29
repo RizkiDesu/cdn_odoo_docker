@@ -21,6 +21,20 @@
             </field>
         </record>
 
+        <!-- training.session calendar view -->
+        <record id="training_session_view_calendar" model="ir.ui.view">
+            <field name="name">training.session.view.calendar</field>
+            <field name="model">training.session</field>
+            <field name="arch" type="xml">
+                <calendar string="Calendar Description" date_start="start_date" mode="month">
+                    <!-- Add your fields here -->
+                    <field name="name"/>
+                    <field name="instruktur_id" filters="True"/>
+                    
+                </calendar>
+            </field>
+        </record>
+
         <!-- training.session form view -->
         <record id="training_session_view_form" model="ir.ui.view">
             <field name="name">training.session.view.form</field>
@@ -104,7 +118,7 @@
 
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">training.session</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">tree,form,calendar</field>
 
             <field name="help" type="html">
                 <p class="oe_view_nocontent_create">
