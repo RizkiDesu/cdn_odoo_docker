@@ -14,7 +14,7 @@
                         <field name="peserta_ids"/>
                     </group>
                     <footer>
-                        <button name="tambah_peserta" string="Tambah Peserta" type="object" class="btn-primary"/>
+                        <button name="tambah_peserta" string="Tambah Peserta" type="object" class="btn-primary" confirm="Apakah Anda yakin akan menambah Peserta pada Sesi ini ?"/>
                         <button string="Batal" class="btn-secondary" special="cancel"/>
                     </footer>
                 </form>
@@ -41,7 +41,7 @@
                         <field name="peserta_ids"/>
                     </group>
                     <footer>
-                        <button name="tambah_banyak_peserta" string="Tambah Banyak Peserta" type="object" class="btn-primary"/>
+                        <button name="tambah_banyak_peserta" string="Tambah Banyak Peserta" type="object" class="btn-primary" confirm="Apakah Anda yakin akan menambah Peserta pada Sesi ini ?" />
                         <button string="Batal" class="btn-secondary" special="cancel"/>
                     </footer>
                 </form>
