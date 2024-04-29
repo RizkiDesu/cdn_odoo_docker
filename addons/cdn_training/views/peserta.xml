@@ -9,6 +9,7 @@
                 <tree>
                     <!-- Add your fields here -->
                     <field name="name"/>
+                    <field name="nomor_peserta"/>
                     <field name="jenis_kel"/>
                     <field name="street"/>
                     <field name="mobile"/>
@@ -25,9 +26,9 @@
             <field name="arch" type="xml">
                 <form string="">
                     <sheet>
-                        <group>
+                        <!-- <group> -->
                             <field name="image_1920" widget="image" class="oe_avatar"/>
-                        </group>
+                        <!-- </group> -->
                         
                         <group name="peserta" string="peserta">
                             <!-- Add your fields here -->
@@ -45,6 +46,7 @@
                         <group name="alamat" string="Tempat Tinggal Siswa">
                             <group colspan="4">
                                 <field name="street"/>
+                                <field name="nomor_peserta"/>
                             </group>
                             <group>
                                 <field name="propinsi_id"/>
@@ -94,7 +96,7 @@
         </record>
 
         <!-- This Menu Item must have a parent and an action -->
-        <menuitem id="peserta_menu_act" name="Perserta" parent="session_menu_categ" action="peserta_action" sequence="5"/>
+        <menuitem id="peserta_menu_act" name="Perserta" parent="session_menu_categ" action="peserta_action" sequence="8"/>
         
     
     </data>

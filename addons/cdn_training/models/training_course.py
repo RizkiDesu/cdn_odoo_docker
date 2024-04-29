@@ -47,7 +47,6 @@ class TrainingSession(models.Model):
             rec.jml_peserta = len(rec.peserta_ids)
 
 
-
     def action_konfirmasi(self):
         self.state='progres'
 

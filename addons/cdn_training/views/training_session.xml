@@ -25,9 +25,9 @@
             <field name="arch" type="xml">
                 <form string="">
                 <header>
-                    <button string="Confirm" states="draf" name="action_konfirmasi" type="object" class="oe_highlight"/>
-                    <button string="Done" states="progres" name="action_selesai" type="object" class="oe_highlight"/>
-                    <button string="Draft" states="progres,done" name="action_draf" type="object" groups="cdn_training.group_pelatihan_admin"/>
+                    <button string="Mulai" states="draf" name="action_konfirmasi" type="object" class="oe_highlight"/>
+                    <button string="Selesai" states="progres" name="action_selesai" type="object" class="oe_highlight"/>
+                    <button string="Reset" states="progres,done" name="action_draf" type="object" groups="cdn_training.group_pelatihan_admin"/>
 
                     <field name="state" widget='statusbar' statusbar_visible='draf,progres,done'/>
                 </header>
@@ -114,7 +114,7 @@
         </record>
 
 
-        <menuitem id="section_kursus_menu_act" name="Sesi Pelatihan" parent="session_menu_categ" action="training_session_action" sequence="9"/>
+        <menuitem id="section_kursus_menu_act" name="Sesi Pelatihan" parent="session_menu_categ" action="training_session_action" sequence="15"/>
     
     </data>
     
