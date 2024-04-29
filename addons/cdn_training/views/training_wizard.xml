@@ -20,6 +20,7 @@
                 </form>
             </field>
         </record>
+        
         <record id="wizard_training_action" model="ir.actions.act_window">
             <field name="name">Tambah Peserta</field>
             <field name="res_model">wizard.training</field>
