@@ -17,6 +17,7 @@
                     <field name="seats"/>
                     <field name="instruktur_id"/>
                     <field name="jml_peserta"/>
+                    <field name="end_date"/>
                 </tree>
             </field>
         </record>
@@ -62,6 +63,7 @@
                                 <field name="name" attrs="{'readonly' : [('state','!=','draf')]}"/>
                                 <field name="course_id" attrs="{'readonly' : [('state','!=','draf')]}"/>
                                 <field name="start_date" attrs="{'readonly' : [('state','!=','draf')]}"/>
+                                <field name="end_date" readonly = "1"/>
                             </group>
                             <group>
                                 <field name="duration" attrs="{'readonly' : [('state','!=','draf')]}"/>

@@ -1,4 +1,5 @@
 from odoo import models, fields, api
+from datetime import timedelta as waktu
 
 class TrainingCourse(models.Model):
     _name               = 'training.course'
@@ -23,7 +24,7 @@ class TrainingSession(models.Model):
     name                = fields.Char(string='Sesi Trainig', tracking=True)
     course_id           = fields.Many2one(comodel_name='training.course', string='Nama Kursus', tracking=True)
     start_date          = fields.Date(string='Tanggal Mulai', tracking=True)
-    duration            = fields.Float(string='Durasi (s)', tracking=True)
+    duration            = fields.Integer(string='Durasi (day)', tracking=True)
     seats               = fields.Integer(string='MAX Peserta', default=1, tracking=True)
     instruktur_id       = fields.Many2one(comodel_name='instruktur', string='Nama Instruktur', tracking=True)
     
@@ -41,7 +42,8 @@ class TrainingSession(models.Model):
     
     state = fields.Selection(string='Status', selection=[('draf', 'Draft'), ('progres', 'Sedang Berlangsung'),('done', 'Selesai')], default='draf', tracking=True)
 
-
+    end_date = fields.Date(string='End Date', compute='_compute_end_date')
+    
     @api.depends('peserta_ids')
     def _compute_jml_peserta(self):
         for rec in self:
@@ -56,3 +58,10 @@ class TrainingSession(models.Model):
 
     def action_draf(self):
         self.state='draf'
+
+    @api.depends('start_date','duration')
+    def _compute_end_date(self):
+        for rec in self:
+            rec.end_date =  rec.start_date + waktu(days=rec.duration)
+    
+    
