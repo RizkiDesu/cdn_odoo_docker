@@ -19,6 +19,50 @@
             </field>
         </record>
 
+        <!-- kanban -->
+        <record id="peserta_view_kanban" model="ir.ui.view">
+            <field name="name">peserta.view.kanban</field>
+            <field name="model">peserta</field>
+            <field name="arch" type="xml">
+            <kanban version="7.0">
+                    <field name="id"/>
+                    <field name="name"/>
+                    <field name="jenis_kel"/>
+                    <field name="tmp_lahir"/>
+                    <field name="tgl_lahir"/>
+                    <field name="nomor_peserta"/>
+                    <field name="mobile"/>
+                    <field name="image_256"/>
+                    <field name="partner_id"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click o_kanban_record_has_image_fill">
+                                <t t-if="record.image_256.raw_value">
+                                    <div class="o_kanban_image_fill_left d-none d-md-block" t-attf-style="background-image:url('#{kanban_image('peserta','image_256', record.id.raw_value)}')"/>
+                                </t>
+                                <div class="oe_kanban_details">
+                                    <h4>
+                                        <a type="open"><field name="name"/></a>
+                                    </h4>
+                                    <ul>
+
+                                        <li>
+                                            <span class="text-muted">No Peserta</span> <field name="nomor_peserta"/>
+                                        </li>
+
+                                        <li>
+                                            <span class="text-muted">Mobile</span> <field name="mobile"/>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+
         <!-- peserta form view -->
         <record id="peserta_view_form" model="ir.ui.view">
             <field name="name">peserta.view.form</field>
@@ -83,7 +127,7 @@
             <field name="name">Daftar Peserta</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">peserta</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">tree,form,kanban</field>
             <!-- <field name="domain">[('jenis_kel','=','l')]</field> -->
             <field name="help" type="html">
                 <p class="oe_view_nocontent_create">
@@ -99,7 +143,7 @@
             <field name="name">Daftar Peserta Laki Laki</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">peserta</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">tree,form,kanban</field>
             <field name="domain">[('jenis_kel','=','l')]</field>
             <field name="context">{'default_jenis_kel':'l'}</field>
             <field name="help" type="html">
@@ -116,7 +160,7 @@
             <field name="name">Daftar Peserta Perempuan</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">peserta</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">tree,form,kanban</field>
             <field name="domain">[('jenis_kel','=','p')]</field>
             <field name="context">{'default_jenis_kel':'p'}</field>
             <field name="help" type="html">
@@ -130,7 +174,7 @@
         </record>
 
         <!-- This Menu Item must have a parent and an action -->
-        <menuitem id="peserta_menu_act" name="Perserta" parent="session_menu_categ" action="peserta_action" sequence="8"/>
+        <menuitem id="peserta_menu_act" name="Perserta" parent="session_menu_categ" sequence="8"/>
 
         <menuitem id="l_menu_act" name="Laki Laki" parent="peserta_menu_act" action="peserta_action_laki_laki" sequence="9"/>
         <menuitem id="p_menu_act" name="Perempuan" parent="peserta_menu_act" action="peserta_action_perempuan" sequence="11"/>
