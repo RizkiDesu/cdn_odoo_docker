@@ -3,7 +3,7 @@ from odoo import models, fields, api
 class ResPartner(models.Model):
     _inherit        = "res.partner"
 
-    jenis_kel       = fields.Selection(string='Jenis Kelamin', selection=[('l', 'laki laki'),('p','perempuan')])
+    jenis_kel       = fields.Selection(string='Jenis Kelamin', selection=[('l', 'Laki-laki'),('p','Perempuan')])
 
     propinsi_id     = fields.Many2one(comodel_name='ref.propinsi', string='Propinsi')
     kota_id         = fields.Many2one(comodel_name='ref.kota', string='Kota/Kabupaten')

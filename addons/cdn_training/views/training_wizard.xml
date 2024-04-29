@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+
+
+        <!-- satu peserta -->
+        <record id="wizard_training_view_form" model="ir.ui.view">
+            <field name="name">wizard.training.view.form</field>
+            <field name="model">wizard.training</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <group>
+                        <field name="session_id"/>
+                        <field name="peserta_ids"/>
+                    </group>
+                    <footer>
+                        <button name="tambah_peserta" string="Tambah Peserta" type="object" class="btn-primary"/>
+                        <button string="Batal" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <record id="wizard_training_action" model="ir.actions.act_window">
+            <field name="name">Tambah Peserta</field>
+            <field name="res_model">wizard.training</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="binding_model_id" ref="model_training_session" />
+            <field name="binding_view_types">form</field>
+        </record>
+
+
+        <!-- banyak peserta -->
+        <record id="wizard_training_view_form_list" model="ir.ui.view">
+            <field name="name">wizard.training.view.form.list</field>
+            <field name="model">wizard.training</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <group>
+                        <field name="session_ids" widget="many2many_tags" options="{'no_create_edit' : True}"/>
+                        <field name="peserta_ids"/>
+                    </group>
+                    <footer>
+                        <button name="tambah_banyak_peserta" string="Tambah Banyak Peserta" type="object" class="btn-primary"/>
+                        <button string="Batal" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <record id="wizard_training_list_action" model="ir.actions.act_window">
+            <field name="name">Tambah Banyak Peserta</field>
+            <field name="res_model">wizard.training</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="wizard_training_view_form_list"/>
+            <field name="target">new</field>
+            <field name="binding_model_id" ref="model_training_session" />
+            <field name="binding_view_types">list</field>
+        </record>
+    </data>
+    
+</odoo>

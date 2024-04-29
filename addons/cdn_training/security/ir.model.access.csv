@@ -26,3 +26,4 @@ access_admin_kecamatan,access_admin_kecamatan,model_ref_kecamatan,group_pelatiha
 access_admin_desa,access_admin_desa,model_ref_desa,group_pelatihan_admin,1,1,1,1
 access_admin_peserta,access_admin_peserta,model_peserta,group_pelatihan_admin,1,1,1,1
 
+access_admin_wizard_training,access_admin_wizard_training,model_wizard_training,group_pelatihan_admin,1,1,1,1
