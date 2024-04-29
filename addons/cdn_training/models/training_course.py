@@ -59,9 +59,9 @@ class TrainingSession(models.Model):
     def action_draf(self):
         self.state='draf'
 
-    @api.depends('start_date','duration')
+    @api.depends('duration')
     def _compute_end_date(self):
         for rec in self:
-            rec.end_date =  rec.start_date + waktu(days=rec.duration)
+            rec.end_date = rec.start_date + waktu(days=rec.duration)
     
     
