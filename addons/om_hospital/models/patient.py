@@ -4,6 +4,7 @@ from odoo import api, fields, models
 class CdnPasien(models.Model):
     _name = 'cdn.pasien'
     _description = 'Cdn Pasien'
+    _inherit = ['mail.thread','mail.activity.mixin']
 
     name = fields.Char(string='Nama Pasien')
     ref = fields.Char(string='Refrensi')
