@@ -4,11 +4,12 @@
 
         <!-- cdn.pasien action window -->
         <record id="cdn_pasien_laki_action" model="ir.actions.act_window">
-            <field name="name">Pasiane Laki-laki</field>
+            <field name="name">Pasien Laki-laki</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">cdn.pasien</field>
             <field name="view_mode">tree,form</field>
             <field name="domain">[('jenis_kel','=','l')]</field>
+            <field name="context">{'default_jenis_kel':'l'}</field>
             <field name="help" type="html">
                 <p class="oe_view_nocontent_create">
                     <!-- Add Text Here -->
