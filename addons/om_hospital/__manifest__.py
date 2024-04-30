@@ -18,6 +18,7 @@
         # 'views/dokter_list.xml',
         'views/pasien.xml',
         'views/pasien_perempuan.xml',
+        'views/appointment.xml',
         
 
 

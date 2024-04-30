@@ -3,3 +3,4 @@
 from . import models
 # from . import dokter
 from . import patient
+from . import appointment
