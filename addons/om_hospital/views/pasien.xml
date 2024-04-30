@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+        <!-- cdn.pasien tree view -->
+        <record id="cdn_pasien_view_tree" model="ir.ui.view">
+            <field name="name">cdn.pasien.view.tree</field>
+            <field name="model">cdn.pasien</field>
+            <field name="arch" type="xml">
+                <tree>
+                    
+                    <field name="name"/>
+                    <field name="ref"/>
+                    <field name="umur"/>
+                    <field name="jenis_kel"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- cdn.pasien form view -->
+        <record id="cdn_pasien_view_form" model="ir.ui.view">
+            <field name="name">cdn.pasien.view.form</field>
+            <field name="model">cdn.pasien</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+
+                            <group>
+                                <field name="name"/>
+                                <field name="jenis_kel"/>
+                                
+                            </group>
+                            <group>
+                                <field name="ref"/>
+                                <field name="umur"/>
+                                <field name="active" invisible="1"/>
+                            </group> 
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- cdn.pasien search view -->
+        <record id="cdn_pasien_view_search" model="ir.ui.view">
+            <field name="name">cdn.pasien.view.search</field>
+            <field name="model">cdn.pasien</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name" filter_domain="['|', ('name', 'ilike', self), ('ref', 'ilike', self)]"/>
+                    <field name="ref"/>
+                    <field name="umur"/>
+                    <field name="jenis_kel"/>
+
+                    
+                    <filter name="perempuan" string="Perempuan" domain="[('jenis_kel', '=', 'p')]" />
+                    <filter name="laki" string="Laki-laki" domain="[('jenis_kel', '=', 'l')]" />
+                    <separator/>
+                    <filter name="kids" string="Anak-anak" domain="[('umur', '&lt;=', 5)]" />
+                    <filter name="arsip" string="arsip" domain="[('active', '=', False)]" />
+                    <group expand="0" string="Group By">
+                        <filter string="Jenis Kelamin" name="group_by_jenis_kel" context="{'group_by': 'jenis_kel'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- cdn.pasien action window -->
+        <record id="cdn_pasien_action" model="ir.actions.act_window">
+            <field name="name">Data Pasien</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cdn.pasien</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_smiling_face">
+                    <!-- Add Text Here -->
+                    buat data pasien ! 
+                </p>
+            </field>
+        </record>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem 
+            id="pasien_menu_act" 
+            name="Pasien Datas" 
+            parent="pasien_menu_categ" 
+            action="cdn_pasien_action" 
+            sequence="0"/>
+        
+        
+    
+        
+    
+    </data>
+    
+
+</odoo>
