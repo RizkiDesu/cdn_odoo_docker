@@ -68,6 +68,9 @@
                     <group expand="0" string="Group By">
                         <filter string="Jenis Kelamin" name="group_by_jenis_kel" context="{'group_by': 'jenis_kel'}"/>
                     </group>
+                    <searchpanel>
+                        <field name="jenis_kel" icon="fa-users" select='multi'/>
+                    </searchpanel>
                 </search>
             </field>
         </record>
