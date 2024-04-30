@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+
+        <!-- cdn.pasien action window -->
+        <record id="cdn_pasien_laki_action" model="ir.actions.act_window">
+            <field name="name">Pasiane Laki-laki</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cdn.pasien</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('jenis_kel','=','l')]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p><p>
+                    <!-- More details about what a user can do with this object will be OK --> 
+                
+                </p>
+            </field>
+        </record>
+
+        <menuitem 
+            id="laki_pasien_menu_act" 
+            name="Pasien Laki-laki" 
+            parent="pasien_menu_categ" 
+            action="cdn_pasien_laki_action" 
+            sequence="0"/>
+    
+    </data>
+    
+</odoo>

@@ -1,6 +1,7 @@
 # Odoo CDN Training with docker
-* default master pasword odoo`minhng.info`
-* managae database `localhost:10016/web/database/selectorweb/database/selector` in login page
+* default master pasword : `minhng.info`
+* link : `localhost:10016`
+* managae database : `localhost:10016/web/database/selectorweb/database/selector` in login page
 
 ## Usage
 

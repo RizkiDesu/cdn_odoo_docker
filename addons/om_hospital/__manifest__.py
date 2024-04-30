@@ -16,7 +16,10 @@
         'security/ir.model.access.csv',
         'views/menu.xml',
         # 'views/dokter_list.xml',
-        'views/pasien.xml'
+        'views/pasien.xml',
+        'views/pasien_laki-laki.xml',
+        'views/pasien_perempuan.xml',
+        
 
 
     ],
