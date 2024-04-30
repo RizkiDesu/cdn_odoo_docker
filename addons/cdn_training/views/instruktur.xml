@@ -12,7 +12,10 @@
                     <field name="city"/>
                     <field name="mobile"/>
                     <field name="email"/>
-                    <field name="keahlian_ids"/>
+                    <!-- <field name="keahlian_ids"/> -->
+                    <field name="jenis_jabatan"/>
+                    
+
                 </tree>
             </field>
         </record>
@@ -74,11 +77,16 @@
                             <field name="name"/>
                             <field name="street"/>
                             <field name="city"/>
+                            <field name="jenis_jabatan"/>
+                            <field name="jabatan_id" domain="[('jenis_jabatan','=','jenis_jabatan')]" attrs="{'invisible': [('jabatan_id', '!=', False), ('jenis_jabatan', '!=', 'staf')]}"/>
+                            
                         </group>
                         <group>
                             <field name="mobile"/>
                             <field name="email"/>
                             <field name="keahlian_ids" widget="many2many_tags"/>
+                            <!-- <field name="jabatan_staff" attrs="{'invisible': [('jabatan_id', '!=', False), ('jabatan', '!=', 'staf')]}"/> -->
+
                         </group>
                     </group>
                     <group name="alamat" string="Alamat Instruktur">

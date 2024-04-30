@@ -33,16 +33,14 @@ class TrainingSession(models.Model):
     email               = fields.Char(string='Email', related='instruktur_id.email', tracking=True)
     jenis_kel           = fields.Selection(string='Jenis Kelamin', related='instruktur_id.jenis_kel', tracking=True)
 
-    peserta_ids = fields.Many2many(comodel_name='peserta', string='Peserta', tracking=True)
+    peserta_ids         = fields.Many2many(comodel_name='peserta', string='Peserta', tracking=True)
 
     # oocom 
-    jml_peserta = fields.Integer(compute='_compute_jml_peserta', string='Jumlah Peserta', tracking=True)
-    # field_name = fields.Integer('field_name')
+    jml_peserta         = fields.Integer(compute='_compute_jml_peserta', string='Jumlah Peserta', tracking=True)
     
-    
-    state = fields.Selection(string='Status', selection=[('draf', 'Draft'), ('progres', 'Sedang Berlangsung'),('done', 'Selesai')], default='draf', tracking=True)
+    state               = fields.Selection(string='Status', selection=[('draf', 'Draft'), ('progres', 'Sedang Berlangsung'),('done', 'Selesai')], default='draf', tracking=True)
 
-    end_date = fields.Date(string='End Date', compute='_compute_end_date')
+    end_date            = fields.Date(string='End Date', compute='_compute_end_date')
     
     @api.depends('peserta_ids')
     def _compute_jml_peserta(self):

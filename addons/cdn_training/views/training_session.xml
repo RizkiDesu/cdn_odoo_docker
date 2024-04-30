@@ -49,12 +49,6 @@
 
                     <field name="state" widget='statusbar' statusbar_visible='draf,progres,done'/>
                 </header>
-                <!-- <header>
-                    <button string="Konfirmasi" name="action_konfirmasi" type="object" class="oe_highlight" states="draf"/>
-                    <button string="Done" name="action_selesai" type="object" states="progres"/>
-                    <button string="Draft" name="action_draf" type="object" states="progres,done"/>
-                    <field name="state" widget="statusbar" statusbar_visible="draf,progres,done"/>
-                </header> -->
                     <sheet>
                         <widget name="web_ribbon" text="Selesai" bg_color="bg-info" attrs="{'invisible':[('state','!=','done')]}" />
                         <group name="detail_sesi" string="Sesi">

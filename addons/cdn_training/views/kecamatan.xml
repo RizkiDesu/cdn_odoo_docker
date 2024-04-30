@@ -40,7 +40,7 @@
                                         <field name="name"/>
                                         <field name="kode"/>
                                     </tree>
-                            </field>
+                                </field>
                             </page>
                         </notebook>
                     </sheet>

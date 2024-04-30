@@ -35,6 +35,7 @@
         'views/kota.xml',
         'views/kecamatan.xml',
         'views/desa.xml',
+        'views/jabatan.xml',
         'wizards/training_wizard.xml',
     ],
     # only loaded in demonstration mode
