@@ -26,11 +26,10 @@
                             <!-- Add your fields here -->
                             <group>
                                 <field name="pasien_id"/>
-                                <field name="appoinment_time"/>
                                 <field name="booking_date"/>
                             </group>
                             <group>
-                                
+                                <field name="appoinment_time"/>
                             </group>
                         </group>
                     </sheet>
