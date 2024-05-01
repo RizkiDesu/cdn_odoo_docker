@@ -21,14 +21,13 @@ class CdnPasien(models.Model):
             else:
                 rec.umur = 0
     
-    
-    jenis_kel = fields.Selection(string='Jenis Kelamin', 
+    jenis_kel       = fields.Selection(string='Jenis Kelamin', 
                                  selection=[('l', 'laki laki'), 
                                             ('p', 'perempuan'),], 
                                             tracking=True,
                                             default='p')
     
-    active = fields.Boolean(string='Aktif', default=True)
+    active          = fields.Boolean(string='Aktif', default=True)
     
 
     
