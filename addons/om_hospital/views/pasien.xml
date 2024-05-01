@@ -28,12 +28,12 @@
 
                             <group>
                                 <field name="name"/>
-                                <field name="jenis_kel"/>
-                                
+                                <field name="umur"/>
+                                <field name="tgl_lahir"/>
                             </group>
                             <group>
                                 <field name="ref"/>
-                                <field name="umur"/>
+                                <field name="jenis_kel"/>
                                 <field name="active" invisible="1"/>
                             </group> 
                         </group>
@@ -62,8 +62,9 @@
                     
                     <filter name="perempuan_filter" string="Perempuan" domain="[('jenis_kel', '=', 'p')]" />
                     <filter name="laki_filter" string="Laki-laki" domain="[('jenis_kel', '=', 'l')]" />
+                    <!-- <separator/>
+                    <filter name="kids" string="Anak-anak" domain="[('umur', '&lt;=', 5)]" /> -->
                     <separator/>
-                    <filter name="kids" string="Anak-anak" domain="[('umur', '&lt;=', 5)]" />
                     <filter name="arsip" string="arsip" domain="[('active', '=', False)]" />
                     <group expand="0" string="Group By">
                         <filter string="Jenis Kelamin" name="group_by_jenis_kel" context="{'group_by': 'jenis_kel'}"/>
