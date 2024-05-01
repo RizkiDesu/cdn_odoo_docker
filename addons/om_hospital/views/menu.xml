@@ -15,7 +15,13 @@
             name="Pasien Details" 
             parent="rumahsakit_menu_root" 
             sequence="0"/>
-
+            
+        <!-- This Menu Item Must have a parent -->
+        <menuitem 
+            id="appointment_menu_categ" 
+            name="Appointment" 
+            parent="rumahsakit_menu_root" 
+            sequence="0"/>
         
 
     

@@ -9,6 +9,8 @@
                 <tree>
                     <!-- Add your fields here -->
                     <field name="pasien_id"/>
+                    <field name="appoinment_time"/>
+                    <field name="booking_date"/>
                     
                 </tree>
             </field>
@@ -24,6 +26,8 @@
                             <!-- Add your fields here -->
                             <group>
                                 <field name="pasien_id"/>
+                                <field name="appoinment_time"/>
+                                <field name="booking_date"/>
                             </group>
                             <group>
                                 
@@ -67,7 +71,7 @@
         <menuitem 
             id="appointment_menu_act" 
             name="Appointment" 
-            parent="pasien_menu_categ" 
+            parent="appointment_menu_categ" 
             action="cdn_appointment_action" 
             sequence="0"/>
 
