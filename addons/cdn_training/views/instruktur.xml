@@ -12,7 +12,7 @@
                     <field name="city"/>
                     <field name="mobile"/>
                     <field name="email"/>
-                    <!-- <field name="keahlian_ids"/> -->
+
                     <field name="jenis_jabatan"/>
                     
 
@@ -31,9 +31,7 @@
                     <field name="city"/>
                     <field name="mobile"/>
                     <field name="email"/>
-                    <!-- <field name="keahlian_ids"/> -->
                     <field name="image_1920"/>
-                    <!-- <field name="partner_id"/> -->
                     <templates>
                         <t t-name="kanban-box">
                             <div class="oe_kanban_global_click o_kanban_record_has_image_fill">
@@ -78,7 +76,7 @@
                             <field name="street"/>
                             <field name="city"/>
                             <field name="jenis_jabatan"/>
-                            <field name="jabatan_id" domain="[('jenis_jabatan','=','jenis_jabatan')]" attrs="{'invisible': [('jabatan_id', '!=', False), ('jenis_jabatan', '!=', 'staf')]}"/>
+                            <field name="jabatan_id" domain="[('jenis_jabatan','=','jenis_jabatan')]" attrs="{'invisible': [('jabatan_id', '!=', True), ('jenis_jabatan', '!=', 'staf')]}"/>
                             
                         </group>
                         <group>

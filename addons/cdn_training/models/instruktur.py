@@ -9,8 +9,9 @@ class Instruktur(models.Model):
     partner_id      = fields.Many2one(comodel_name='res.partner', string='Partner ID',ondelete='cascade', required=True)
     keahlian_ids    = fields.Many2many(comodel_name='keahlian', string='Keahlian')
 
-    jabatan_id      = fields.Many2one(comodel_name='dn.jabatan', )
-    jenis_jabatan   = fields.Selection(string='Jenis Jabatan', related='jabatan_id.jenis_jabatan', readonly=False)
+    jabatan_id      = fields.One2many(comodel_name='dn.jabatan', inverse_name='jenis_jabatan', string='')
+    
+    jenis_jabatan   = fields.Selection(related='jabatan_id.jenis_jabatan', readonly=False)
 
 
 class Keahlian(models.Model):
