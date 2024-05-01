@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        <!-- desu.jabatan tree view -->
+        <record id="desu_jabatan_view_tree" model="ir.ui.view">
+            <field name="name">desu.jabatan.view.tree</field>
+            <field name="model">desu.jabatan</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <!-- Add your fields here -->
+                    <field name="name"/>
+                    <field name="pejabat_ids"/>
+                    <field name="jenis_jabatan"/>
+                    
+                </tree>
+            </field>
+        </record>
+        <!-- desu.jabatan form view -->
+        <record id="desu_jabatan_view_form" model="ir.ui.view">
+            <field name="name">desu.jabatan.view.form</field>
+            <field name="model">desu.jabatan</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <!-- Add your fields here -->
+                            <field name="name"/>
+                            <field name="pejabat_ids"/>
+                            <field name="jenis_jabatan"/>
+                            
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- desu.jabatan action window -->
+        <record id="desu_jabatan_action" model="ir.actions.act_window">
+            <field name="name">desu.jabatan.action</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">desu.jabatan</field>
+            <field name="view_mode">tree,form</field>
+
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p><p>
+                    <!-- More details about what a user can do with this object will be OK --> 
+                
+                </p>
+            </field>
+        </record>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="jabatan_menu_act" name="Jabatan" parent="master_pengaturan_menu_categ" action="desu_jabatan_action" sequence="0"/>
+        
+    
+    </data>
+    
+</odoo>

@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        <!-- desu.pejabat tree view -->
+        <record id="desu_pejabat_view_tree" model="ir.ui.view">
+            <field name="name">desu.pejabat.view.tree</field>
+            <field name="model">desu.pejabat</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <!-- Add your fields here -->
+                    <field name="name"/>
+                    <field name="jabatan_id"/>
+                    <field name="jenis_jabatan"/>
+                    
+                </tree>
+            </field>
+        </record>
+        <!-- desu.pejabat form view -->
+        <record id="desu_pejabat_view_form" model="ir.ui.view">
+            <field name="name">desu.pejabat.view.form</field>
+            <field name="model">desu.pejabat</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <!-- Add your fields here -->
+                            <field name="name"/>
+                            <field name="jenis_jabatan"/>
+                            <field name="jabatan_id" 
+                                    domain="[('jenis_jabatan','=','staf')]"
+                                    attrs="{'invisible': [('jabatan_id', '!=', True), ('jenis_jabatan', '!=', 'staf')]}"/>
+                            
+                            
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- desu.pejabat action window -->
+        <record id="desu_pejabat_action" model="ir.actions.act_window">
+            <field name="name">desu.pejabat.action</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">desu.pejabat</field>
+            <field name="view_mode">tree,form</field>
+
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p><p>
+                    <!-- More details about what a user can do with this object will be OK --> 
+                
+                </p>
+            </field>
+        </record>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="pejabat_menu_act" name="Pejabat" parent="master_pengaturan_menu_categ" action="desu_pejabat_action" sequence="0"/>
+
+    </data>
+    
+</odoo>
