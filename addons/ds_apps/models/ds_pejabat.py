@@ -10,7 +10,6 @@ class DesuPejabat(models.Model):
     
     jabatan_id = fields.Many2one('desu.jabatan', string='Jabatan')
     # jabatan_ids = fields.One2many(comodel_name='desu.jabatan', inverse_name='pejabat_id', string='')
-    
 
     @api.onchange('jenis_jabatan')
     def _onchange_jabatan_id(self):
