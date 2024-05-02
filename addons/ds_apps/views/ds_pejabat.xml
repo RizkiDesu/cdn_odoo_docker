@@ -26,12 +26,8 @@
                             <!-- Add your fields here -->
                             <field name="name"/>
                             <field name="jenis_jabatan"/>
-                            <field name="jabatan_id" 
-                                    domain="[('jenis_jabatan','=','staf')]"
-                                    attrs="{'invisible': [('jabatan_id', '!=', True), ('jenis_jabatan', '!=', 'staf')]}"/>
-                            
-                            
-                        </group>
+                            <field name="jabatan_id" attrs="{'invisible': [('jenis_jabatan', '!=', 'staf')],}"/>
+                            </group>
                     </sheet>
                 </form>
             </field>

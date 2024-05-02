@@ -37,7 +37,7 @@
 
         <!-- jabatan action window -->
         <record id="dn_jabatan_action" model="ir.actions.act_window">
-            <field name="name">dn.jabatan.action</field>
+            <field name="name">Jabatan</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">dn.jabatan</field>
             <field name="view_mode">tree,form</field>

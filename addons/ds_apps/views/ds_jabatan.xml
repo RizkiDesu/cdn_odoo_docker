@@ -26,7 +26,7 @@
                             <!-- Add your fields here -->
                             <field name="name"/>
                             <field name="pejabat_ids"/>
-                            <field name="jenis_jabatan"/>
+                            <field name="jenis_jabatan" readonly='1'/>
                             
                         </group>
                     </sheet>

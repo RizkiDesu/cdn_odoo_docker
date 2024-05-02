@@ -6,16 +6,18 @@ class DesuJabatan(models.Model):
     _name = 'desu.jabatan'
     _description = 'DesuJabatan'
 
-    name            = fields.Char(string='Nama Jabatan')
+    name            = fields.Char(string='Nama Jabatan', required=False)
     jenis_jabatan   = fields.Selection(
                             string='Jenis Jabatan', 
                             selection=[('kepala', 'Kepala / Pimpinan Lembaga'), 
                                         ('wakil', 'Wakil Kepala Lembaga'),
-                                        ('staf','Staff')], readonly=True)
+                                        ('staf','Staff')])
     
     pejabat_ids     = fields.One2many(comodel_name='desu.pejabat',  
                                       inverse_name='jabatan_id', 
                                       string='Pejabat')
+    
+    
     
     @api.constrains('jenis_jabatan')
     def _check_jenis_jabatan_limit(self):
