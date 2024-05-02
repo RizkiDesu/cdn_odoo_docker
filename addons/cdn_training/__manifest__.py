@@ -37,6 +37,7 @@
         'views/desa.xml',
         'views/jabatan.xml',
         'wizards/training_wizard.xml',
+        'wizards/jabatan_wisard.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

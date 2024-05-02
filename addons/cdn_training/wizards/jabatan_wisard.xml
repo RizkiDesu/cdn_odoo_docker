@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+    
+        <!-- dn.jabatan.wizard form view -->
+        <record id="dn_jabatan_wizard_view_form" model="ir.ui.view">
+            <field name="name">dn.jabatan.wizard.view.form</field>
+            <field name="model">dn.jabatan.wizard</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <!-- Add your fields here -->
+                            <field name="jabatan_id"/>    
+                            <field name="pejabat_id"/>
+                            
+                        </group>
+                        <footer>
+                            <button name="update_jabatan" string="Update Jabatan" type="object" class="btn-primary"/>
+                            <button string="Batal" class="btn-secondary" special="cancel"/>
+                        </footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- dn.jabatan.wizard action window -->
+        <record id="dn_jabatan_wizard_action" model="ir.actions.act_window">
+            <field name="name">dn.jabatan.wizard.action</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">dn.jabatan.wizard</field>
+            <field name="view_mode">form</field>
+
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p><p>
+                    <!-- More details about what a user can do with this object will be OK --> 
+                
+                </p>
+            </field>
+        </record>
+
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="update_jabatan_menu_act" name="Update Jabatan" parent="training_menu_root" action="dn_jabatan_wizard_action" sequence="40"/>
+    
+    </data>
+    
+</odoo>

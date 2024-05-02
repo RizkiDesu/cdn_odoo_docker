@@ -28,7 +28,7 @@
                             <field name="name"/>
                             <field name="jenis_jabatan"/>
                             <field name="keterangan"/>
-                            <field name="pejabat_id"/>
+                            <field name="pejabat_id" readonly="1"/>
                         </group>
                     </sheet>
                 </form>
