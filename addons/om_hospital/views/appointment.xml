@@ -34,6 +34,18 @@
                                 <field name="appoinment_time"/>
                             </group>
                         </group>
+                        <notebook>
+                            <page string="Resep" name="resep">
+                                <group>
+                                    
+                                </group>
+                            </page>
+                            <page string="Farmasi" name="farmasi">
+                                <group>
+                                    
+                                </group>
+                            </page>
+                        </notebook>
                     </sheet>
                 </form>
             </field>
