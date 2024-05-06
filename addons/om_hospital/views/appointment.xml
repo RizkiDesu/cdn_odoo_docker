@@ -7,7 +7,10 @@
             <field name="model">cdn.appointment</field>
             <field name="arch" type="xml">
                 <!-- <tree create="0" delete="0"> -->
-                <tree>
+                <tree decoration-success="keadaan == 'done'" 
+                        decoration-info="keadaan == 'draf'" 
+                        decoration-danger="keadaan == 'cancel'" 
+                        decoration-muted="keadaan == 'on_consultasion'">
                     <!-- Add your fields here -->
                     <field name="pasien_id"/>
                     <field name="appoinment_time"/>
