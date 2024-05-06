@@ -10,7 +10,8 @@
                 <tree decoration-success="keadaan == 'done'" 
                         decoration-info="keadaan == 'draf'" 
                         decoration-danger="keadaan == 'cancel'" 
-                        decoration-muted="keadaan == 'on_consultasion'" sample="1">
+                        decoration-muted="keadaan == 'on_consultasion'" 
+                        sample="1" multi_edit="1">
                     <!-- Add your fields here -->
                     <field name="pasien_id"/>
                     <field name="ref" optional="show"/>
