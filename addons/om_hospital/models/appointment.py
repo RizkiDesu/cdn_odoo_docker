@@ -32,6 +32,13 @@ class CdnAppointment(models.Model):
     
     def action_test(self):
         print("button test !!!")
+        return {
+                'effect': {
+                    'fadeout': 'slow',
+                    'message': 'Berhasil di klik',
+                    'type': 'rainbow_man',
+                }
+            }
     
     
     
