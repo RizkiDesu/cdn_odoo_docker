@@ -20,7 +20,7 @@ class CdnPasien(models.Model):
             if rec.tgl_lahir:
                 rec.umur = today.year - rec.tgl_lahir.year
             else:
-                rec.umur = 0
+                rec.umur = 0 #jika tidak di kasih else nilai bakal null dan error
     
     jenis_kel       = fields.Selection(string='Jenis Kelamin', 
                                  selection=[('l', 'laki laki'), 
