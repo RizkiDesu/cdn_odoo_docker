@@ -24,6 +24,14 @@
                 <!-- remove dupicate delete edit -->
                 <!-- <form create="0" delete="0" edit="0"> -->
                 <form>
+                    <header>
+                        <field 
+                            name="keadaan" 
+                            widget="statusbar" 
+                            nolabel="1" 
+                            statusbar_visible="draf,on_consultasion,done"
+                            options="{'clickable': '1'}"/>
+                    </header>
                     <sheet>
                         <div>
                             <h2>
