@@ -25,7 +25,7 @@ class CdnAppointment(models.Model):
                                 ('on_consultasion', 'Lagi Konsultasi'),
                                 ('done', 'Selesai'),
                                 ('cancel', 'Batal')
-                                ], string="Keadaan", required=True)
+                                ], string="Keadaan", required=True, default='draf')
     dokter_id          = fields.Many2one(comodel_name='res.users', string='Dokter')
     
 
