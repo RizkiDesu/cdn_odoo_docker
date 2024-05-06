@@ -12,7 +12,21 @@
                     <field name="pasien_id"/>
                     <field name="appoinment_time"/>
                     <field name="booking_date"/>
+                    <field name="keadaan" 
+                            decoration-success="keadaan == 'done'" 
+                            decoration-info="keadaan == 'draf'" 
+                            decoration-danger="keadaan == 'cancel'" 
+                            decoration-muted="keadaan == 'on_consultasion'"
+                            widget="badge"/>
                     
+                    <!-- 
+                    decoration-danger = red
+                    decoration-success = green
+                    decoration-warning = orange
+                    decoration-info = light blue
+                    decoration-muted 
+                     -->
+
                 </tree>
             </field>
         </record>

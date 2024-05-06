@@ -13,18 +13,18 @@ class CdnAppointment(models.Model):
     ref             = fields.Char(string='Refrensi', help="refrenis ke pasien record")
     resep           = fields.Html(string='Resep')
     ploritas        = fields.Selection([
-        ('0', 'Normal'),
-        ('1', 'Low'),
-        ('2', 'High'),
-        ('3', 'Very High')
-        # ('4', 'God')
-        ], string="Priority") # jumlah bintang mengikuti ini
+                                ('0', 'Normal'),
+                                ('1', 'Low'),
+                                ('2', 'High'),
+                                ('3', 'Very High')
+                                # ('4', 'God')
+                                ], string="Priority") # jumlah bintang mengikuti ini
     keadaan         = fields.Selection([
-        ('draf', 'Draft'),
-        ('on_consultasion', 'Lagi Konsultasi'),
-        ('done', 'Selesai'),
-        ('cancel', 'Batal')
-        ], string="Keadaan", required=True)
+                                ('draf', 'Draft'),
+                                ('on_consultasion', 'Lagi Konsultasi'),
+                                ('done', 'Selesai'),
+                                ('cancel', 'Batal')
+                                ], string="Keadaan", required=True)
 
     @api.onchange('pasien_id')
     def _onchange_pasien_id(self):
