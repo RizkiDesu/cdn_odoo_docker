@@ -12,7 +12,13 @@ class CdnAppointment(models.Model):
     booking_date    = fields.Date(string='Tanggal Booking', default=fields.Date.context_today)
     ref             = fields.Char(string='Refrensi')
     resep           = fields.Html(string='Resep')
-    
+    ploritas        = fields.Selection([
+        ('0', 'Normal'),
+        ('1', 'Low'),
+        ('2', 'High'),
+        ('3', 'Very High')
+        # ('4', 'God')
+        ], string="Priority") # jumlah bintang mengikuti ini
 
     @api.onchange('pasien_id')
     def _onchange_pasien_id(self):

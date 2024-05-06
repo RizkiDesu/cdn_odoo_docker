@@ -6,7 +6,8 @@
             <field name="name">cdn.appointment.view.tree</field>
             <field name="model">cdn.appointment</field>
             <field name="arch" type="xml">
-                <tree create="0" delete="0">
+                <!-- <tree create="0" delete="0"> -->
+                <tree>
                     <!-- Add your fields here -->
                     <field name="pasien_id"/>
                     <field name="appoinment_time"/>
@@ -21,8 +22,14 @@
             <field name="model">cdn.appointment</field>
             <field name="arch" type="xml">
                 <!-- remove dupicate delete edit -->
-                <form create="0" delete="0" edit="0">
+                <!-- <form create="0" delete="0" edit="0"> -->
+                <form>
                     <sheet>
+                        <div>
+                            <h2>
+                                <field name="ploritas" widget="priority" class="me-3"/>
+                            </h2>
+                        </div>
                         <group>
                             <!-- Add your fields here -->
                             <group>
