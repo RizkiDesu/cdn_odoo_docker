@@ -30,5 +30,8 @@ class CdnAppointment(models.Model):
     def _onchange_pasien_id(self):
         self.ref = self.pasien_id.ref
     
+    def action_test(self):
+        print("button test !!!")
+    
     
     
