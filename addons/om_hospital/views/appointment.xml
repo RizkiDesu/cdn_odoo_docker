@@ -13,8 +13,11 @@
                         decoration-muted="keadaan == 'on_consultasion'">
                     <!-- Add your fields here -->
                     <field name="pasien_id"/>
+                    <field name="ref" optional="hide"/>
+                    <field name="jenis_kel" optional="hide"/>
                     <field name="appoinment_time"/>
-                    <field name="booking_date"/>
+                    <!-- <field name="booking_date" optional="show or hide"/> -->
+                    <field name="booking_date" optional="show"/>
                     <field name="activity_ids" widget="list_activity"/>
                     <field name="keadaan" 
                             decoration-success="keadaan == 'done'" 
