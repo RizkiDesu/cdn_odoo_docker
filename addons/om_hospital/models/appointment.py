@@ -26,6 +26,8 @@ class CdnAppointment(models.Model):
                                 ('done', 'Selesai'),
                                 ('cancel', 'Batal')
                                 ], string="Keadaan", required=True)
+    dokter_id          = fields.Many2one(comodel_name='res.users', string='Dokter')
+    
 
     @api.onchange('pasien_id')
     def _onchange_pasien_id(self):
