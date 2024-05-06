@@ -11,6 +11,8 @@ class CdnAppointment(models.Model):
     jenis_kel       = fields.Selection(related='pasien_id.jenis_kel')
     booking_date    = fields.Date(string='Tanggal Booking', default=fields.Date.context_today)
     ref             = fields.Char(string='Refrensi')
+    resep           = fields.Html(string='Resep')
+    
 
     @api.onchange('pasien_id')
     def _onchange_pasien_id(self):

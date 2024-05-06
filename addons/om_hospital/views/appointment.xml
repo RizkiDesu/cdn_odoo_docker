@@ -36,9 +36,7 @@
                         </group>
                         <notebook>
                             <page string="Resep" name="resep">
-                                <group>
-                                    
-                                </group>
+                                <field name="resep" placeholder="masukan resep"/>
                             </page>
                             <page string="Farmasi" name="farmasi">
                                 <group>
