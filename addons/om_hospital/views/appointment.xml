@@ -44,14 +44,16 @@
                                 <field name="pasien_id"/>
                                 <field name="ref"/>
                                 <field name="jenis_kel"/>
-                                <field name="booking_date"/>
+                                <field name="booking_date" help="tanggal boking"/>
                             </group>
                             <group>
                                 <field name="appoinment_time"/>
                                 <button name="action_test" string="Tes Button" type="object" 
-                                        confirm="anda yakin mau menjalankan funngsi python?"
+                                        confirm="anda yakin mau menjalankan fungsi python?"
+                                        help="kalau di klik akan menjalankan fungsi python"
                                         class="oe_highlight"/>
                                 <button name="%(om_hospital.cdn_pasien_action)d" string="Action Button" 
+                                        help="kalau di klik akan menuju ke record pasien"
                                         confirm="anda yakin mau ke halaman pasien ?"
                                         type="action" class="oe_highlight"/>
                             </group>

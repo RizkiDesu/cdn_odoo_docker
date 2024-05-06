@@ -10,7 +10,7 @@ class CdnAppointment(models.Model):
     appoinment_time = fields.Datetime(string='Appoinment Time', default=fields.Datetime.now)
     jenis_kel       = fields.Selection(related='pasien_id.jenis_kel')
     booking_date    = fields.Date(string='Tanggal Booking', default=fields.Date.context_today)
-    ref             = fields.Char(string='Refrensi')
+    ref             = fields.Char(string='Refrensi', help="refrenis ke pasien record")
     resep           = fields.Html(string='Resep')
     ploritas        = fields.Selection([
         ('0', 'Normal'),
