@@ -20,13 +20,13 @@ class CdnAppointment(models.Model):
                                 ('3', 'Very High')
                                 # ('4', 'God')
                                 ], string="Priority") # jumlah bintang mengikuti ini
-    keadaan         = fields.Selection([
+    state           = fields.Selection([
                                 ('draf', 'Draft'),
                                 ('on_consultasion', 'Lagi Konsultasi'),
                                 ('done', 'Selesai'),
                                 ('cancel', 'Batal')
-                                ], string="Keadaan", required=True, default='draf')
-    dokter_id          = fields.Many2one(comodel_name='res.users', string='Dokter')
+                                ], string="Keadaan", required=True, default='draf') #state spesial
+    dokter_id          = fields.Many2one(comodel_name='res.users', string='Dokter', Tracking=True)
     
 
     @api.onchange('pasien_id')
@@ -42,6 +42,20 @@ class CdnAppointment(models.Model):
                     'type': 'rainbow_man',
                 }
             }
+    def action_on_consultasion(self):
+        for rec in self:
+            rec.state ='on_consultasion'
+
+    def action_done(self):
+        for rec in self:
+            rec.state = 'done'
+
+    def action_cancel(self):
+        for rec in self:
+            rec.state = 'cancel'
+    def action_draf(self):
+        for rec in self:
+            rec.state = 'draf'
     
     
     

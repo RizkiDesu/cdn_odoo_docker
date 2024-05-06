@@ -7,10 +7,10 @@
             <field name="model">cdn.appointment</field>
             <field name="arch" type="xml">
                 <!-- <tree create="0" delete="0"> -->
-                <tree decoration-success="keadaan == 'done'" 
-                        decoration-info="keadaan == 'draf'" 
-                        decoration-danger="keadaan == 'cancel'" 
-                        decoration-muted="keadaan == 'on_consultasion'" 
+                <tree decoration-success="state == 'done'" 
+                        decoration-info="state == 'draf'" 
+                        decoration-danger="state == 'cancel'" 
+                        decoration-muted="state == 'on_consultasion'" 
                         sample="1" multi_edit="1">
                     <!-- Add your fields here -->
                     <field name="pasien_id"/>
@@ -21,11 +21,11 @@
                     <!-- <field name="booking_date" optional="show or hide"/> -->
                     <field name="booking_date" optional="show"/>
                     <field name="activity_ids" widget="list_activity"/>
-                    <field name="keadaan" 
-                            decoration-success="keadaan == 'done'" 
-                            decoration-info="keadaan == 'draf'" 
-                            decoration-danger="keadaan == 'cancel'" 
-                            decoration-muted="keadaan == 'on_consultasion'"
+                    <field name="state" 
+                            decoration-success="state == 'done'" 
+                            decoration-info="state == 'draf'" 
+                            decoration-danger="state == 'cancel'" 
+                            decoration-muted="state == 'on_consultasion'"
                             widget="badge"/>
                     
                     <!-- 
@@ -48,12 +48,18 @@
                 <!-- <form create="0" delete="0" edit="0"> -->
                 <form>
                     <header>
+                        <button name="action_on_consultasion" string="Lagi Konsultasi" type="object" class="oe_highlight" states="draf"/>
+                        <button name="action_done" string="Selesai" type="object" class="oe_highlight" states="on_consultasion"/>
+                        <button name="action_cancel" string="Batal" type="object" class="oe_highlight" states="draf,on_consultasion"/>
+                        <button name="action_draf" string="Draft" type="object" class="oe_highlight" states="cancel"/>
+
+                        <!-- options="{'clickable': '1'}" -->
                         <field 
-                            name="keadaan" 
+                            name="state" 
                             widget="statusbar" 
                             nolabel="1" 
                             statusbar_visible="draf,on_consultasion,done"
-                            options="{'clickable': '1'}"/>
+                            />
                     </header>
                     <sheet>
                         <div>
