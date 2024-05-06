@@ -83,7 +83,9 @@
                         </group>
                         <notebook>
                             <page string="Resep" name="resep">
-                                <field name="resep" placeholder="masukan resep"/>
+                                <field name="resep" 
+                                    options="{'collaborative':true}"
+                                    placeholder="masukan resep"/>
                             </page>
                             <page string="Farmasi" name="farmasi">
                                 <group>
