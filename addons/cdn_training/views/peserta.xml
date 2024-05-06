@@ -40,6 +40,9 @@
                                 <t t-if="record.image_1920.raw_value">
                                     <div class="o_kanban_image_fill_left d-none d-md-block" t-attf-style="background-image:url('#{kanban_image('peserta','image_1920', record.id.raw_value)}')"/>
                                 </t>
+                                <t t-else="">
+                                    <div class="o_kanban_image_fill_left o_kanban_image_full" t-attf-style="background-image: url(#{kanban_image('peserta', 'avatar_128', record.id.raw_value)})" role="img"/>
+                                </t>
                                 <div class="oe_kanban_details">
                                     <h4>
                                         <a type="open"><field name="name"/></a>
@@ -130,7 +133,7 @@
             <field name="name">Daftar Peserta</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">peserta</field>
-            <field name="view_mode">tree,form,kanban</field>
+            <field name="view_mode">kanban,tree,form</field>
             <!-- <field name="domain">[('jenis_kel','=','l')]</field> -->
             <field name="help" type="html">
                 <p class="oe_view_nocontent_create">
@@ -146,7 +149,7 @@
             <field name="name">Daftar Peserta Laki Laki</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">peserta</field>
-            <field name="view_mode">tree,form,kanban</field>
+            <field name="view_mode">kanban,tree,form</field>
             <field name="domain">[('jenis_kel','=','l')]</field>
             <field name="context">{'default_jenis_kel':'l'}</field>
             <field name="help" type="html">
@@ -163,7 +166,7 @@
             <field name="name">Daftar Peserta Perempuan</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">peserta</field>
-            <field name="view_mode">tree,form,kanban</field>
+            <field name="view_mode">kanban,tree,form</field>
             <field name="domain">[('jenis_kel','=','p')]</field>
             <field name="context">{'default_jenis_kel':'p'}</field>
             <field name="help" type="html">
@@ -182,7 +185,7 @@
         <menuitem id="l_menu_act" name="Laki Laki" parent="peserta_menu_act" action="peserta_action_laki_laki" sequence="9"/>
         <menuitem id="p_menu_act" name="Perempuan" parent="peserta_menu_act" action="peserta_action_perempuan" sequence="11"/>
         
-    
+        
     </data>
     
 </odoo>

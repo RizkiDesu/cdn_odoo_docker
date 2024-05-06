@@ -1,1 +1,3 @@
-This file is intentionally left blank.
+# install addons
+
+- link addosn biasannya di pakai `https://apps.odoo.com/apps`

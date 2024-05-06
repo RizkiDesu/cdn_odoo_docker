@@ -3,7 +3,7 @@
     <data>
 
         <record id="kategori_pelatihan" model="ir.module.category">
-            <field name="name">Pelatihan Odoo</field>
+            <field name="name">Hak Aksess Pelathan Odoo</field>
             <field name="description">Keterangan pelatihan odoo</field>
         </record>
 

@@ -5,6 +5,7 @@ class CdnPasien(models.Model):
     _name           = 'cdn.pasien'
     _description    = 'Cdn Pasien'
     _inherit        = ['mail.thread','mail.activity.mixin']
+    
 
     name            = fields.Char(string='Nama Pasien', tracking=True)
     tgl_lahir       = fields.Date(string='Tangggal Lahir')
@@ -27,7 +28,10 @@ class CdnPasien(models.Model):
                                             tracking=True,
                                             default='p')
     
-    active          = fields.Boolean(string='Aktif', default=True)
+    active          = fields.Boolean(string='Aktif', default=True) #spesial 
+
+    appoinment_id   = fields.Many2one(comodel_name='cdn.appointment', string='Pasien')
+    
     
 
     

@@ -35,6 +35,9 @@
                                 <t t-if="record.image_1920.raw_value">
                                     <div class="o_kanban_image_fill_left d-none d-md-block" t-attf-style="background-image:url('#{kanban_image('instruktur','image_1920', record.id.raw_value)}')"/>
                                 </t>
+                                <t t-else="">
+                                    <div class="o_kanban_image_fill_left o_kanban_image_full" t-attf-style="background-image: url(#{kanban_image('peserta', 'avatar_128', record.id.raw_value)})" role="img"/>
+                                </t>
                                 <div class="oe_kanban_details">
                                     <h4>
                                         <a type="open"><field name="name"/></a>
@@ -107,7 +110,7 @@
             <field name="name">Data Instruktur</field> 
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">instruktur</field>
-            <field name="view_mode">tree,form,kanban</field>
+            <field name="view_mode">kanban,tree,form</field>
             <field name="help" type="html">
                 <p class="oe_view_nocontent_create">
                     <!-- Add Text Here -->

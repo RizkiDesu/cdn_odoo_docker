@@ -3,6 +3,7 @@ from odoo import api, fields, models
 class CdnAppointment(models.Model):
     _name           = 'cdn.appointment'
     _description    = 'Cdn Appointment'
+    _rec_name       = 'ref' # record efeknya akan menampikalan nama buakn id
 
 
     pasien_id       = fields.Many2one(comodel_name='cdn.pasien', string='Pasien')

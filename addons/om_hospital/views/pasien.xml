@@ -30,6 +30,7 @@
                                 <field name="name"/>
                                 <field name="umur"/>
                                 <field name="tgl_lahir"/>
+                                <field name="appoinment_id"/>
                             </group>
                             <group>
                                 <field name="ref"/>

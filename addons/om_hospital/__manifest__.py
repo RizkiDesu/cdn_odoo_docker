@@ -18,10 +18,8 @@
         # 'views/dokter_list.xml',
         'views/pasien.xml',
         'views/pasien_perempuan.xml',
+        # 'views/test.xml',
         'views/appointment.xml',
-        
-
-
     ],
 
     'aplication':True,

@@ -49,6 +49,8 @@
                 </search>
             </field>
         </record>
+
+        
         <!-- cdn.appointment action window -->
         <record id="cdn_appointment_action" model="ir.actions.act_window">
             <field name="name">Appointment</field>
@@ -72,10 +74,7 @@
             parent="appointment_menu_categ" 
             action="cdn_appointment_action" 
             sequence="0"/>
-
-    
-        
-    
+            
     </data>
     
 </odoo>

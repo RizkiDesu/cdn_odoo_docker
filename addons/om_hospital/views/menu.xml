@@ -1,13 +1,35 @@
 <?xml version='1.0' encoding='utf-8'?>
 <odoo>
     <data>
-    
+        <!-- omenur  -->
         <!-- This Menu Item will appear in the Upper bar, that's why It needs NO parent or action -->
         <menuitem 
             id="rumahsakit_menu_root" 
             name="Hospital" 
             sequence="0" 
             web_icon= "om_hospital,static/description/icon.png"/>
+
+        <!-- coba -->
+        <!-- <menuitem 
+            id="rumahsakit_menu_root2" 
+            name="Hospital2" 
+            sequence="1" 
+            web_icon= "om_hospital,static/description/icon.png"/> -->
+
+        <!-- <menuitem 
+            id="pasien_menu_categ2" 
+            name="Pasien Details2" 
+            parent="rumahsakit_menu_root2" 
+            sequence="1"/> -->
+
+        <!-- <menuitem 
+            id="pasien_laki_menu_act2" 
+            name="Pasien laki" 
+            parent="pasien_menu_categ2" 
+            action="cdn_pasien_laki_action" 
+            sequence="1"/> -->
+
+
 
         <!-- This Menu Item Must have a parent -->
         <menuitem 
@@ -22,9 +44,7 @@
             name="Appointment" 
             parent="rumahsakit_menu_root" 
             sequence="0"/>
-        
 
-    
     </data>
     
 </odoo>
