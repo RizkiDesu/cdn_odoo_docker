@@ -15,6 +15,7 @@
                     <field name="pasien_id"/>
                     <field name="appoinment_time"/>
                     <field name="booking_date"/>
+                    <field name="activity_ids" widget="list_activity"/>
                     <field name="keadaan" 
                             decoration-success="keadaan == 'done'" 
                             decoration-info="keadaan == 'draf'" 
@@ -86,6 +87,12 @@
                             </page>
                         </notebook>
                     </sheet>
+                    <!-- Chatter -->
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" groups="base.group_user"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
                 </form>
             </field>
         </record>

@@ -2,6 +2,7 @@ from odoo import api, fields, models
 
 class CdnAppointment(models.Model):
     _name           = 'cdn.appointment'
+    _inherit        = ['mail.thread','mail.activity.mixin']
     _description    = 'Cdn Appointment'
     _rec_name       = 'ref' # record efeknya akan menampikalan nama buakn id
 
