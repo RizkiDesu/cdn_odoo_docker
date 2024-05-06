@@ -48,11 +48,31 @@
                 <!-- <form create="0" delete="0" edit="0"> -->
                 <form>
                     <header>
-                        <button name="action_on_consultasion" string="Lagi Konsultasi" type="object" class="oe_highlight" states="draf"/>
-                        <button name="action_done" string="Selesai" type="object" class="oe_highlight" states="on_consultasion"/>
-                        <button name="action_cancel" string="Batal" type="object" class="oe_highlight" states="draf,on_consultasion"/>
-                        <button name="action_draf" string="Draft" type="object" class="oe_highlight" states="cancel"/>
-
+                        <button name="action_on_consultasion" 
+                                string="Lagi Konsultasi"
+                                data-hotkey="i"  
+                                type="object" 
+                                class="oe_highlight" 
+                                states="draf"/>
+                        <button name="action_done" 
+                                data-hotkey="v"
+                                string="Selesai" 
+                                type="object" 
+                                class="oe_highlight" 
+                                states="on_consultasion"/>
+                        <button name="action_cancel"
+                                data-hotkey="z" 
+                                string="Batal" 
+                                type="object" 
+                                class="oe_highlight" 
+                                states="draf,on_consultasion"/>
+                        <button name="action_draf" 
+                                string="Draft"
+                                data-hotkey="r"  
+                                type="object" 
+                                class="oe_highlight" 
+                                states="cancel"/>
+                        <!-- tekan alt untuk menampiklan hot key -->
                         <!-- options="{'clickable': '1'}" -->
                         <field 
                             name="state" 

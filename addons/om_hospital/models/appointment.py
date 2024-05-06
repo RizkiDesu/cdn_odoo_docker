@@ -26,7 +26,7 @@ class CdnAppointment(models.Model):
                                 ('done', 'Selesai'),
                                 ('cancel', 'Batal')
                                 ], string="Keadaan", required=True, default='draf') #state spesial
-    dokter_id          = fields.Many2one(comodel_name='res.users', string='Dokter', Tracking=True)
+    dokter_id       = fields.Many2one(comodel_name='res.users', string='Dokter', Tracking=True)
     
 
     @api.onchange('pasien_id')
