@@ -28,8 +28,9 @@ class CdnAppointment(models.Model):
                                 ], string="Keadaan", required=True, default='draf') #state spesial
     dokter_id       = fields.Many2one(comodel_name='res.users', string='Dokter', Tracking=True)
 
-    farmasi_ids = fields.One2many(comodel_name='cdn.farmasi', inverse_name='appointment_id', string='Farmasi')
+    farmasi_ids     = fields.One2many(comodel_name='cdn.farmasi', inverse_name='appointment_id', string='Farmasi')
     
+    sembunyi_sales_harga = fields.Boolean(string='Sembuyikan Sales Harga')
     
 
     @api.onchange('pasien_id')
