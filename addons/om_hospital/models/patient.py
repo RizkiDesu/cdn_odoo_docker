@@ -31,6 +31,7 @@ class CdnPasien(models.Model):
     active          = fields.Boolean(string='Aktif', default=True) #spesial 
 
     appoinment_id   = fields.Many2one(comodel_name='cdn.appointment', string='Pasien')
+    image           = fields.Image(string='gambar')
     
     
 
