@@ -32,6 +32,8 @@ class CdnPasien(models.Model):
 
     appoinment_id   = fields.Many2one(comodel_name='cdn.appointment', string='Pasien')
     image           = fields.Image(string='gambar')
+    tag_ids         = fields.Many2many(comodel_name='cdn.pasien.tag', string='Tags')
+    
     
     
 
