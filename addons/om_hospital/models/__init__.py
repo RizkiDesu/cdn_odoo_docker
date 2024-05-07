@@ -2,5 +2,6 @@
 
 from . import models
 # from . import dokter
-from . import patient
+from . import pasien
 from . import appointment
+from . import pasien_tag

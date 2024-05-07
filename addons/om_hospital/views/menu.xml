@@ -44,6 +44,12 @@
             name="Appointment" 
             parent="rumahsakit_menu_root" 
             sequence="0"/>
+        <!-- This Menu Item Must have a parent -->
+        <menuitem 
+            id="konfigurasi_menu_categ" 
+            name="Konfigurasi" 
+            parent="rumahsakit_menu_root" 
+            sequence="0"/>
 
     </data>
     

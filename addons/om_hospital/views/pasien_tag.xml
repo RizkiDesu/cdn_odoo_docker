@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+    
+        <!-- cdn.pasien.tag tree view -->
+        <record id="cdn_pasien_tag_view_tree" model="ir.ui.view">
+            <field name="name">cdn.pasien.tag.view.tree</field>
+            <field name="model">cdn.pasien.tag</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <!-- Add your fields here -->
+                    <field name="name"/>
+                    <field name="active"/>
+                    
+                </tree>
+            </field>
+        </record>
+
+        <!-- cdn.pasien.tag form view -->
+        <record id="cdn_pasien_tag_view_form" model="ir.ui.view">
+            <field name="name">cdn.pasien.tag.view.form</field>
+            <field name="model">cdn.pasien.tag</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                            </group>
+                            <group>
+                                 <field name="active" widget="boolean_toggle"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- cdn.pasien.tag action window -->
+        <record id="cdn_pasien_tag_action" model="ir.actions.act_window">
+            <field name="name">cdn.pasien.tag.action</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cdn.pasien.tag</field>
+            <field name="view_mode">tree,form</field>
+            <field name="target">current</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p><p>
+                    <!-- More details about what a user can do with this object will be OK --> 
+                
+                </p>
+            </field>
+        </record>
+        
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem 
+            id="pasien_tag_menu_act" 
+            name="Konfigurasi" 
+            parent="konfigurasi_menu_categ" 
+            action="cdn_pasien_tag_action" 
+            sequence="0"/>
+    </data>
+    
+</odoo>

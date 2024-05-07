@@ -20,6 +20,7 @@
         'views/pasien_perempuan.xml',
         # 'views/test.xml',
         'views/appointment.xml',
+        'views/pasien_tag.xml',
     ],
 
     'aplication':True,
