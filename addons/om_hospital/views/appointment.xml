@@ -138,7 +138,7 @@
                         <notebook>
                             <page string="Resep" name="resep">
                                 <field name="resep" 
-                                    options="{'collaborative':true, 'resizable':true}"
+                                    options="{'collaborative':true, 'resizable':true, 'codeview':true}"
                                     placeholder="masukan resep"/>
                             </page>
                             <page string="Farmasi" name="farmasi">
