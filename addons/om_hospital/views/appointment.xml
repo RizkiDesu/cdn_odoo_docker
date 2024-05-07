@@ -101,15 +101,17 @@
                                 <!-- gak bisa di kasih groups="base.group_no_one" -->
                                 <field name="hide_sales_price"/>
 
-                                <field name="appoinment_time"/>
+                                <field name="appoinment_time" />
                                 <button name="action_test" string="Tes Button" type="object" 
                                         confirm="anda yakin mau menjalankan fungsi python?"
                                         help="kalau di klik akan menjalankan fungsi python"
-                                        class="oe_highlight" groups="base.group_no_one"/>
+                                        class="oe_highlight" 
+                                        groups="base.group_no_one"/>
                                 <button name="%(om_hospital.cdn_pasien_action)d" string="Action Button" 
                                         help="kalau di klik akan menuju ke record pasien"
                                         confirm="anda yakin mau ke halaman pasien ?"
-                                        type="action" class="oe_highlight" />
+                                        type="action" class="oe_highlight" 
+                                        groups="base.group_no_one"/>
                             </group>
                         </group>
                         <notebook>
