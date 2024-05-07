@@ -10,6 +10,7 @@
                 <tree>
                     <!-- Add your fields here -->
                     <field name="name"/>
+                    <field name="warna" widget="color_picker"/>
                     <field name="active"/>
                     
                 </tree>
@@ -28,7 +29,8 @@
                                 <field name="name"/>
                             </group>
                             <group>
-                                 <field name="active" widget="boolean_toggle"/>
+                                <field name="warna" widget="color_picker"/>
+                                <field name="active" widget="boolean_toggle"/>
                             </group>
                         </group>
                     </sheet>
@@ -38,7 +40,7 @@
 
         <!-- cdn.pasien.tag action window -->
         <record id="cdn_pasien_tag_action" model="ir.actions.act_window">
-            <field name="name">cdn.pasien.tag.action</field>
+            <field name="name">Pasien Tag</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">cdn.pasien.tag</field>
             <field name="view_mode">tree,form</field>
