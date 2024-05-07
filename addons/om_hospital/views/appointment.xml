@@ -2,6 +2,27 @@
 <odoo>
     <data>
         <!-- cdn.appointment tree view -->
+        <record id="cdn_appointment_view_activity" model="ir.ui.view">
+            <field name="name">cdn.appointment.view.activity</field>
+            <field name="model">cdn.appointment</field>
+            <field name="arch" type="xml">
+                <activity string="Vehicles Contracts">
+                <field name="pasien_id"/>
+                <field name="ref"/>
+                <templates>
+                    <div t-name="activity-box">
+                        <img t-att-src="activity_image('cdn.pasien', 'image', record.pasien_id.raw_value)" 
+                                t-att-title="record.pasien_id.value" 
+                                t-att-alt="record.pasien_id.value"/>
+                        <div>
+                            <field name="ref" display="full"/>
+                        </div>
+                    </div>
+                </templates>
+            </activity>
+            </field>
+        </record>
+        <!-- cdn.appointment tree view -->
         <record id="cdn_appointment_view_tree" model="ir.ui.view">
             <field name="name">cdn.appointment.view.tree</field>
             <field name="model">cdn.appointment</field>
@@ -168,7 +189,7 @@
             <field name="name">Appointment</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">cdn.appointment</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">tree,form,activity</field>
 
             <field name="help" type="html">
                 <p class="oe_view_nocontent_create">
