@@ -27,6 +27,9 @@ class CdnAppointment(models.Model):
                                 ('cancel', 'Batal')
                                 ], string="Keadaan", required=True, default='draf') #state spesial
     dokter_id       = fields.Many2one(comodel_name='res.users', string='Dokter', Tracking=True)
+
+    farmasi_ids = fields.One2many(comodel_name='cdn.farmasi', inverse_name='appointment_id', string='Farmasi')
+    
     
 
     @api.onchange('pasien_id')
@@ -56,6 +59,13 @@ class CdnAppointment(models.Model):
     def action_draf(self):
         for rec in self:
             rec.state = 'draf'
-    
-    
+
+class CdnFarmasi(models.Model):
+    _name           = 'cdn.farmasi'
+    _description    = 'Cdn Farmasi'
+
+    produk_id       = fields.Many2one(comodel_name='product.product', required=True) #tambahkan product di manifest
+    harga_unit      = fields.Float(string='Harga',related='produk_id.list_price')
+    qty             = fields.Integer(string='Quantity', default=1)
+    appointment_id  = fields.Many2one(comodel_name='cdn.appointment', string='Appointment')
     

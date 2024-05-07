@@ -116,9 +116,20 @@
                                     placeholder="masukan resep"/>
                             </page>
                             <page string="Farmasi" name="farmasi">
-                                <group>
-                                    
-                                </group>
+                                <field name="farmasi_ids">
+                                    <tree editable="bottom">
+                                        <field name="produk_id"/>
+                                        <field name="harga_unit"/>
+                                        <field name="qty"/>
+                                    </tree>
+                                    <form>
+                                        <group>
+                                            <field name="produk_id"/>
+                                            <field name="harga_unit"/>
+                                            <field name="qty"/>
+                                        </group>
+                                    </form>
+                                </field>
                             </page>
                         </notebook>
                     </sheet>

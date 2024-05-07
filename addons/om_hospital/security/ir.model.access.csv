@@ -1,3 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_cdn_pasien,access_cdn_pasien,model_cdn_pasien,base.group_user,1,1,1,1
 access_cdn_appointment,access_cdn_appointment,model_cdn_appointment,base.group_user,1,1,1,1
+access_cdn_farmasi,access_cdn_farmasi,model_cdn_farmasi,base.group_user,1,1,1,1
