@@ -30,6 +30,8 @@
                             </group>
                             <group>
                                 <field name="warna" widget="color_picker"/>
+                                <!-- groups="base.group_no_one" -->
+                                <field name="warna2" widget="color" groups="base.group_no_one"/>
                                 <field name="active" widget="boolean_toggle"/>
                             </group>
                         </group>

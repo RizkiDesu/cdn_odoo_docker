@@ -8,3 +8,5 @@ class CdnPasienTag(models.Model):
     name            = fields.Char(string='Nama Tag', required=True)
     active          = fields.Boolean(string='Aktif', default=True)
     warna           = fields.Integer(string='Warna')
+    warna2          = fields.Char(string='Warna 2')
+    
