@@ -98,16 +98,18 @@
                                 <field name="booking_date" help="tanggal boking" default_focus="1"/>
                             </group>
                             <group>
-                                <field name="sembunyi_sales_harga"/>
+                                <!-- gak bisa di kasih groups="base.group_no_one" -->
+                                <field name="hide_sales_price"/>
+
                                 <field name="appoinment_time"/>
                                 <button name="action_test" string="Tes Button" type="object" 
                                         confirm="anda yakin mau menjalankan fungsi python?"
                                         help="kalau di klik akan menjalankan fungsi python"
-                                        class="oe_highlight"/>
+                                        class="oe_highlight" groups="base.group_no_one"/>
                                 <button name="%(om_hospital.cdn_pasien_action)d" string="Action Button" 
                                         help="kalau di klik akan menuju ke record pasien"
                                         confirm="anda yakin mau ke halaman pasien ?"
-                                        type="action" class="oe_highlight"/>
+                                        type="action" class="oe_highlight" />
                             </group>
                         </group>
                         <notebook>
@@ -121,15 +123,15 @@
                                     <tree editable="bottom">
                                     <!-- <tree editable="top"> -->
                                         <field name="produk_id"/>
-                                        <field name="harga_unit" 
-                                                attrs="{'column_invisible': [('parent.sembunyi_sales_harga', '=', True)]}"/>
+                                        <field name="price_unit" 
+                                                attrs="{'column_invisible': [('parent.hide_sales_price', '=', True)]}"/>
                                         <field name="qty"/>
                                     </tree>
                                     <form>
                                         <group>
                                             <field name="produk_id"/>
-                                            <field name="harga_unit" 
-                                                    attrs="{'column_invisible': [('parent.sembunyi_sales_harga', '=', True)]}"/>
+                                            <field name="price_unit" 
+                                                    attrs="{'column_invisible': [('parent.hide_sales_price', '=', True)]}"/>
                                             <field name="qty"/>
                                         </group>
                                     </form>

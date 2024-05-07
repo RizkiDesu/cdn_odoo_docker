@@ -30,7 +30,7 @@ class CdnAppointment(models.Model):
 
     farmasi_ids     = fields.One2many(comodel_name='cdn.farmasi', inverse_name='appointment_id', string='Farmasi')
     
-    sembunyi_sales_harga = fields.Boolean(string='Sembuyikan Sales Harga')
+    hide_sales_price = fields.Boolean(string='Sembuyikan Sales Harga')
     
 
     @api.onchange('pasien_id')
@@ -66,7 +66,7 @@ class CdnFarmasi(models.Model):
     _description    = 'Cdn Farmasi'
 
     produk_id       = fields.Many2one(comodel_name='product.product', required=True) #tambahkan product di manifest
-    harga_unit      = fields.Float(string='Harga',related='produk_id.list_price')
+    price_unit      = fields.Float(string='Harga',related='produk_id.list_price')
     qty             = fields.Integer(string='Quantity', default=1)
     appointment_id  = fields.Many2one(comodel_name='cdn.appointment', string='Appointment')
     
