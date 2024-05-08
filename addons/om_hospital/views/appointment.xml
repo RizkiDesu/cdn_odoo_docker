@@ -81,18 +81,29 @@
                                 type="object" 
                                 class="oe_highlight" 
                                 states="on_consultasion"/>
+
+
                         <button name="action_cancel"
                                 data-hotkey="z" 
                                 string="Batal" 
                                 type="object" 
                                 class="oe_highlight" 
                                 states="draf,on_consultasion"/>
+
+                        <!-- <button name="%(om_hospital.cdn_wz_batalapointment_action)d" 
+                                data-hotkey="z" 
+                                string="Batal" 
+                                type="action" 
+                                states="draf,on_consultasion"/> -->
+                                
                         <button name="action_draf" 
                                 string="Draft"
                                 data-hotkey="r"  
                                 type="object" 
                                 class="oe_highlight" 
                                 states="cancel"/>
+
+
                         <!-- tekan alt untuk menampiklan hot key -->
                         <!-- options="{'clickable': '1'}" -->
                         <field 

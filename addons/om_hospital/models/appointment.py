@@ -55,8 +55,8 @@ class CdnAppointment(models.Model):
             rec.state = 'done'
 
     def action_cancel(self):
-        for rec in self:
-            rec.state = 'cancel'
+        action = self.env.ref('om_hospital.cdn_wz_batalapointment_action').read()[0]
+        return action
     def action_draf(self):
         for rec in self:
             rec.state = 'draf'
