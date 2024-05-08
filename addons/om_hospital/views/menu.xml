@@ -9,28 +9,6 @@
             sequence="0" 
             web_icon= "om_hospital,static/description/icon.png"/>
 
-        <!-- coba -->
-        <!-- <menuitem 
-            id="rumahsakit_menu_root2" 
-            name="Hospital2" 
-            sequence="1" 
-            web_icon= "om_hospital,static/description/icon.png"/> -->
-
-        <!-- <menuitem 
-            id="pasien_menu_categ2" 
-            name="Pasien Details2" 
-            parent="rumahsakit_menu_root2" 
-            sequence="1"/> -->
-
-        <!-- <menuitem 
-            id="pasien_laki_menu_act2" 
-            name="Pasien laki" 
-            parent="pasien_menu_categ2" 
-            action="cdn_pasien_laki_action" 
-            sequence="1"/> -->
-
-
-
         <!-- This Menu Item Must have a parent -->
         <menuitem 
             id="pasien_menu_categ" 
@@ -41,15 +19,25 @@
         <!-- This Menu Item Must have a parent -->
         <menuitem 
             id="appointment_menu_categ" 
-            name="Appointment" 
+            name="Janjian" 
             parent="rumahsakit_menu_root" 
             sequence="0"/>
+
         <!-- This Menu Item Must have a parent -->
         <menuitem 
             id="konfigurasi_menu_categ" 
             name="Konfigurasi" 
             parent="rumahsakit_menu_root" 
             sequence="0"/>
+
+        <!-- This Menu Item Must have a parent -->
+        <menuitem 
+            id="cancel_appointment_menu_categ" 
+            name="Batalkan" 
+            parent="appointment_menu_categ" 
+            action="cdn_wz_batalapointment_action"
+            sequence="0"/>
+            
 
     </data>
     

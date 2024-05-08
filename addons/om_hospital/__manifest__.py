@@ -14,6 +14,7 @@
     'data': [
         # 'security/groups.xml',
         'security/ir.model.access.csv',
+        'wizards/cancel_appointment.xml',
         'views/menu.xml',
         # 'views/dokter_list.xml',
         'views/pasien.xml',

@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+    
+        <!-- cdn.wz.batalapointment form view -->
+        <record id="cdn_wz_batalapointment_view_form" model="ir.ui.view">
+            <field name="name">cdn.wz.batalapointment.view.form</field>
+            <field name="model">cdn.wz.batalapointment</field>
+            <field name="arch" type="xml">
+                <form string="">
+                        <group>
+                            <group>
+                                <field name="appointment_id"/>
+                            </group>
+                            <group>
+                            </group>
+                        </group>
+                        <footer>
+                            <button name="action_cancel" string="Batalkan Pertemuan" type="object" class="btn-secondary" data-hotkey="q"/>
+
+                            <button special="cancel" data-hotkey="z" string="Tidak Jadi" class="btn-primary"/>
+                        </footer>
+                </form>
+            </field>
+        </record>
+
+        <!-- cdn.wz.batalapointment action window -->
+        <record id="cdn_wz_batalapointment_action" model="ir.actions.act_window">
+            <field name="name">Batalkan</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cdn.wz.batalapointment</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        
+    
+    </data>
+    
+</odoo>
