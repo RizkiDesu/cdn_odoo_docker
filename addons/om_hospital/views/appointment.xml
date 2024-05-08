@@ -31,7 +31,7 @@
                 <tree decoration-success="state == 'done'" 
                         decoration-info="state == 'draf'" 
                         decoration-danger="state == 'cancel'" 
-                        decoration-muted="state == 'on_consultasion'" 
+                        decoration-muted="state == 'on_consultasion'"
                         sample="1" multi_edit="1">
                     <!-- Add your fields here -->
                     <field name="pasien_id"/>
@@ -163,11 +163,11 @@
                         </notebook>
                     </sheet>
                     <!-- Chatter -->
-                    <div class="oe_chatter">
-                        <field name="message_follower_ids" groups="base.group_user"/>
-                        <field name="activity_ids"/>
-                        <field name="message_ids"/>
-                    </div>
+<div class="oe_chatter">
+    <field name="message_follower_ids" groups="base.group_user"/>
+    <field name="activity_ids"/>
+    <field name="message_ids"/>
+</div>
                 </form>
             </field>
         </record>
