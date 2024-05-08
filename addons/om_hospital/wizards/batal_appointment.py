@@ -2,10 +2,13 @@ from odoo import api, fields, models
 
 
 class CdnWzBatalapointment(models.TransientModel):
-    _name = 'cdn.wz.batalapointment'
-    _description = 'Cdn Wz Batalapointment'
+    _name           = 'cdn.wz.batalapointment'
+    _description    = 'Cdn Wz Batalapointment'
 
-    appointment_id = fields.Many2one(comodel_name='cdn.pasien', string='Appointment')
+    appointment_id  = fields.Many2one(comodel_name='cdn.pasien', string='Appointment')
+
+    reason          = fields.Text(string='Reason')
+    
 
     def action_cancel(self):
         return
