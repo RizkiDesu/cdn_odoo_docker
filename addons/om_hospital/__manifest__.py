@@ -15,6 +15,7 @@
         # 'security/groups.xml',
         'security/ir.model.access.csv',
         'data/pasien_tag_data.xml',
+        'data/cdn.pasien.tag.csv', #ikut model
         'wizards/cancel_appointment.xml',
         'views/menu.xml',
         # 'views/dokter_list.xml',
