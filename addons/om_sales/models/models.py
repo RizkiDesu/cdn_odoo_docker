@@ -3,9 +3,9 @@
 # from odoo import models, fields, api
 
 
-# class om_hospital_inherit(models.Model):
-#     _name = 'om_hospital_inherit.om_hospital_inherit'
-#     _description = 'om_hospital_inherit.om_hospital_inherit'
+# class om_sales(models.Model):
+#     _name = 'om_sales.om_sales'
+#     _description = 'om_sales.om_sales'
 
 #     name = fields.Char()
 #     value = fields.Integer()

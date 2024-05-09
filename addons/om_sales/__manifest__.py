@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "om_hospital_inherit",
+    'name': "om_sales",
 
     'summary': """
         Short (1 phrase/line) summary of the module's purpose, used as
