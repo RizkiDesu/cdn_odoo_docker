@@ -1,0 +1,336 @@
+<form string="Rekanan">
+                <div class="alert alert-warning oe_edit_only" role="alert" modifiers="{&quot;invisible&quot;: [[&quot;same_vat_partner_id&quot;, &quot;=&quot;, false]]}">
+                  Mitra dengan <span><span class="o_vat_label">ID Pajak</span></span> sudah ada (<field name="same_vat_partner_id" modifiers="{&quot;readonly&quot;: true}"/>
+                <field name="partner_gid" modifiers="{&quot;invisible&quot;: true}"/>
+                <field name="additional_info" modifiers="{&quot;invisible&quot;: true}"/>), apakah Anda yakin ingin membuat yang baru?
+                </div>
+                    <div class="alert alert-warning oe_edit_only" role="alert" modifiers="{&quot;invisible&quot;: [[&quot;vies_failed_message&quot;, &quot;=&quot;, false]]}">
+                        <field name="vies_failed_message" nolabel="1" modifiers="{&quot;readonly&quot;: true}"/>
+                    </div>
+                <div class="alert alert-warning oe_edit_only" role="alert" modifiers="{&quot;invisible&quot;: [[&quot;same_company_registry_partner_id&quot;, &quot;=&quot;, false]]}">
+                  Mitra dengan <span><span class="o_vat_label">Registri Perusahaan</span></span> yang sama sudah ada (<field name="same_company_registry_partner_id" modifiers="{&quot;readonly&quot;: true}"/>), apakah Anda yakin ingin membuat yang baru?
+                </div>
+                    <div class="alert alert-warning" role="alert" style="margin-bottom:0px;" modifiers="{&quot;invisible&quot;: [[&quot;duplicated_bank_account_partners_count&quot;, &quot;=&quot;, 0]]}">
+                        Satu atau lebih Akun Bank yang ditetapkan pada mitra ini sudah digunakan oleh  <bold><button class="alert-link" type="object" name="action_view_partner_with_same_bank" role="button" string="Rekanan" style="padding: 0;vertical-align: baseline;"/></bold>. Harap pastikan bahwa ini adalah perilaku yang diinginkan.
+                    </div>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                <button class="oe_stat_button" type="object" name="action_view_sale_order" icon="fa-usd">
+                    <field string="Penjualan" name="sale_order_count" widget="statinfo" modifiers="{&quot;readonly&quot;: true}"/>
+                </button>
+                    <button class="oe_stat_button" name="405" type="action" icon="fa-credit-card">
+                        <field string="Pembelian" name="purchase_order_count" widget="statinfo" modifiers="{&quot;readonly&quot;: true}"/>
+                    </button>
+                    <button class="oe_stat_button" name="410" type="action" icon="fa-truck" context="{'search_default_partner_id': id}">
+                        <div class="o_form_field o_stat_info">
+                            <div class="o_row" modifiers="{&quot;invisible&quot;: [[&quot;on_time_rate&quot;, &quot;&lt;&quot;, 0]]}">
+                                <span class="o_stat_value">
+                                    <field string="Tingkat Tepat Waktu" name="on_time_rate" widget="integer" modifiers="{&quot;readonly&quot;: true}"/>
+                                </span>
+                                <span class="o_stat_value">%</span>
+                            </div>
+                            <div class="o_stat_value" modifiers="{&quot;invisible&quot;: [[&quot;on_time_rate&quot;, &quot;&gt;=&quot;, 0]]}">
+                                Belum ada data
+                            </div>
+                            <span class="o_stat_text">Tingkat Tepat Waktu</span>
+                        </div>
+                    </button>
+                    <button type="object" class="oe_stat_button" icon="fa-pencil-square-o" name="action_view_partner_invoices" context="{'default_partner_id': active_id}">
+                        <div class="o_form_field o_stat_info">
+                            <span class="o_stat_value">
+                                <field name="currency_id" modifiers="{&quot;invisible&quot;: true, &quot;readonly&quot;: true}"/>
+                                <field name="total_invoiced" widget="monetary" options="{'currency_field': 'currency_id'}" modifiers="{&quot;readonly&quot;: true}"/>
+                            </span>
+                            <span class="o_stat_text">Ditagih</span>
+                        </div>
+                    </button>
+                    <button class="oe_stat_button" name="406" type="action" icon="fa-pencil-square-o" help="Tagihan Pemasok">
+                        <field string="Tagihan Pemasok" name="supplier_invoice_count" widget="statinfo" modifiers="{&quot;readonly&quot;: true}"/>
+                    </button>
+                <button type="action" class="oe_stat_button" icon="fa-credit-card-alt" name="238" context="{'search_default_partner_id': active_id, 'create': False, 'edit': False}" modifiers="{&quot;invisible&quot;: [[&quot;payment_token_count&quot;, &quot;=&quot;, 0]]}">
+                    <div class="o_form_field o_stat_info">
+                        <span class="o_stat_value">
+                            <field name="payment_token_count" widget="statinfo" nolabel="1" modifiers="{&quot;readonly&quot;: true}"/>
+                        </span>
+                        <span class="o_stat_text">Metode Pembayaran Tersimpan</span>
+                    </div>
+                </button></div>
+                    <widget name="web_ribbon" title="Diarsipkan" bg_color="bg-danger" modifiers="{&quot;invisible&quot;: [[&quot;active&quot;, &quot;=&quot;, true]]}"/>
+                    <field name="avatar_128" modifiers="{&quot;invisible&quot;: true, &quot;readonly&quot;: true}"/>
+                    <field name="image_1920" widget="image" class="oe_avatar" options="{&quot;preview_image&quot;: &quot;avatar_128&quot;}" on_change="1"/>
+                    <div class="oe_title mb24">
+                        <field name="is_company" on_change="1" modifiers="{&quot;invisible&quot;: true}"/>
+                        <field name="commercial_partner_id" on_change="1" modifiers="{&quot;invisible&quot;: true, &quot;readonly&quot;: true}"/>
+                        <field name="active" on_change="1" modifiers="{&quot;invisible&quot;: true}"/>
+                        <field name="company_id" on_change="1" modifiers="{&quot;invisible&quot;: true}" can_create="true" can_write="true"/>
+                        <field name="country_code" on_change="1" modifiers="{&quot;invisible&quot;: true, &quot;readonly&quot;: true}"/>
+                        <field name="company_type" widget="radio" options="{'horizontal': true}" on_change="1"/>
+                        <h1>
+                            <field id="company" class="text-break" name="name" default_focus="1" placeholder="contoh Lumber Inc" widget="field_partner_autocomplete" on_change="1" modifiers="{&quot;invisible&quot;: [[&quot;is_company&quot;, &quot;=&quot;, false]], &quot;required&quot;: [[&quot;type&quot;, &quot;=&quot;, &quot;contact&quot;]]}"/>
+                            <field id="individual" class="text-break" name="name" default_focus="1" placeholder="contoh Brandom Freeman" widget="field_partner_autocomplete" on_change="1" modifiers="{&quot;invisible&quot;: [[&quot;is_company&quot;, &quot;=&quot;, true]], &quot;required&quot;: [[&quot;type&quot;, &quot;=&quot;, &quot;contact&quot;]]}"/>
+                        </h1>
+                        <div class="o_row">
+                            <field name="parent_id" widget="res_partner_many2one" placeholder="Nama Perusahaan..." domain="[('is_company', '=', True)]" context="{'default_is_company': True, 'show_vat': True, 'default_user_id': user_id, 'default_team_id': team_id}" on_change="1" modifiers="{&quot;invisible&quot;: [&quot;|&quot;, &quot;&amp;&quot;, [&quot;is_company&quot;, &quot;=&quot;, true], [&quot;parent_id&quot;, &quot;=&quot;, false], [&quot;company_name&quot;, &quot;!=&quot;, false], [&quot;company_name&quot;, &quot;!=&quot;, &quot;&quot;]]}" can_create="true" can_write="true"/>
+                                <field name="company_name" on_change="1" modifiers="{&quot;invisible&quot;: [&quot;|&quot;, &quot;|&quot;, [&quot;company_name&quot;, &quot;=&quot;, false], [&quot;company_name&quot;, &quot;=&quot;, &quot;&quot;], [&quot;is_company&quot;, &quot;=&quot;, true]]}"/>
+                                <button name="create_company" icon="fa-plus-square" string="Buat Perusahaan" type="object" class="oe_edit_only btn-link" modifiers="{&quot;invisible&quot;: [&quot;|&quot;, &quot;|&quot;, [&quot;is_company&quot;, &quot;=&quot;, true], [&quot;company_name&quot;, &quot;=&quot;, &quot;&quot;], [&quot;company_name&quot;, &quot;=&quot;, false]]}"/>
+                        </div>
+                    </div>
+
+                    <group>
+                        <group>
+                            <span class="o_form_label o_td_label" name="address_name">
+                                <field name="type" class="fw-bold" on_change="1" modifiers="{&quot;invisible&quot;: [[&quot;is_company&quot;, &quot;=&quot;, true]], &quot;readonly&quot;: [[&quot;user_ids&quot;, &quot;!=&quot;, []]], &quot;required&quot;: [[&quot;is_company&quot;, &quot;!=&quot;, true]]}"/>
+                                <b modifiers="{&quot;invisible&quot;: [[&quot;is_company&quot;, &quot;=&quot;, false]]}">Alamat</b>
+                            </span>
+                            <div class="o_address_format">
+                                <field name="street" placeholder="Jalan..." class="o_address_street" modifiers="{&quot;readonly&quot;: [[&quot;type&quot;, &quot;=&quot;, &quot;contact&quot;], [&quot;parent_id&quot;, &quot;!=&quot;, false]]}"/>
+                                <field name="street2" placeholder="Tambahan nama jalan..." class="o_address_street" modifiers="{&quot;readonly&quot;: [[&quot;type&quot;, &quot;=&quot;, &quot;contact&quot;], [&quot;parent_id&quot;, &quot;!=&quot;, false]]}"/>
+                                <field name="city" placeholder="Kota" class="o_address_city" modifiers="{&quot;readonly&quot;: [[&quot;type&quot;, &quot;=&quot;, &quot;contact&quot;], [&quot;parent_id&quot;, &quot;!=&quot;, false]]}"/><field name="state_id" class="o_address_state" placeholder="Status" options="{'no_open': True, 'no_quick_create': True}" context="{'country_id': country_id, 'default_country_id': country_id, 'zip': zip}" on_change="1" modifiers="{&quot;readonly&quot;: [[&quot;type&quot;, &quot;=&quot;, &quot;contact&quot;], [&quot;parent_id&quot;, &quot;!=&quot;, false]]}" can_create="true" can_write="true"/><field name="zip" placeholder="Kode Pos" class="o_address_zip" on_change="1" modifiers="{&quot;readonly&quot;: [[&quot;type&quot;, &quot;=&quot;, &quot;contact&quot;], [&quot;parent_id&quot;, &quot;!=&quot;, false]]}"/>
+                                
+                                
+                                <div name="partner_address_country" class="d-flex justify-content-between">
+                                    <field name="country_id" placeholder="Negara" class="o_address_country" options="{&quot;no_open&quot;: True, &quot;no_create&quot;: True}" on_change="1" modifiers="{&quot;readonly&quot;: [[&quot;type&quot;, &quot;=&quot;, &quot;contact&quot;], [&quot;parent_id&quot;, &quot;!=&quot;, false]]}" can_create="true" can_write="true"/>
+                                </div>
+                            </div>
+                            <field name="vat" placeholder="mis. BE0477472701" widget="field_partner_autocomplete" string="NPWP" on_change="1" modifiers="{&quot;readonly&quot;: [[&quot;parent_id&quot;, &quot;!=&quot;, false]]}"/>
+                    <field name="l10n_id_pkp" modifiers="{&quot;invisible&quot;: [[&quot;country_id&quot;, &quot;!=&quot;, false], [&quot;country_code&quot;, &quot;!=&quot;, &quot;ID&quot;]]}"/>
+                    <field name="l10n_id_kode_transaksi" modifiers="{&quot;invisible&quot;: [[&quot;l10n_id_pkp&quot;, &quot;!=&quot;, true]]}"/>
+                        </group>
+                        <group>
+                            <field name="function" placeholder="misalnya: Direktur Penjualan" modifiers="{&quot;invisible&quot;: [[&quot;is_company&quot;, &quot;=&quot;, true]]}"/>
+                            <field name="phone_blacklisted" modifiers="{&quot;invisible&quot;: true, &quot;readonly&quot;: true}"/>
+                <field name="mobile_blacklisted" modifiers="{&quot;invisible&quot;: true, &quot;readonly&quot;: true}"/>
+                <label for="phone" class="oe_inline"/>
+                <div class="o_row o_row_readonly">
+                    <button name="phone_action_blacklist_remove" class="fa fa-ban text-danger" title="Nomor telepon ini diblacklist untuk SMS Marketing. Klik untuk membatalkan blacklist." type="object" context="{'default_phone': phone}" modifiers="{&quot;invisible&quot;: [[&quot;phone_blacklisted&quot;, &quot;=&quot;, false]]}"/>
+                    <field name="phone" widget="phone" on_change="1"/>
+                </div>
+            <field name="phone_blacklisted" modifiers="{&quot;invisible&quot;: true, &quot;readonly&quot;: true}"/>
+                <field name="mobile_blacklisted" modifiers="{&quot;invisible&quot;: true, &quot;readonly&quot;: true}"/>
+                <label for="mobile" class="oe_inline"/>
+                <div class="o_row o_row_readonly">
+                    <button name="phone_action_blacklist_remove" class="fa fa-ban text-danger" title="Nomor telepon ini diblacklist untuk SMS Marketing. Klik untuk membatalkan blacklist." type="object" context="{'default_phone': mobile}" modifiers="{&quot;invisible&quot;: [[&quot;mobile_blacklisted&quot;, &quot;=&quot;, false]]}"/>
+                    <field name="mobile" widget="phone" on_change="1"/>
+                </div>
+            <field name="phone_sanitized" on_change="1" modifiers="{&quot;invisible&quot;: true, &quot;readonly&quot;: true}"/>
+                            <field name="user_ids" on_change="1" modifiers="{&quot;invisible&quot;: true}"/>
+                            <field name="is_blacklisted" modifiers="{&quot;invisible&quot;: true, &quot;readonly&quot;: true}"/>
+                    <label for="email" class="oe_inline"/>
+                    <div class="o_row o_row_readonly">
+                        <button name="mail_action_blacklist_remove" class="fa fa-ban text-danger" title="Email ini diblacklist untuk mass mailing. Klik untuk tidak memblacklist." type="object" context="{'default_email': email}" modifiers="{&quot;invisible&quot;: [[&quot;is_blacklisted&quot;, &quot;=&quot;, false]]}"/>
+                        <field name="email" widget="email" context="{'gravatar_image': True}" on_change="1" modifiers="{&quot;required&quot;: [[&quot;user_ids&quot;, &quot;!=&quot;, []]]}"/>
+                    </div>
+                <field name="website" string="Website" widget="url" placeholder="contoh https://www.odoo.com"/>
+                            <field name="title" options="{&quot;no_open&quot;: True}" placeholder="contoh Mister" modifiers="{&quot;invisible&quot;: [[&quot;is_company&quot;, &quot;=&quot;, true]]}" can_create="true" can_write="true"/>
+                            <field name="active_lang_count" modifiers="{&quot;invisible&quot;: true, &quot;readonly&quot;: true}"/>
+                            <field name="lang" on_change="1" modifiers="{&quot;invisible&quot;: [[&quot;active_lang_count&quot;, &quot;&lt;=&quot;, 1]]}"/>
+                            <field name="category_id" widget="many2many_tags" options="{'color_field': 'color', 'no_create_edit': True}" placeholder="contohnya &quot;B2B&quot;, &quot;VIP&quot;, &quot;Consulting&quot;, ..." can_create="true" can_write="true"/>
+                        </group>
+                    </group>
+
+                    <notebook colspan="4">
+                        <page string="Kontak &amp; Alamat" name="contact_addresses" autofocus="autofocus">
+                            <field name="child_ids" mode="kanban" context="{'default_parent_id': active_id, 'default_street': street, 'default_street2': street2, 'default_city': city, 'default_state_id': state_id, 'default_zip': zip, 'default_country_id': country_id, 'default_lang': lang, 'default_user_id': user_id, 'default_type': 'other'}">
+                                <kanban>
+                                    <field name="id" modifiers="{&quot;readonly&quot;: true}"/>
+                                    <field name="color"/>
+                                    <field name="name" on_change="1"/>
+                                    <field name="title"/>
+                                    <field name="type" on_change="1"/>
+                                    <field name="email" on_change="1"/>
+                                    <field name="parent_id" on_change="1"/>
+                                    <field name="is_company" on_change="1"/>
+                                    <field name="function"/>
+                                    <field name="phone" on_change="1"/>
+                                    <field name="street"/>
+                                    <field name="street2"/>
+                                    <field name="zip" on_change="1"/>
+                                    <field name="city"/>
+                                    <field name="country_id" on_change="1"/>
+                                    <field name="mobile" on_change="1"/>
+                                    <field name="state_id" on_change="1"/>
+                                    <field name="image_128" on_change="1" modifiers="{&quot;readonly&quot;: true}"/>
+                                    <field name="avatar_128" modifiers="{&quot;readonly&quot;: true}"/>
+                                    <field name="lang" on_change="1"/>
+                                    <!-- fields in form x2many view to diminish requests -->
+                                    <field name="comment"/>
+                                    <field name="display_name" on_change="1" modifiers="{&quot;readonly&quot;: true}"/>
+                                    <templates>
+                                        <t t-name="kanban-box">
+                                            <t t-set="color" t-value="kanban_color(record.color.raw_value)"/>
+                                            <div t-att-class="color + (record.title.raw_value == 1 ? ' oe_kanban_color_alert' : '') + ' oe_kanban_global_click'">
+                                                <div class="o_kanban_image">
+                                                    <img alt="Gambar kontak" t-att-src="kanban_image('res.partner', 'avatar_128', record.id.raw_value)"/>
+                                                </div>
+                                                <div class="oe_kanban_details">
+                                                    <field name="name" on_change="1"/>
+                                                    <div t-if="record.function.raw_value"><field name="function"/></div>
+                                                    <div t-if="record.email.raw_value"><field name="email" widget="email" on_change="1"/></div>
+                                                    <div t-if="record.type.raw_value != 'contact'">
+                                                        <div>
+                                                            <field name="zip" on_change="1"/><t t-if="record.city"> </t>
+                                                            <field name="city"/>
+                                                        </div>
+                                                        <field t-if="record.state_id.raw_value" name="state_id" on_change="1"/><t t-if="record.country_id"> </t>
+                                                        <field name="country_id" on_change="1"/>
+                                                    </div>
+                                                    <div t-if="record.phone.raw_value">Telepon: <t t-esc="record.phone.value"/></div>
+                                                    <div t-if="record.mobile.raw_value">Ponsel: <t t-esc="record.mobile.value"/></div>
+                                                </div>
+                                            </div>
+                                        </t>
+                                    </templates>
+                                </kanban>
+                                <form string="Kontak / Alamat">
+                                    <sheet>
+                                        <field name="type" widget="radio" options="{'horizontal': true}" on_change="1" modifiers="{&quot;required&quot;: true}"/>
+                                        <field name="parent_id" on_change="1" modifiers="{&quot;invisible&quot;: true}" can_create="true" can_write="true"/>
+                                        <div class="text-muted oe_edit_only">
+                                            <p class="mb-0" modifiers="{&quot;invisible&quot;: [[&quot;type&quot;, &quot;!=&quot;, &quot;contact&quot;]]}">
+                                                <span>Gunakan ini untuk mengorganisir detail kontak dari karyawan untuk perusahaan (misalnya CEO, CFO, ...).</span>
+                                            </p>
+                                            <p class="mb-0" modifiers="{&quot;invisible&quot;: [[&quot;type&quot;, &quot;!=&quot;, &quot;invoice&quot;]]}">
+                                                <span>Alamat pilihan untuk semua faktur. Secara default dipilih saat Anda memfaktur order yang berasal dari perusahaan ini.</span>
+                                            </p>
+                                            <p class="mb-0" modifiers="{&quot;invisible&quot;: [[&quot;type&quot;, &quot;!=&quot;, &quot;delivery&quot;]]}">
+                                                <span>Alamat pilihan untuk semua pengiriman. Secara default dipilih saat Anda mengirimkan order yang berasal dari perusahaan ini.</span>
+                                            </p>
+                                            <p class="mb-0" modifiers="{&quot;invisible&quot;: [[&quot;type&quot;, &quot;!=&quot;, &quot;private&quot;]]}">
+                                                <span>Private addresses are only visible by authorized users and contain sensitive data (employee home addresses, ...).</span>
+                                            </p>
+                                            <p class="mb-0" modifiers="{&quot;invisible&quot;: [[&quot;type&quot;, &quot;!=&quot;, &quot;other&quot;]]}">
+                                                <span>Alamat lain untuk perusahaan (misal cabang, ...)</span>
+                                            </p>
+                                        </div>
+                                        <hr/>
+                                        <group>
+                                            <group>
+                                                <field name="name" string="Nama Kontak" on_change="1" modifiers="{&quot;required&quot;: [[&quot;type&quot;, &quot;=&quot;, &quot;contact&quot;]]}"/>
+                                                <field name="title" options="{'no_open': True}" placeholder="misalnya: Bapak" modifiers="{&quot;invisible&quot;: [[&quot;type&quot;, &quot;!=&quot;, &quot;contact&quot;]]}" can_create="true" can_write="true"/>
+                                                <field name="function" placeholder="misalnya: Direktur Penjualan" modifiers="{&quot;invisible&quot;: [[&quot;type&quot;, &quot;!=&quot;, &quot;contact&quot;]]}"/>
+                                                <label for="street" string="Alamat" modifiers="{&quot;invisible&quot;: [[&quot;type&quot;, &quot;=&quot;, &quot;contact&quot;]]}"/>
+                                                <div modifiers="{&quot;invisible&quot;: [[&quot;type&quot;, &quot;=&quot;, &quot;contact&quot;]]}">
+                                                    <div class="o_address_format" name="div_address">
+                                                        <field name="street" placeholder="Jalan..." class="o_address_street"/>
+                                                        <field name="street2" placeholder="Tambahan nama jalan..." class="o_address_street"/>
+                                                        <field name="city" placeholder="Kota" class="o_address_city"/><field name="state_id" class="o_address_state" placeholder="Status" options="{'no_open': True, 'no_quick_create': True}" context="{'country_id': country_id, 'default_country_id': country_id, 'zip': zip}" on_change="1" can_create="true" can_write="true"/><field name="zip" placeholder="Kode Pos" class="o_address_zip" on_change="1"/>
+                                                        
+                                                        
+                                                        <field name="country_id" placeholder="Negara" class="o_address_country" options="{&quot;no_open&quot;: True, &quot;no_create&quot;: True}" on_change="1" can_create="true" can_write="true"/>
+                                                    </div>
+                                                </div>
+                                            </group>
+                                            <group>
+                                                <field name="email" widget="email" on_change="1"/>
+                                                <field name="phone" widget="phone" on_change="1"/>
+                                                <field name="mobile" widget="phone" on_change="1"/>
+                                                <field name="company_id" on_change="1" modifiers="{&quot;invisible&quot;: true}" can_create="true" can_write="true"/>
+                                            </group>
+                                        </group>
+                                        <group>
+                                            <field name="comment" placeholder="Catatan internal..." nolabel="1" colspan="2"/>
+                                        </group>
+                                        <field name="lang" on_change="1" modifiers="{&quot;invisible&quot;: true}"/>
+                                        <field name="user_id" modifiers="{&quot;invisible&quot;: true}" can_create="true" can_write="true"/>
+                                    </sheet>
+                                </form>
+                            </field>
+                        </page>
+                        <page name="sales_purchases" string="Sales &amp; Purchase">
+                            <group name="container_row_2">
+                                <group string="Penjualan" name="sale" priority="1">
+                                    <field name="user_id" widget="many2one_avatar_user" domain="[('share', '=', False)]" can_create="true" can_write="true"/>
+                <field name="team_id" modifiers="{&quot;invisible&quot;: true}" can_create="true" can_write="true"/>
+                <field name="team_id" kanban_view_ref="566" can_create="true" can_write="true"/>
+                    <field string="Syarat Pembayaran" name="property_payment_term_id" options="{'no_open': True, 'no_create': True}" can_create="true" can_write="true"/>
+                    <field name="property_product_pricelist" modifiers="{&quot;invisible&quot;: [[&quot;is_company&quot;, &quot;=&quot;, false], [&quot;parent_id&quot;, &quot;!=&quot;, false]]}" can_create="true" can_write="true"/>
+                    <div name="parent_pricelists" colspan="2" modifiers="{&quot;invisible&quot;: [&quot;|&quot;, [&quot;is_company&quot;, &quot;=&quot;, true], [&quot;parent_id&quot;, &quot;=&quot;, false]]}">
+                        <p>Daftar harga dikelola di <button name="open_commercial_entity" type="object" string="perusahaan induk" class="oe_link"/></p>
+                    </div>
+                                </group>
+                                <group string="Pembelian" name="purchase" priority="2">
+                    <field string="Syarat Pembayaran" name="property_supplier_payment_term_id" options="{'no_open': True, 'no_create': True}" can_create="true" can_write="true"/>
+                    <div name="receipt_reminder" colspan="2" class="o_checkbox_optional_field">
+                        <label for="receipt_reminder_email"/>
+                        <field name="receipt_reminder_email"/>
+                        <div modifiers="{&quot;invisible&quot;: [[&quot;receipt_reminder_email&quot;, &quot;=&quot;, false]]}">
+                            <field name="reminder_date_before_receipt" class="oe_inline"/>
+                            <span> hari sebelum</span>
+                        </div>
+                    </div>
+                    <field name="property_purchase_currency_id" options="{'no_create': True, 'no_open': True}" can_create="true" can_write="true"/>
+                                </group>
+                    <group string="Informasi Fiskal" name="fiscal_information" priority="5">
+                        <field name="property_account_position_id" options="{'no_create': True, 'no_open': True}" can_create="true" can_write="true"/>
+                    </group>
+                        <group name="misc" string="Lain-lain">
+                            <field name="company_registry" on_change="1" modifiers="{&quot;invisible&quot;: [[&quot;parent_id&quot;, &quot;!=&quot;, false]]}"/>
+                            <field name="ref" string="Referensi"/>
+                            <field name="company_id" options="{'no_create': True}" force_save="1" on_change="1" modifiers="{&quot;readonly&quot;: [[&quot;parent_id&quot;, &quot;!=&quot;, false]]}" can_create="true" can_write="true"/>
+                            <field name="industry_id" options="{'no_create': True}" modifiers="{&quot;invisible&quot;: [[&quot;is_company&quot;, &quot;=&quot;, false]]}" can_create="true" can_write="true"/>
+                        </group>
+                    <group name="container_row_stock" priority="6">
+                        <group string="Stok Persediaan" name="inventory" colspan="2">
+                            <field name="property_stock_customer" can_create="true" can_write="true"/>
+                            <field name="property_stock_supplier" can_create="true" can_write="true"/>
+                        </group>
+                    </group>
+                            </group>
+                        </page>
+                    <page string="Penagihan" name="accounting" modifiers="{&quot;invisible&quot;: [[&quot;is_company&quot;, &quot;=&quot;, false], [&quot;parent_id&quot;, &quot;!=&quot;, false]]}">
+                        <field name="duplicated_bank_account_partners_count" modifiers="{&quot;invisible&quot;: true, &quot;readonly&quot;: true}"/>
+                        <field name="show_credit_limit" modifiers="{&quot;invisible&quot;: true, &quot;readonly&quot;: true}"/>
+                        <group>
+                            <group string="Rekening Bank" name="banks">
+                                <field name="bank_ids" nolabel="1" colspan="2" context="{'default_allow_out_payment': True}" on_change="1">
+                                    <tree editable="bottom">
+                                        <field name="sequence" widget="handle"/>
+                                        <field name="bank_id" can_create="true" can_write="true"/>
+                                        <field name="acc_number" widget="iban" modifiers="{&quot;required&quot;: true}"/>
+                                        <field name="allow_out_payment" widget="boolean_toggle"/>
+                                        <field name="acc_holder_name" modifiers="{&quot;column_invisible&quot;: true}"/>
+                                    </tree>
+                                </field>
+                                <button type="action" class="btn-link" name="62" context="{'search_default_partner_id': active_id, 'default_partner_id': active_id}" string="Lihat detail akun" colspan="2"/>
+                            </group>
+                            <group string="Batas Kredit" name="credit_limits" modifiers="{&quot;invisible&quot;: [[&quot;show_credit_limit&quot;, &quot;=&quot;, false]]}">
+                                <field name="credit" modifiers="{&quot;readonly&quot;: true}"/>
+                                <label for="use_partner_credit_limit"/>
+                                <div class="o_row">
+                                    <field name="use_partner_credit_limit"/>
+                                    <field name="credit_limit" class="oe_inline" modifiers="{&quot;invisible&quot;: [[&quot;use_partner_credit_limit&quot;, &quot;=&quot;, false]]}"/>
+                                </div>
+                            </group>
+                        </group>
+                    <group string="Pajak-Pajak Indonesia" modifiers="{&quot;invisible&quot;: [[&quot;l10n_id_pkp&quot;, &quot;!=&quot;, true]]}">
+                        <group>
+                            <field name="l10n_id_nik"/>
+                        </group>
+                        <group>
+                            <field name="l10n_id_tax_address"/>
+                            <field name="l10n_id_tax_name"/>
+                        </group>
+                    </group>
+                    </page>
+                    <page string="Penagihan" name="accounting_disabled" modifiers="{&quot;invisible&quot;: [&quot;|&quot;, [&quot;is_company&quot;, &quot;=&quot;, true], [&quot;parent_id&quot;, &quot;=&quot;, false]]}">
+                        <div>
+                            <p>Pengaturan akuntansi dikelola di <button name="open_commercial_entity" type="object" string="perusahaan induk" class="oe_link"/></p>
+                        </div>
+                    </page>
+                        <page name="internal_notes" string="Catatan Internal">
+                            <field name="comment" placeholder="Catatan internal..."/>
+                <group>
+                    </group>
+                    <group>
+                        </group>
+                    <group>
+                        </group>
+                </page>
+                    </notebook>
+                </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>

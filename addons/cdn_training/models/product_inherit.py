@@ -11,6 +11,3 @@ class ProductProduct(models.Model):
                                                    ('kosumsi', 'Kosumsi Training'),
                                                    ('training_Kit','Peralatan Training')], 
                                                    default='non_training')
-    
-    
-
