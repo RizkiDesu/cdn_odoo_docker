@@ -19,7 +19,7 @@
     'version': '16.0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','mail'],
+    'depends': ['base','mail', 'product', 'purchase'],
 
     # always loaded
     'data': [
@@ -38,6 +38,8 @@
         'views/jabatan.xml',
         'wizards/training_wizard.xml',
         'wizards/jabatan_wisard.xml',
+        'views/product_inherit.xml',
+        'views/purchase_inherit.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

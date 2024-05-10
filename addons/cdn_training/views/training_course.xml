@@ -48,6 +48,15 @@
                                     </field>
                                 </group>
                             </page>
+                            <page name="training_kit" string="Kosusmi/Training Kit">
+                                <field name="prduct_ids">
+                                    <tree editable="bottom">
+                                        <field name="name"/>
+                                        <field name="produk_pelatihan"/>
+                                        <field name="lst_price"/>
+                                    </tree>
+                                </field>
+                            </page>
                             <page name="deskripsi" string="Keterangan">
                                 <group>
                                     <field name="description"/>

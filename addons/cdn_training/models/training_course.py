@@ -11,6 +11,9 @@ class TrainingCourse(models.Model):
 
     session_line        = fields.One2many(comodel_name='training.session', inverse_name='course_id', string='Sesi Training')
 
+    prduct_ids = fields.Many2many(comodel_name='product.product', string='Peralatan/Kosusmsi', domain=[('produk_pelatihan', '!=', 'non_training')])
+    
+
     # oofco 
     _sql_constraints    = [
         ("name_course_unique", "UNIQUE(name)", "Nama Kursus Sudah Ada"),
