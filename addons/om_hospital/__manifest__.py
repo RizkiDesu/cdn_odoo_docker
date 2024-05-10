@@ -10,7 +10,7 @@
     'maintainer': 'Odoo Mates',
     'website': 'https://www.odoomates.tech',
     'license': 'AGPL-3',
-    'depends': ['base','mail','product'],
+    'depends': ['base','mail','product'], # menambahakan dependensi 
     'data': [
         # 'security/groups.xml',
         'security/ir.model.access.csv',
@@ -23,9 +23,8 @@
         'views/pasien_perempuan.xml',
         # 'views/test.xml',
         'views/appointment.xml',
-        'views/pasien_tag.xml',
-    ],
-
-    'aplication':True,
+        'views/pasien_tag.xml', 
+    ], 
+    'aplication':True, #menambahkan aplication
 
 }

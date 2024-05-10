@@ -15,8 +15,8 @@
         </record>
 
         <record id="pasien_tag_mr" model="cdn.pasien.tag">
-            <field name="name">Mr</field>
-            <field name="active" eval="False"/>
+            <field name="name">Mr</field> 
+            <field name="active" eval="False"/> 
         </record>
     
     </data>
