@@ -12,13 +12,13 @@ class CdnWzBatalapointment(models.TransientModel):
     
     
     @api.model
-    def default_get(self, fields):
-        ref = super (CdnWzBatalapointment, self).default_get(fields)
-        print("default get executed", ref)
-        ref['tanggal_batal'] = tanggal.date.today()
+    def default_get(self, fields): # fungsi default get untuk mengisi tanggal batal dengan tanggal hari ini
+        ref = super (CdnWzBatalapointment, self).default_get(fields) # mengisi ref dengan default get
+        # print("default get executed", ref) # print untuk mengecek apakah default get sudah terbaca atau belum
+        ref['tanggal_batal'] = tanggal.date.today() # mengisi tanggal batal dengan tanggal hari ini
         # ref['tanggal_batal'] = fields.Date.context_today(self) # ora iso
         return ref
     
-    def action_cancel(self):
-        return
+    def action_cancel(self): # fungsi cancel untuk mengubah state menjadi cancel
+        return # mengembalikan action
     
