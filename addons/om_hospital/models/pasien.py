@@ -39,7 +39,18 @@ class CdnPasien(models.Model):
         # vals['ref'] = 'Odoo Mates' # mengisi ref dengan Odoo Mates
 
         return super(CdnPasien, self).create(vals) # membuat record baru dengan nilai vals yang di inputkan
-
+    
+    def write(self, vals): # fungsi write untuk mengubah record yang sudah ada
+        # print("write methot trigerr", vals) # print untuk mengecek apakah vals sudah terbaca atau belum
+        # # output : write methot trigerr {'tgl_lahir': '2000-03-10'}
+        # res = super(CdnPasien, self).write(vals) 
+        # return res
+        if not self.ref: # jika ref kosong
+            vals['ref'] = self.env['ir.sequence'].next_by_code('cdn.pasien') # mengisi ref dengan sequence ir.sequence dengan code cdn.pasien
+        res = super(CdnPasien, self).write(vals) # mengubah record yang sudah ada
+        # hasil jika di database ada nilainya maka gak brubah jika tidak ada maka akan di isi dengan sequence ir.sequence dengan code cdn.pasien
+        return res 
+    
     @api.depends('tgl_lahir') #fungsi untuk menghitung umur pasien berdasarkan tanggal lahir pasien 
     def _compute_umur(self):
         for rec in self: #looping untuk menghitung umur pasien 
