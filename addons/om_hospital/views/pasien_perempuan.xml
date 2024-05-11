@@ -1,34 +1,28 @@
 <?xml version='1.0' encoding='utf-8'?>
 <odoo>
     <data>
-    <!-- cdn.pasien action window -->
-    <record id="cdn_pasien_perempuan_action" model="ir.actions.act_window">
-        <field name="name"> Pasien Perempuan</field>
-        <field name="type">ir.actions.act_window</field>
-        <field name="res_model">cdn.pasien</field>
-        <field name="view_mode">tree,form</field>
-        <field name="domain">[('jenis_kel','=','p')]</field>
-        <field name="context">{'default_jenis_kel':'p'}</field> 
-        <!-- coba : https://ngasturi.id/2019/12/24/odoo-membuat-action-server/ -->
-        <field name="help" type="html">
-            <p class="oe_view_nocontent_create">
-                <!-- Add Text Here -->
-            </p><p>
-                <!-- More details about what a user can do with this object will be OK --> 
-            
-            </p>
-        </field>
-    </record>
+        <!-- cdn.pasien action window -->
+        <record id="cdn_pasien_perempuan_action" model="ir.actions.act_window">
+            <field name="name"> Pasien Perempuan</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cdn.pasien</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('jenis_kel','=','p')]</field> <!-- domain menampilkan prempuan -->
+            <field name="context">{'default_jenis_kel':'p'}</field>  <!-- default jenis kelamin perempuan-->
+            <!-- coba : https://ngasturi.id/2019/12/24/odoo-membuat-action-server/ -->
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                </p><p>
+                </p>
+            </field>
+        </record>
 
-    <menuitem 
-            id="perempuan_pasien_menu_act" 
-            name="Pasien Perempuan" 
-            parent="pasien_menu_categ" 
-            action="cdn_pasien_perempuan_action" 
-            sequence="0"/>
-    
-        
-    
+        <menuitem 
+                id="perempuan_pasien_menu_act" 
+                name="Pasien Perempuan" 
+                parent="pasien_menu_categ" 
+                action="cdn_pasien_perempuan_action" 
+                sequence="0"/> 
     </data>
     
 </odoo>
