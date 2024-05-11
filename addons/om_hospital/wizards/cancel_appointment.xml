@@ -14,6 +14,7 @@
                                 <field name="reason"/>
                             </group>
                             <group>
+                                <field name="tanggal_batal"/>
                             </group>
                         </group>
                         <footer>
