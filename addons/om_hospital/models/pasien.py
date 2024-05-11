@@ -9,7 +9,8 @@ class CdnPasien(models.Model):
 
     name            = fields.Char(string='Nama Pasien', tracking=True) # field nama pasien
     tgl_lahir       = fields.Date(string='Tangggal Lahir') # field tanggal lahir
-    ref             = fields.Char(string='Refrensi', default='Odoo Mates') # field refrensi dengan nilai default Odoo Mates
+    # ref             = fields.Char(string='Refrensi', default='Odoo Mates') # field refrensi dengan nilai default Odoo Mates
+    ref             = fields.Char(string='Refrensi') # field refrensi 
 
     umur            = fields.Integer(string='Umur', tracking=True, compute='_compute_umur')  # field umur dengan fungsi compute _compute_umur untuk menghitung umur pasien berdasarkan tanggal lahir pasien
     
@@ -27,11 +28,16 @@ class CdnPasien(models.Model):
 
     @api.model
     def create (self, vals): # fungsi create untuk membuat record baru
-        print("odoo mates")
+
+        print("...........", self.env['ir.sequence']) # print untuk mengecek apakah ir.sequence sudah terbaca atau belum
+
         # contoh isi adalah vals = {'__last_update': False, 'image': False, 'name': 'nama pasien', 'tgl_lahir': '2024-05-07', 'appoinment_id': 14, 'ref': 'Odoo Mates', 'jenis_kel': 'l', 'tag_ids': [[6, False, [18]]], 'active': True}
         
-        vals['ref'] = vals['ref'] or 'Odoo Mates' # jika ref tidak di isi maka ref akan di isi dengan Odoo Mates
+        vals['ref'] = self.env['ir.sequence'].next_by_code('cdn.pasien') # mengisi ref dengan sequence ir.sequence dengan code cdn.pasien
+        
+        # vals['ref'] = vals['ref'] or 'Odoo Mates' # jika ref tidak di isi maka ref akan di isi dengan Odoo Mates
         # vals['ref'] = 'Odoo Mates' # mengisi ref dengan Odoo Mates
+
         return super(CdnPasien, self).create(vals) # membuat record baru dengan nilai vals yang di inputkan
 
     @api.depends('tgl_lahir') #fungsi untuk menghitung umur pasien berdasarkan tanggal lahir pasien 
