@@ -5,3 +5,4 @@ from . import models
 from . import pasien
 from . import appointment
 from . import pasien_tag
+from . import odoo_playgroud

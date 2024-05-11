@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+    
+        <!-- odoo.playgroud form view -->
+        <record id="odoo_playgroud_view_form" model="ir.ui.view">
+            <field name="name">odoo.playgroud.view.form</field>
+            <field name="model">odoo.playgroud</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="model_id"/>
+                                <field name="code" widget="ace" options="{'mode': 'python'}"/>
+                            </group>
+                            <group>
+                                <button name="action_execute" 
+                                        string="Execute" 
+                                        type="object" 
+                                        class="btn-primary" 
+                                        data-hotkey="q"/>
+                            </group>
+                            <group>
+                                <field name="result"/>
+                            </group>
+                            
+                        </group>
+                        <footer>
+                            <!-- <button special="cancel" data-hotkey="z" string="Close" class="btn-primary"/> -->
+                        </footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- odoo.playgroud action window -->
+        <record id="odoo_playgroud_action" model="ir.actions.act_window">
+            <field name="name">odoo.playgroud.action</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">odoo.playgroud</field>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+        </record>
+
+
+        <menuitem id="teknikal_menu_root" name="Teknikal" sequence="0">
+            <menuitem id="menu_teknikal" name="Teknikal_categ" sequence="0">
+                <menuitem id="paygropund_menu_act" name="Playground"  action="odoo_playgroud_action" sequence="0"/>
+            </menuitem>
+        </menuitem>
+    </data>
+    
+</odoo>

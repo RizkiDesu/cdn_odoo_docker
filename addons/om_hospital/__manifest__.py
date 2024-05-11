@@ -25,6 +25,7 @@
         # 'views/test.xml',
         'views/appointment.xml',
         'views/pasien_tag.xml', 
+        'views/odoo_paygroudn_view.xml',
     ], 
     'aplication':True, #menambahkan aplication
 

@@ -5,3 +5,5 @@ access_cdn_farmasi,access_cdn_farmasi,model_cdn_farmasi,base.group_user,1,1,1,1
 access_cdn_pasien_tag,access_cdn_pasien_tag,model_cdn_pasien_tag,base.group_user,1,1,1,1
 
 access_cdn_wz_batalapointment,access_cdn_wz_batalapointment,model_cdn_wz_batalapointment,base.group_user,1,1,1,1
+
+access_odoo_playgroud,access_odoo_playgroud,model_odoo_playgroud,base.group_user,1,1,1,1
