@@ -59,14 +59,11 @@ class CdnPasien(models.Model):
                 rec.umur = today.year - rec.tgl_lahir.year # menghitung umur pasien
             else:
                 rec.umur = 0 #jika tidak di kasih else nilai bakal null dan error
-    
-    
-    
 
+    # def name_get(self):
+    #     result = []
+    #     for rec in self:
+    #         result.append((rec.id, "{} - {}".format(rec.ref, rec.name)))
+    #     return result
     
-    
-    
-
-
-
-    
+    def name_get(self): return [(rec.id, "{} {}".format(rec.ref, rec.name)) for rec in self]
