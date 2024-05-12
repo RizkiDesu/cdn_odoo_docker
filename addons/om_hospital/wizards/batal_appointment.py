@@ -8,7 +8,9 @@ class CdnWzBatalapointment(models.TransientModel):
     _description    = 'Cdn Wz Batalapointment'
 
     # appointment_id  = fields.Many2one(comodel_name='cdn.pasien', string='Appointment') #keliruu harusnya cdn.appointment
-    app_id = fields.Many2one(comodel_name='cdn.appointment', string='Janji Konsultasi')
+    app_id = fields.Many2one(comodel_name='cdn.appointment', string='Janji Konsultasi', 
+                             domain=['|', ('state', '=', 'draf'),('ploritas','in',('0','1', False))])
+    # app_id = fields.Many2one(comodel_name='cdn.appointment', string='Janji Konsultasi')
     
 
     reason          = fields.Text(string='Reason') 
