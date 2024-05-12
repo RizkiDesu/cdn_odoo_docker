@@ -96,8 +96,9 @@
 
                         <button name="%(om_hospital.cdn_wz_batalapointment_action)d" 
                                 data-hotkey="z" string="Batal" type="action" 
-                                context="{'hide_app': 1}"
+                                
                                 states="draf,on_consultasion"/>
+                                <!-- context="{'hide_app': 1}" -->
 
                                <!-- context="{'default_app_id': active_id}"  maksudnya mengirimkan nilai active_id ke default_app_id (not work in odoo 16)-->
                                 

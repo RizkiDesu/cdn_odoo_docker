@@ -10,7 +10,8 @@
                 <form string="">
                         <group>
                             <group>
-                                <field name="app_id" invisible="context.get('hide_app')"/>
+                                <!-- <field name="app_id" invisible="context.get('hide_app')"/> -->
+                                <field name="app_id"/>
                                 <field name="reason"/>
                             </group>
                             <group>

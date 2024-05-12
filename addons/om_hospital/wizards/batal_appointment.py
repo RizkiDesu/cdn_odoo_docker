@@ -1,5 +1,7 @@
-from odoo import api, fields, models
+from odoo import api, fields, models, _
 import datetime as tanggal
+
+from odoo.exceptions import ValidationError as pesan_error
 
 class CdnWzBatalapointment(models.TransientModel):
     _name           = 'cdn.wz.batalapointment'
@@ -24,5 +26,7 @@ class CdnWzBatalapointment(models.TransientModel):
         return ref
     
     def action_cancel(self): # fungsi cancel untuk mengubah state menjadi cancel
-        return # mengembalikan action
+        if self.app_id.booking_date == fields.Date.today(): # jika tanggal booking sama dengan hari ini
+            raise pesan_error(_("Tidak bisa membatalkan appoinment hari ini"))
+        return
     
