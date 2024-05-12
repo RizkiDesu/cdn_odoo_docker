@@ -1,4 +1,5 @@
-from odoo import api, fields, models
+from odoo import api, fields, models, _
+from odoo.exceptions import ValidationError as pesan_error
 
 class CdnAppointment(models.Model):
     _name           = 'cdn.appointment' # nama tabel di database
@@ -34,14 +35,20 @@ class CdnAppointment(models.Model):
     hide_sales_price = fields.Boolean(string='Sembuyikan Sales Harga') # tabel sembuyikan sales harga
 
     @api.model
-    def create(self, vals):
+    def create(self, vals): # fungsi create untuk membuat record baru
         vals['name'] = self.env['ir.sequence'].next_by_code('nomor.appointmen')
         return super(CdnAppointment, self).create(vals)
-    def write(self, vals):
+    def write(self, vals): # fungsi write untuk mengubah data
         if not self.ref: # jika kosong
             vals['name'] = self.env['ir.sequence'].next_by_code('nomor.appointmen')
         res = super(CdnAppointment, self).write(vals)
         return res
+
+    def unlink(self): # fungsi unlink untuk menghapus data
+        print("test........", self)
+        if self.state != 'draf': # jika state draf
+            raise pesan_error(_("Tidak bisa menghapus data yang sudah di proses")) # tampilkan pesan error
+        return super(CdnAppointment, self).unlink()
 
     @api.onchange('pasien_id') # fungsi on change untuk mengubah refrensi ketika pasien di ubah
     def _onchange_pasien_id(self):
