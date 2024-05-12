@@ -1,5 +1,6 @@
 from odoo import api, fields, models
 from datetime import date
+from odoo.exceptions import ValidationError as pesan_error
 
 class CdnPasien(models.Model):
     _name           = 'cdn.pasien' # nama tabel di database
@@ -22,9 +23,15 @@ class CdnPasien(models.Model):
     
     active          = fields.Boolean(string='Aktif', default=True) # active adalah variabel spesial odoo untuk mengarsipkan data atau tidak
 
-    appoinment_id   = fields.Many2one(comodel_name='cdn.appointment', string='Pasien') # many to one ke tabel cdn appointment
+    appoinment_id   = fields.Many2one(comodel_name='cdn.appointment', string='Pasien Appointment') # many to one ke tabel cdn appointment
     image           = fields.Image(string='gambar') # field image
     tag_ids         = fields.Many2many(comodel_name='cdn.pasien.tag', string='Tags') # many to many ke tabel cdn pasien tag
+
+    @api.constrains('tgl_lahir') # fungsi untuk mengecek tanggal lahir pasien tidak boleh lebih dari hari ini
+    def _check_tgl_lahir(self):
+        for rec in self: # looping untuk mengecek tanggal lahir pasien
+            if rec.tgl_lahir > date.today(): # jika tanggal lahir pasien lebih dari hari ini
+                raise pesan_error('Tanggal lahir tidak boleh lebih dari hari ini') # tampilkan pesan error
 
     @api.model
     def create (self, vals): 
