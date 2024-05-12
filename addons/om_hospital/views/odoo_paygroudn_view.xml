@@ -42,28 +42,17 @@
             <field name="target">inline</field> 
             <!-- 
                 inline
-                    Jika kita memanggil ir.actions.act_window dengan opsi ini 
-                    breadcrumb, search view, tombol Save, tombol Edit dan tombol 
-                    Discard akan hilang. Jika dilihat sekilas opsi ini seperti 
-                    tidak ada gunanya. Saya sendiri belum pernah membuat 
-                    ir.actions.act_window dengan opsi ini. Opsi ini digunakan 
-                    saat kita membuka menu Settings >> General Settings. Pada 
-                    menu tersebut, tombol Save dan tombol Edit masih terlihat 
-                    karena form viewnya menambah kedua tombol tersebut secara 
-                    manual. Berikut ini adalah contoh kode dan tampilannya 
-
                     palin mencolok dari opsi ini adalah tombol Discard yang 
                     hilang. Tombol Discard biasanya digunakan untuk membatalkan
                     perubahan yang dilakukan pada form view. Jika tombol Discard
                     hilang, maka perubahan yang dilakukan pada form view tidak
                     bisa dibatalkan. 
                     
-                    pada odoo 16 tombol action hilang
+                    pada odoo 16 tombol action hilang, tidak dapat meyimpan data 
 
                 Sumber : https://ngasturi.id/2022/10/08/penggunaan-action-window-pada-odoo-v15/
             -->
         </record>
-
 
         <menuitem id="teknikal_menu_root" name="Teknikal" sequence="0">
             <menuitem id="menu_teknikal" name="Teknikal_categ" sequence="0">

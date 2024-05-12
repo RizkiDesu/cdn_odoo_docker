@@ -2,15 +2,23 @@
 <odoo>
     <data>
     
-        <!-- ir.sequence / penomoran otomatis -->
+        <!-- ir.sequence / penomoran otomatis pasien -->
         <record id="seq_cdn_pasien" model="ir.sequence">
             <field name="name">Pasien Sequence</field>
-            <field name="code">cdn.pasien</field>
+            <field name="code">nomor.pasien</field>
             <field name="prefix">HP</field>
             <field name="padding">5</field>
             <field name="company_id" eval="False"/>
         </record>
-    
+
+        <!-- ir.sequence / penomoran otomatis appoinment-->
+        <record id="seq_cdn_appointmen" model="ir.sequence">
+            <field name="name">Pasien Sequence</field>
+            <field name="code">nomor.appointmen</field>
+            <field name="prefix">AP</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
     </data>
     
 </odoo>

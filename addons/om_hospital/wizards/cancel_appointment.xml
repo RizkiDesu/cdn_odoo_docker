@@ -10,7 +10,7 @@
                 <form string="">
                         <group>
                             <group>
-                                <field name="appointment_id"/>
+                                <field name="app_id"/>
                                 <field name="reason"/>
                             </group>
                             <group>

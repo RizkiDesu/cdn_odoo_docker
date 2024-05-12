@@ -27,28 +27,15 @@ class CdnPasien(models.Model):
     tag_ids         = fields.Many2many(comodel_name='cdn.pasien.tag', string='Tags') # many to many ke tabel cdn pasien tag
 
     @api.model
-    def create (self, vals): # fungsi create untuk membuat record baru
-
-        print("...........", self.env['ir.sequence']) # print untuk mengecek apakah ir.sequence sudah terbaca atau belum
-
-        # contoh isi adalah vals = {'__last_update': False, 'image': False, 'name': 'nama pasien', 'tgl_lahir': '2024-05-07', 'appoinment_id': 14, 'ref': 'Odoo Mates', 'jenis_kel': 'l', 'tag_ids': [[6, False, [18]]], 'active': True}
-        
-        vals['ref'] = self.env['ir.sequence'].next_by_code('cdn.pasien') # mengisi ref dengan sequence ir.sequence dengan code cdn.pasien
-        
-        # vals['ref'] = vals['ref'] or 'Odoo Mates' # jika ref tidak di isi maka ref akan di isi dengan Odoo Mates
-        # vals['ref'] = 'Odoo Mates' # mengisi ref dengan Odoo Mates
-
+    def create (self, vals): 
+        print("...........", self.env['ir.sequence']) 
+        vals['ref'] = self.env['ir.sequence'].next_by_code('nomor.pasien') 
         return super(CdnPasien, self).create(vals) # membuat record baru dengan nilai vals yang di inputkan
     
-    def write(self, vals): # fungsi write untuk mengubah record yang sudah ada
-        # print("write methot trigerr", vals) # print untuk mengecek apakah vals sudah terbaca atau belum
-        # # output : write methot trigerr {'tgl_lahir': '2000-03-10'}
-        # res = super(CdnPasien, self).write(vals) 
-        # return res
+    def write(self, vals):
         if not self.ref: # jika ref kosong
-            vals['ref'] = self.env['ir.sequence'].next_by_code('cdn.pasien') # mengisi ref dengan sequence ir.sequence dengan code cdn.pasien
-        res = super(CdnPasien, self).write(vals) # mengubah record yang sudah ada
-        # hasil jika di database ada nilainya maka gak brubah jika tidak ada maka akan di isi dengan sequence ir.sequence dengan code cdn.pasien
+            vals['ref'] = self.env['ir.sequence'].next_by_code('nomor.pasien') # penomoran
+        res = super(CdnPasien, self).write(vals)
         return res 
     
     @api.depends('tgl_lahir') #fungsi untuk menghitung umur pasien berdasarkan tanggal lahir pasien 

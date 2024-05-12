@@ -34,6 +34,7 @@
                         decoration-muted="state == 'on_consultasion'"
                         sample="1" multi_edit="1">  <!-- multi_edit digunakan untuk mengedit banyak , sample digunakan untuk menampiklan field kosong -->
                     <!-- Add your fields here -->
+                    <field name="name"/>
                     <field name="pasien_id"/>
                     <field name="ref" optional="show"/>
                     <field name="dokter_id" widget="many2one_avatar_user"/> <!-- widget many2one_avatar_user -->
@@ -90,18 +91,19 @@
                                 class="oe_highlight" 
                                 states="draf,on_consultasion"/> <!-- states="draf,on_consultasion" -->
 
-                        <!-- <button name="%(om_hospital.cdn_wz_batalapointment_action)d" 
-                                data-hotkey="z" 
-                                string="Batal" 
-                                type="action" 
-                                states="draf,on_consultasion"/> -->
+                        <button name="%(om_hospital.cdn_wz_batalapointment_action)d" 
+                                data-hotkey="z" string="Batal" type="action" 
+                                states="draf,on_consultasion"/>
+
+                               <!-- context="{'default_app_id': active_id}"  maksudnya mengirimkan nilai active_id ke default_app_id (not work in odoo 16)-->
                                 
-                        <button name="action_draf" 
+                        <!-- <button name="action_draf" 
                                 string="Draft"
                                 data-hotkey="r"  
                                 type="object" 
                                 class="oe_highlight" 
-                                states="cancel"/> <!-- states="cancel" -->
+                                states="cancel"/>  -->
+                                <!-- states="cancel" -->
 
 
                         <!-- tekan alt untuk menampiklan hot key -->
@@ -122,6 +124,7 @@
                         <group>
                             <!-- Add your fields here -->
                             <group>
+                                <field name="name" readonly="1" default='New'/>
                                 <field name="pasien_id"/>
                                 <field name="ref"/>
                                 <field name="jenis_kel"/>
@@ -131,7 +134,7 @@
                             </group>
                             <group>
                                 <!-- gak bisa di kasih groups="base.group_no_one" -->
-                                <field name="hide_sales_price"/>
+                                <field name="hide_sales_price" />
 
                                 <field name="appoinment_time" />
                                 <button name="action_test" string="Tes Button" type="object" 
@@ -139,6 +142,8 @@
                                         help="kalau di klik akan menjalankan fungsi python"
                                         class="oe_highlight" 
                                         groups="base.group_no_one"/>    <!-- groups="base.group_no_one" -->
+
+
                                 <button name="%(om_hospital.cdn_pasien_action)d" string="Action Button" 
                                         help="kalau di klik akan menuju ke record pasien"
                                         confirm="anda yakin mau ke halaman pasien ?"

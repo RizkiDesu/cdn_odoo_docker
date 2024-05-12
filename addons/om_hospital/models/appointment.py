@@ -4,9 +4,10 @@ class CdnAppointment(models.Model):
     _name           = 'cdn.appointment' # nama tabel di database
     _inherit        = ['mail.thread','mail.activity.mixin'] # tambahkan mail thread
     _description    = 'Cdn Appointment' # deskripsi tabel di database
-    _rec_name       = 'ref' # record efeknya akan menampikalan nama buakn id 
+    _rec_name       = 'name' # record efeknya akan menampikalan nama buakn id 
 
-
+    name            = fields.Char(string='sequence') # field name
+    
     pasien_id       = fields.Many2one(comodel_name='cdn.pasien', string='Pasien') # many to one ke tabel cdn pasien
     appoinment_time = fields.Datetime(string='Appoinment Time', default=fields.Datetime.now) # tabel waktu appoinment
     jenis_kel       = fields.Selection(related='pasien_id.jenis_kel') # tabel jenis kelamin
@@ -31,7 +32,16 @@ class CdnAppointment(models.Model):
     farmasi_ids     = fields.One2many(comodel_name='cdn.farmasi', inverse_name='appointment_id', string='Farmasi') # tabel farmasi
     
     hide_sales_price = fields.Boolean(string='Sembuyikan Sales Harga') # tabel sembuyikan sales harga
-    
+
+    @api.model
+    def create(self, vals):
+        vals['name'] = self.env['ir.sequence'].next_by_code('nomor.appointmen')
+        return super(CdnAppointment, self).create(vals)
+    def write(self, vals):
+        if not self.ref: # jika ref kosong
+            vals['name'] = self.env['ir.sequence'].next_by_code('nomor.appointmen')
+        res = super(CdnAppointment, self).write(vals)
+        return res
 
     @api.onchange('pasien_id') # fungsi on change untuk mengubah refrensi ketika pasien di ubah
     def _onchange_pasien_id(self):
