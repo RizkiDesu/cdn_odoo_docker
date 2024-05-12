@@ -19,7 +19,7 @@
         <!-- This Menu Item Must have a parent -->
         <menuitem 
             id="appointment_menu_categ" 
-            name="Janjian" 
+            name="Appointmen Menu" 
             parent="rumahsakit_menu_root" 
             sequence="0"/>
 

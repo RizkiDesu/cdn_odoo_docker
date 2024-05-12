@@ -38,7 +38,7 @@ class CdnAppointment(models.Model):
         vals['name'] = self.env['ir.sequence'].next_by_code('nomor.appointmen')
         return super(CdnAppointment, self).create(vals)
     def write(self, vals):
-        if not self.ref: # jika ref kosong
+        if not self.ref: # jika kosong
             vals['name'] = self.env['ir.sequence'].next_by_code('nomor.appointmen')
         res = super(CdnAppointment, self).write(vals)
         return res

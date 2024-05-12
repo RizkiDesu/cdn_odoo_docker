@@ -229,7 +229,7 @@
         <!-- This Menu Item must have a parent and an action -->
         <menuitem 
             id="appointment_menu_act" 
-            name="Janjian" 
+            name="Appointmen" 
             parent="appointment_menu_categ" 
             action="cdn_appointment_action" 
             sequence="0"/>
