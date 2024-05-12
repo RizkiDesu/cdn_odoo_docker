@@ -4,7 +4,7 @@ class CdnAppointment(models.Model):
     _name           = 'cdn.appointment' # nama tabel di database
     _inherit        = ['mail.thread','mail.activity.mixin'] # tambahkan mail thread
     _description    = 'Cdn Appointment' # deskripsi tabel di database
-    _rec_name       = 'name' # record efeknya akan menampikalan nama buakn id 
+    _rec_name       = 'name' 
 
     name            = fields.Char(string='sequence') # field name
     

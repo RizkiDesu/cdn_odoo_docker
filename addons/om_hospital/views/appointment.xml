@@ -76,33 +76,37 @@
                                 type="object" 
                                 class="oe_highlight" 
                                 states="draf"/> <!-- states="draf" -->
+                                
                         <button name="action_done" 
                                 data-hotkey="v"
                                 string="Selesai" 
                                 type="object" 
                                 class="oe_highlight" 
-                                states="on_consultasion"/>  <!-- states="on_consultasion" -->
+                                states="on_consultasion"/>  
+                                <!-- states="on_consultasion" -->
 
 
-                        <button name="action_cancel"
+                        <!-- <button name="action_cancel"
                                 data-hotkey="z" 
                                 string="Batal" 
                                 type="object" 
                                 class="oe_highlight" 
-                                states="draf,on_consultasion"/> <!-- states="draf,on_consultasion" -->
+                                states="draf,on_consultasion"/>  -->
+                                <!-- states="draf,on_consultasion" -->
 
                         <button name="%(om_hospital.cdn_wz_batalapointment_action)d" 
                                 data-hotkey="z" string="Batal" type="action" 
+                                context="{'hide_app': 1}"
                                 states="draf,on_consultasion"/>
 
                                <!-- context="{'default_app_id': active_id}"  maksudnya mengirimkan nilai active_id ke default_app_id (not work in odoo 16)-->
                                 
-                        <!-- <button name="action_draf" 
+                        <button name="action_draf" 
                                 string="Draft"
                                 data-hotkey="r"  
                                 type="object" 
                                 class="oe_highlight" 
-                                states="cancel"/>  -->
+                                states="cancel"/> 
                                 <!-- states="cancel" -->
 
 
@@ -121,10 +125,15 @@
                                 <field name="ploritas" widget="priority" class="me-3"/> <!-- widget="priority" -->
                             </h2>
                         </div>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" readonly="1"/>
+                            </h1>
+                        </div>
                         <group>
                             <!-- Add your fields here -->
                             <group>
-                                <field name="name" readonly="1" default='New'/>
+                                <!-- <field name="name" readonly="1" default='New'/> -->
                                 <field name="pasien_id"/>
                                 <field name="ref"/>
                                 <field name="jenis_kel"/>

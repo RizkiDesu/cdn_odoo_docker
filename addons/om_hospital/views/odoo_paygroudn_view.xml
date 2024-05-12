@@ -53,6 +53,10 @@
                 Sumber : https://ngasturi.id/2022/10/08/penggunaan-action-window-pada-odoo-v15/
             -->
         </record>
+       
+        <!-- <menuitem id="menu_teknikal_root" name="Teknikal" sequence="0"/>
+        <menuitem id="menu_teknikalu_categ" name="Teknikal_categ" parent="menu_teknikal_root" sequence="0"/>
+        <menuitem id="paygropund_menu_act" name="Playground" parent="menu_teknikalu_categ" action="odoo_playgroud_action" sequence="0"/> -->
 
         <menuitem id="teknikal_menu_root" name="Teknikal" sequence="0">
             <menuitem id="menu_teknikal" name="Teknikal_categ" sequence="0">
