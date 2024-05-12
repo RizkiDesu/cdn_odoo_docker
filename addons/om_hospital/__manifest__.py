@@ -14,8 +14,8 @@
     'data': [
         # 'security/groups.xml',
         'security/ir.model.access.csv', #menambahkan security ir.model.access.csv 
-        'data/pasien_tag_data.xml', 
-        'data/cdn.pasien.tag.csv', #nama ikut model
+        # 'data/pasien_tag_data.xml', 
+        # 'data/cdn.pasien.tag.csv', #nama ikut model
         'data/sequence_data.xml',
         'wizards/cancel_appointment.xml',
         'views/menu.xml',
