@@ -14,7 +14,9 @@ class CdnPasien(models.Model):
     # ref             = fields.Char(string='Refrensi', default='Odoo Mates') # field refrensi dengan nilai default Odoo Mates
     ref             = fields.Char(string='Refrensi') # field refrensi 
 
-    umur            = fields.Integer(string='Umur', tracking=True, compute='_compute_umur', inverse='_inverse_compute_umur' )  # field umur dengan fungsi compute _compute_umur untuk menghitung umur pasien berdasarkan tanggal lahir pasien
+    umur            = fields.Integer(string='Umur', tracking=True, 
+                                     compute='_compute_umur', search='_search_umur',
+                                     inverse='_inverse_compute_umur' )  # field umur dengan fungsi compute _compute_umur untuk menghitung umur pasien berdasarkan tanggal lahir pasien
     
     jenis_kel       = fields.Selection(string='Jenis Kelamin', 
                                  selection=[('l', 'laki laki'), 
@@ -83,6 +85,12 @@ class CdnPasien(models.Model):
             today = date.today()
             rec.tgl_lahir = today - relativedelta(years=rec.umur)
     
+    def _search_umur(self, operator, value): # fungsi untuk mencari umur pasien
+        tgl_lahir = date.today() - relativedelta(years=value)
+        start_of_year = tgl_lahir.replace(day=1, month=1)
+        end_of_year = tgl_lahir.replace(day=31, month=12)
+        return [('tgl_lahir', '>=', start_of_year), ('tgl_lahir', '<=', end_of_year)]
+        
     # https://www.cybrosys.com/blog/how-to-use-of-name-get-function-in-odoo
     # def name_get(self):
     #     result = []
