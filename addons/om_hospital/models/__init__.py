@@ -6,3 +6,4 @@ from . import pasien
 from . import appointment
 from . import pasien_tag
 from . import odoo_playgroud
+from . import res_config_settings

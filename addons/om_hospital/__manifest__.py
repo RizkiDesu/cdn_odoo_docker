@@ -26,6 +26,7 @@
         'views/appointment.xml',
         'views/pasien_tag.xml', 
         'views/odoo_paygroudn_view.xml',
+        'views/res_config_settings_view.xml',
     ], 
     'aplication':True, #menambahkan aplication
 
