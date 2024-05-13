@@ -31,14 +31,21 @@
                                 <field name="umur"/>
                                 <field name="tgl_lahir"/>
                                 <!-- <field name="appoinment_id"/> -->
-                                <field name="appoinment_count"/>
+                                <!-- <field name="appoinment_count"/> -->
                             </group>
                             <group>
                                 <field name="ref"/>
                                 <field name="jenis_kel" invisible="context.get('hide_jenis_kel')"/>
                                 <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'warna'}"/>
                                 <field name="active" invisible="1"/>
+                                <field name="appoinment_count"/>
                             </group> 
+                            <group name="informasi_lain" string="Informasi lain">
+                                <!-- <field name="parent" invisible="1"/> -->
+                                <field name="parent" attrs="{'invisible':['|', ('umur','&lt;',18), ('jenis_kel','=','l')]}"/>  <!-- atau -->
+                                <field name="is_menikah"/>
+                                <field name="parent_name"/>
+                            </group>
                         </group>
                     </sheet>
                     <!-- Chatter -->
@@ -100,10 +107,6 @@
             parent="pasien_menu_categ" 
             action="cdn_pasien_action" 
             sequence="0"/>
-        
-        
-    
-        
     
     </data>
     

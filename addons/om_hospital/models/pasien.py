@@ -31,6 +31,13 @@ class CdnPasien(models.Model):
     appoinment_count = fields.Char(compute='_compute_appoinment_count', string='Appoinment Count')
     appoinment_ids = fields.One2many(comodel_name='cdn.appointment', inverse_name='pasien_id', string='Appoinments')
     
+    
+    
+    parent = fields.Char(string='Parrent')
+    is_menikah = fields.Selection(string='Menikah', selection=[('menikah', 'Sudah Menikah'), ('single', 'Single'),])
+    parent_name = fields.Char(string='Nama Parner')
+     
+    
     @api.depends('appoinment_ids')
     def _compute_appoinment_count(self):
         for rec in self:
