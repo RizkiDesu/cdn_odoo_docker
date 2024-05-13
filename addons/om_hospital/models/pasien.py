@@ -1,4 +1,4 @@
-from odoo import api, fields, models
+from odoo import api, fields, models,_
 from datetime import date
 from odoo.exceptions import ValidationError as pesan_error
 
@@ -49,6 +49,12 @@ class CdnPasien(models.Model):
         for rec in self: # looping untuk mengecek tanggal lahir pasien
             if rec.tgl_lahir > date.today(): # jika tanggal lahir pasien lebih dari hari ini
                 raise pesan_error('Tanggal lahir tidak boleh lebih dari hari ini') # tampilkan pesan error
+    
+    @api.ondelete(at_uninstall=False) # fungsi untuk menghapus data pasien
+    def _check_appoinments(self):
+        for rec in self: 
+            if rec.appoinment_ids: 
+                raise pesan_error(_('Tidak bisa menghapus pasien yang memiliki appoinment'))
 
     @api.model
     def create (self, vals): 

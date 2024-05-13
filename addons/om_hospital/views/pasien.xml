@@ -13,6 +13,7 @@
                     <field name="ref"/>
                     <field name="umur"/>
                     <field name="jenis_kel"/>
+                    <field name="appoinment_count"/>
                 </tree>
             </field>
         </record>
