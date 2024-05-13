@@ -62,6 +62,14 @@
                     decoration-info = light blue
                     decoration-muted 
                      -->
+                    <button name="action_done" 
+                                type="object" 
+                                attrs="{'invisible': [('state', '!=', 'on_consultasion')]}"
+                                class="fa fa-check btn-success"/>    
+                    <button name="%(om_hospital.cdn_wz_batalapointment_action)d" 
+                                type="action"
+                                class="fa fa-times btn-danger" 
+                                attrs="{'invisible': [('state', 'not in',('draf','on_consultasion'))]}"/>
 
                 </tree>
             </field>
@@ -84,7 +92,7 @@
                                 
                         <button name="action_done" 
                                 data-hotkey="v"
-                                string="Selesai" 
+                                string="Tandai Selesai" 
                                 type="object" 
                                 class="oe_highlight" 
                                 states="on_consultasion"/>  

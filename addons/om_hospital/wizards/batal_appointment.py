@@ -31,5 +31,6 @@ class CdnWzBatalapointment(models.TransientModel):
     def action_cancel(self): # fungsi cancel untuk mengubah state menjadi cancel
         if self.app_id.booking_date == fields.Date.today(): # jika tanggal booking sama dengan hari ini
             raise pesan_error(_("Tidak bisa membatalkan appoinment hari ini"))
+        self.app_id.state = 'cancel' # mengubah state menjadi cancel
         return
     
