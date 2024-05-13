@@ -44,7 +44,7 @@
                                 <!-- <field name="parent" invisible="1"/> -->
                                 <field name="parent" attrs="{'invisible':['|', ('umur','&lt;',18), ('jenis_kel','=','l')]}"/>  <!-- atau -->
                                 <field name="is_menikah"/>
-                                <field name="parent_name"/>
+                                <field name="parent_name" attrs="{'readonly':[('is_menikah','!=','menikah')]}"/>
                             </group>
                         </group>
                     </sheet>
