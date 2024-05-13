@@ -85,4 +85,8 @@ class CdnPasien(models.Model):
     #         result.append((rec.id, "{} - {}".format(rec.ref, rec.name)))
     #     return result
     
-    def name_get(self): return [(rec.id, "{} {}".format(rec.ref, rec.name)) for rec in self] # fungsi name get untuk menampilkan nama pasien dengan refrensi pasien
+    def name_get(self): return [(rec.id, "[{}] {}".format(rec.ref, rec.name)) for rec in self] # fungsi name get untuk menampilkan nama pasien dengan refrensi pasien
+
+    def action_test (self): 
+        print('test')
+        return True

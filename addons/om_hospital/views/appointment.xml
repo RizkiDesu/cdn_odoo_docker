@@ -63,14 +63,23 @@
                     decoration-muted 
                      -->
                     <button name="action_done" 
-                                type="object" 
+                                type="object" title="Test"
                                 attrs="{'invisible': [('state', '!=', 'on_consultasion')]}"
                                 class="fa fa-check btn-success"/>    
                     <button name="%(om_hospital.cdn_wz_batalapointment_action)d" 
                                 type="action"
                                 class="fa fa-times btn-danger" 
                                 attrs="{'invisible': [('state', 'not in',('draf','on_consultasion'))]}"/>
-
+                    
+                    <groupby name="pasien_id">
+                        <button name="action_test" 
+                                string="clik me to test button"
+                                type="object" class="oe_highlight"/>
+                        <button name="edit" 
+                                string="Edit"
+                                type="edit" class="fa fa-times btn-dark"
+                                invisible="0" Text="black"/>
+                    </groupby>
                 </tree>
             </field>
         </record>
