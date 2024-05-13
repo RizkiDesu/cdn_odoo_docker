@@ -14,7 +14,7 @@ class CdnPasien(models.Model):
     # ref             = fields.Char(string='Refrensi', default='Odoo Mates') # field refrensi dengan nilai default Odoo Mates
     ref             = fields.Char(string='Refrensi') # field refrensi 
 
-    umur            = fields.Integer(string='Umur', tracking=True, compute='_compute_umur', _inverse='_inverse_compute_umur')  # field umur dengan fungsi compute _compute_umur untuk menghitung umur pasien berdasarkan tanggal lahir pasien
+    umur            = fields.Integer(string='Umur', tracking=True, compute='_compute_umur', inverse='_inverse_compute_umur' )  # field umur dengan fungsi compute _compute_umur untuk menghitung umur pasien berdasarkan tanggal lahir pasien
     
     jenis_kel       = fields.Selection(string='Jenis Kelamin', 
                                  selection=[('l', 'laki laki'), 
