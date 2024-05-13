@@ -8,7 +8,7 @@
             <field name="res_model">cdn.pasien</field>
             <field name="view_mode">tree,form</field>
             <field name="domain">[('jenis_kel','=','p')]</field> <!-- domain menampilkan prempuan -->
-            <field name="context">{'default_jenis_kel':'p', 'default_umur': 25, 'hide_jenis_kel': 1 }</field>  <!-- default jenis kelamin perempuan-->
+            <field name="context">{'default_jenis_kel':'p', 'hide_jenis_kel': 1 }</field>  <!-- default jenis kelamin perempuan-->
             <!-- coba : https://ngasturi.id/2019/12/24/odoo-membuat-action-server/ -->
             <field name="help" type="html">
                 <p class="oe_view_nocontent_create">

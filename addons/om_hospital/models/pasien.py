@@ -27,6 +27,16 @@ class CdnPasien(models.Model):
     image           = fields.Image(string='gambar') # field image
     tag_ids         = fields.Many2many(comodel_name='cdn.pasien.tag', string='Tags') # many to many ke tabel cdn pasien tag
 
+    # appoinment_count = fields.Char(compute='_compute_appoinment_count', string='Appoinment Count', store=True)
+    appoinment_count = fields.Char(compute='_compute_appoinment_count', string='Appoinment Count')
+    appoinment_ids = fields.One2many(comodel_name='cdn.appointment', inverse_name='pasien_id', string='Appoinments')
+    
+    @api.depends('appoinment_ids')
+    def _compute_appoinment_count(self):
+        for rec in self:
+            rec.appoinment_count = self.env['cdn.appointment'].search_count([('pasien_id', '=', rec.id)])
+            # rec.appoinment_count = 10
+    
     @api.constrains('tgl_lahir') # fungsi untuk mengecek tanggal lahir pasien tidak boleh lebih dari hari ini
     def _check_tgl_lahir(self):
         for rec in self: # looping untuk mengecek tanggal lahir pasien

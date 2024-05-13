@@ -22,7 +22,8 @@ class CdnWzBatalapointment(models.TransientModel):
         ref = super (CdnWzBatalapointment, self).default_get(fields)
         ref['tanggal_batal'] = tanggal.date.today() 
         ref['reason'] = 'Alasan Batal'
-        # print("............", self.env.context) # hasil ............{'lang': 'en_US', 'tz': 'Asia/Jakarta', 'uid': 2, 'allowed_company_ids': [1], 'active_model': 'cdn.appointment', 'active_id': 24, 'active_ids': [24]}
+        # print("............", self.env.context) # 
+        # hasil ............{'lang': 'en_US', 'tz': 'Asia/Jakarta', 'uid': 2, 'allowed_company_ids': [1], 'active_model': 'cdn.appointment', 'active_id': 24, 'active_ids': [24]}
         if self.env.context.get('active_id'): # jika active id ada
             ref['app_id'] = self.env.context.get('active_id') # mengambil active id
         return ref
