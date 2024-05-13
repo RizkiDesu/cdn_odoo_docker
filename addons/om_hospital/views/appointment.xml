@@ -34,6 +34,11 @@
                         decoration-muted="state == 'on_consultasion'"
                         sample="1" multi_edit="1">  <!-- multi_edit digunakan untuk mengedit banyak , sample digunakan untuk menampiklan field kosong -->
                     <!-- Add your fields here -->
+                    <header>
+                        <button name="action_on_consultasion" 
+                                string="Lagi Konsultasi"
+                                type="object" class="oe_highlight"/> 
+                    </header>
                     <field name="name"/>
                     <field name="pasien_id"/>
                     <field name="ref" optional="show"/>

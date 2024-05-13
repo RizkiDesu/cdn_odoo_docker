@@ -66,7 +66,8 @@ class CdnAppointment(models.Model):
             }
     def action_on_consultasion(self): # fungsi on consultasion untuk mengubah state menjadi on consultasion
         for rec in self:
-            rec.state ='on_consultasion'
+            if rec.state == 'draf': # jika state draf
+                rec.state ='on_consultasion'
 
     def action_done(self): # fungsi done untuk mengubah state menjadi done
         for rec in self:

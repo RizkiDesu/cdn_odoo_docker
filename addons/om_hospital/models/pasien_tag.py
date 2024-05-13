@@ -1,6 +1,5 @@
 from odoo import api, fields, models,_
 
-
 class CdnPasienTag(models.Model):
     _name           = 'cdn.pasien.tag' # Model name
     _description    = 'Cdn Pasien Tag' # Model description
