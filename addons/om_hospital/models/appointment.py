@@ -9,7 +9,8 @@ class CdnAppointment(models.Model):
 
     name            = fields.Char(string='sequence') # field name
     
-    pasien_id       = fields.Many2one(comodel_name='cdn.pasien', string='Pasien') # many to one ke tabel cdn pasien
+    # pasien_id       = fields.Many2one(comodel_name='cdn.pasien', string='Pasien', ondelete='restrict')
+    pasien_id       = fields.Many2one(comodel_name='cdn.pasien', string='Pasien', ondelete='cascade') 
     appoinment_time = fields.Datetime(string='Appoinment Time', default=fields.Datetime.now) # tabel waktu appoinment
     jenis_kel       = fields.Selection(related='pasien_id.jenis_kel') # tabel jenis kelamin
     booking_date    = fields.Date(string='Tanggal Booking', default=fields.Date.context_today) # tabel tanggal booking
