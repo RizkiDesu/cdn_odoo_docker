@@ -22,21 +22,22 @@
             <field name="name">cdn.pasien.view.form</field>
             <field name="model">cdn.pasien</field>
             <field name="arch" type="xml">
-                <form string="">
+                <form>
                     <sheet>
                         <field name="image" widget="image" class="oe_avatar"/>
+                        <div class="oe_title">
+                            <h4>
+                                <field name="ref" readonly="1"/>
+                            </h4>
+                            <h2>
+                                <label for="name" string="Name" class="oe_edit_only"/>
+                                <field name="name"/>
+                            </h2>
+                        </div>
                         <group>
-                            <div class="oe_title">
-                                <h2>
-                                    <field name="ref" readonly="1"/>
-                                </h2>
-                                <h2>
-                                    <field name="name"/>
-                                </h2>
-                            </div>
                             <group>
-                                <field name="umur"/>
                                 <field name="tgl_lahir"/>
+                                <field name="umur"/>
                                 <!-- <field name="appoinment_id"/> -->
                                 <!-- <field name="appoinment_count"/> -->
                             </group>
