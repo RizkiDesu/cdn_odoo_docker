@@ -47,8 +47,9 @@ class CdnAppointment(models.Model):
 
     def unlink(self): # fungsi unlink untuk menghapus data
         print("test........", self)
-        if self.state != 'draf': # jika state draf
-            raise pesan_error(_("Tidak bisa menghapus data yang sudah di proses")) # tampilkan pesan error
+        for rec in self:
+            if rec.state != 'draf': # jika state draf
+                raise pesan_error(_("Tidak bisa menghapus data yang sudah di proses")) # tampilkan pesan error
         return super(CdnAppointment, self).unlink()
 
     @api.onchange('pasien_id') # fungsi on change untuk mengubah refrensi ketika pasien di ubah

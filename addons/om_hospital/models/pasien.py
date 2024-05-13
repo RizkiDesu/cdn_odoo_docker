@@ -1,5 +1,6 @@
 from odoo import api, fields, models,_
 from datetime import date
+from dateutil.relativedelta import relativedelta
 from odoo.exceptions import ValidationError as pesan_error
 
 class CdnPasien(models.Model):
@@ -13,7 +14,7 @@ class CdnPasien(models.Model):
     # ref             = fields.Char(string='Refrensi', default='Odoo Mates') # field refrensi dengan nilai default Odoo Mates
     ref             = fields.Char(string='Refrensi') # field refrensi 
 
-    umur            = fields.Integer(string='Umur', tracking=True, compute='_compute_umur')  # field umur dengan fungsi compute _compute_umur untuk menghitung umur pasien berdasarkan tanggal lahir pasien
+    umur            = fields.Integer(string='Umur', tracking=True, compute='_compute_umur', _inverse='_inverse_compute_umur')  # field umur dengan fungsi compute _compute_umur untuk menghitung umur pasien berdasarkan tanggal lahir pasien
     
     jenis_kel       = fields.Selection(string='Jenis Kelamin', 
                                  selection=[('l', 'laki laki'), 
@@ -76,7 +77,11 @@ class CdnPasien(models.Model):
                 rec.umur = today.year - rec.tgl_lahir.year # menghitung umur pasien
             else:
                 rec.umur = 0 #jika tidak di kasih else nilai bakal null dan error
-    
+    @api.depends('umur')
+    def _inverse_compute_umur(self):
+        for rec in self:
+            today = date.today()
+            rec.tgl_lahir = today - relativedelta(years=rec.umur)
     
     # https://www.cybrosys.com/blog/how-to-use-of-name-get-function-in-odoo
     # def name_get(self):
