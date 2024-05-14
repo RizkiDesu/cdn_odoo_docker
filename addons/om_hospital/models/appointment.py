@@ -21,7 +21,6 @@ class CdnAppointment(models.Model):
                                 ('1', 'Low'),
                                 ('2', 'High'),
                                 ('3', 'Very High')
-                                # ('4', 'God')
                                 ], string="Priority") # tabel prioritas dengan bintang dan jumlah bintang mengikuti banyaknya seleksi
     state           = fields.Selection([
                                 ('draf', 'Draft'),
@@ -89,4 +88,7 @@ class CdnFarmasi(models.Model):
     price_unit      = fields.Float(string='Harga',related='produk_id.list_price') # tabel harga
     qty             = fields.Integer(string='Quantity', default=1) # tabel quantity
     appointment_id  = fields.Many2one(comodel_name='cdn.appointment', string='Appointment') # many to one ke tabel cdn appointment
+    
+    
+    
     
