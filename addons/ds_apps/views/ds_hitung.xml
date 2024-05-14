@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <!-- desu.hitung tree view -->
+    <record id="desu_hitung_view_tree" model="ir.ui.view">
+        <field name="name">desu.hitung.view.tree</field>
+        <field name="model">desu.hitung</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="name"/>
+                <field name="hasil"/>
+                
+            </tree>
+        </field>
+    </record>
+    <!-- desu.hitung form view -->
+    <record id="desu_hitung_view_form" model="ir.ui.view">
+        <field name="name">desu.hitung.view.form</field>
+        <field name="model">desu.hitung</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="kelipatan"/>
+                        </group>
+                        <field name="hasil"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- desu.hitung action window -->
+    <record id="desu_hitung_action" model="ir.actions.act_window">
+        <field name="name">desu.hitung.action</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">desu.hitung</field>
+        <field name="view_mode">tree,form</field>
+        <field name="target">current</field>
+
+    </record>
+    <menuitem id="hitung_menu_act" name="Hitung" parent="master_pengaturan_menu_categ" action="desu_hitung_action" sequence="0"/>
+
+
+</odoo>

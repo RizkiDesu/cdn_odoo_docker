@@ -1,4 +1,4 @@
- Odoo
+# Odoo Tutorial By Rizki Desu
 
 ## 1. Membuat Module
 - buat folder modulnya contoh `om_hospital`.
@@ -173,5 +173,79 @@ nama_field = fields.Many2one(comodel_name='<model>', string='<Label>')
 ```
 
 ## 23 relate database 
-- untuk mengakses database kalau di odoo model dari yang lain biasanya menggunakan `related`
+- untuk mengakses database kalau di odoo model dari yang lain biasanya menggunakan `related` defaultnya read only
 - contoh 
+```
+<variabel> = fields.<jenis_variabel>(related='<model/tabel>.<field/data>')
+```
+## 24 compute
+- dalam odoo ada sebuah teknik yang namanya compute berikut contoh simpelnya
+```
+variabel = fields.Integer(string='angka1') 
+hasil = fields.Integer(string='Hasil 2x lipat', compute='_2xlipat', store=True) #store artinya menyimpan ke db
+@api.depends('variabel') # akan di utamakan variabel yang di sini
+def _2xlipat(self): #selft artinya diri sendiri yaitu model itu sendiri
+    self.hasil=self.variabel * self.variabel #variabel di kali variabel
+```
+## 25 onchange 
+- contoh implentasi
+
+```
+pejabat_id = fields.Many2one(comodel_name='desu.pejabat', string='Nama Atasan')
+jabatan_pejabat = fields.Char(string='Jabatan Atasan', store=True, readonly=True)
+@api.onchange('pejabat_id')
+def _onchange_pasien_id(self):
+    self.jabatan_pejabat = self.pejabat_id.jenis_jabatan
+```
+- field `jabatan_pejabat` akan di ganti menggunakan fungsi `_onchange_pasien_id`
+
+## 26 penggunakan rec name
+- saat membat model tanpa field name atau ingin mengcostume name nanti akan ketemu masaalah sehingga hanya memunculkan id olekarena itu penggunaaan rech_name penting contoh implentasi: 
+```
+_rec_name = '<nama field yang ingin di tampilkan>'
+```
+
+## 27 nootebook 
+```
+<notebook>
+    <page string="Resep" name="resep">
+        <group>
+            <field>
+        </group>
+    </page>
+    <page string="Farmasi" name="farmasi">
+        <group>
+            <field>
+        </group>
+    </page>
+</notebook>
+```
+
+## 28 html
+
+## 29 hapus tombol edit delete duplikat
+- tree
+```
+<tree create="0" delete="0">
+```
+- from
+```
+form create="0" delete="0" edit="0">
+```
+
+## 30 prority 
+- buat seleksi field contoh
+```
+ploritas= fields.Selection([('0', 'Normal'),('1', 'Low'),('2', 'High'),('3', 'Very High')], string="Priority") 
+```
+- lalu buat view nya 
+```
+<div>
+    <h2>
+        <field name="ploritas" widget="priority" class="me-3"/>
+    </h2>
+</div>
+```
+## 31 status bar
+
+## 32 

@@ -27,7 +27,8 @@
                             <field name="name"/>
                             <field name="jenis_jabatan"/>
                             <field name="jabatan_id" attrs="{'invisible': [('jenis_jabatan', '!=', 'staf')],}"/>
-                            </group>
+                            <field name="anggota_ids"/>
+                        </group>
                     </sheet>
                 </form>
             </field>

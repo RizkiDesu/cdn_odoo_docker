@@ -1,3 +1,9 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_ds_apps_ds_apps,ds_apps.ds_apps,model_ds_apps_ds_apps,base.group_user,1,1,1,1
-access_ds_apps_ds_apps,ds_apps.ds_apps,model_ds_apps_ds_apps,base.group_user,1,1,1,1
+
+access_desu_jabatan,access_desu_jabatan,model_desu_jabatan,base.group_user,1,1,1,1
+access_desu_pejabat,access_desu_pejabat,model_desu_pejabat,base.group_user,1,1,1,1
+
+access_desu_hitung,access_desu_hitung,model_desu_hitung,base.group_user,1,1,1,1
+
+
+access_ds_anggota,access_ds_anggota,model_ds_anggota,base.group_user,1,1,1,1

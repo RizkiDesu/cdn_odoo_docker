@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+    
+        <!-- ds.anggota tree view -->
+        <record id="ds_anggota_view_tree" model="ir.ui.view">
+            <field name="name">ds.anggota.view.tree</field>
+            <field name="model">ds.anggota</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <!-- Add your fields here -->
+                    <field name="name"/>
+                    <field name="jenis_kelamin"/>
+                    <field name="umur"/>
+                    
+                </tree>
+            </field>
+        </record>
+
+        <!-- ds.anggota form view -->
+        <record id="ds_anggota_view_form" model="ir.ui.view">
+            <field name="name">ds.anggota.view.form</field>
+            <field name="model">ds.anggota</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <group>
+                                <!-- Add your fields here -->
+                                <field name="nomor_anggota"/>
+                                <field name="name"/>
+                                <field name="jenis_kelamin"/>
+                            </group>
+                            <group>
+                                <!-- Add your fields here -->
+                                <field name="umur"/>
+                                <field name="tanggal_lahir"/>
+                                <field name="pejabat_id"/>
+                                <field name="jabatan_pejabat"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- ds.anggota action window -->
+        <record id="ds_anggota_action" model="ir.actions.act_window">
+            <field name="name">ds.anggota.action</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">ds.anggota</field>
+            <field name="view_mode">tree,form</field>
+            <field name="target">current</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p><p>
+                    <!-- More details about what a user can do with this object will be OK --> 
+                
+                </p>
+            </field>
+        </record>
+        <menuitem id="anggota_menu_act" name="Anggota" parent="master_pengaturan_menu_categ" action="ds_anggota_action" sequence="0"/>
+    </data>
+    
+</odoo>

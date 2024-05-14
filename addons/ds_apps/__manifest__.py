@@ -24,12 +24,14 @@
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
+        'security/ir.model.access.csv',
         # 'views/views.xml',
         # 'views/templates.xml',
         'views/ds_menu.xml',
         'views/ds_jabatan.xml',
         'views/ds_pejabat.xml',
+        'views/ds_anggota.xml',
+        'views/ds_hitung.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
