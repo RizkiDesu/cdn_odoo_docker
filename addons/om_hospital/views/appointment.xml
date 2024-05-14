@@ -117,7 +117,7 @@
                                 <!-- states="draf,on_consultasion" -->
 
                         <button name="%(om_hospital.cdn_wz_batalapointment_action)d" 
-                                data-hotkey="z" string="Batal" type="action" 
+                                data-hotkey="z" string="Batal" type="action" context="{'default_app_id': active_id, 'default_reason': 'alasan batal xml'}"
                                 states="draf,on_consultasion"/>
                                 <!-- context="{'hide_app': 1}" -->
 
