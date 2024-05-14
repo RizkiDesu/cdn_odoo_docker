@@ -16,7 +16,8 @@ class CdnPasien(models.Model):
 
     umur            = fields.Integer(string='Umur', tracking=True, 
                                      compute='_compute_umur', search='_search_umur',
-                                     inverse='_inverse_compute_umur' )  # field umur dengan fungsi compute _compute_umur untuk menghitung umur pasien berdasarkan tanggal lahir pasien
+                                     inverse='_inverse_compute_umur' )  
+    # field umur dengan fungsi compute _compute_umur untuk menghitung umur pasien berdasarkan tanggal lahir pasien
     
     jenis_kel       = fields.Selection(string='Jenis Kelamin', 
                                  selection=[('l', 'laki laki'), 
@@ -31,7 +32,7 @@ class CdnPasien(models.Model):
     tag_ids         = fields.Many2many(comodel_name='cdn.pasien.tag', string='Tags') # many to many ke tabel cdn pasien tag
 
     # appoinment_count = fields.Char(compute='_compute_appoinment_count', string='Appoinment Count', store=True)
-    appoinment_count = fields.Char(compute='_compute_appoinment_count', string='Appoinment Count')
+    appoinment_count = fields.Integer(compute='_compute_appoinment_count', string='Appoinment Count', store=True)
     appoinment_ids = fields.One2many(comodel_name='cdn.appointment', inverse_name='pasien_id', string='Appoinments')
     
     
@@ -50,8 +51,9 @@ class CdnPasien(models.Model):
     @api.constrains('tgl_lahir') # fungsi untuk mengecek tanggal lahir pasien tidak boleh lebih dari hari ini
     def _check_tgl_lahir(self):
         for rec in self: # looping untuk mengecek tanggal lahir pasien
-            if rec.tgl_lahir > date.today(): # jika tanggal lahir pasien lebih dari hari ini
-                raise pesan_error('Tanggal lahir tidak boleh lebih dari hari ini') # tampilkan pesan error
+            if rec.tgl_lahir and rec.tgl_lahir :
+                if rec.tgl_lahir > date.today(): # jika tanggal lahir pasien lebih dari hari ini
+                    raise pesan_error('Tanggal lahir tidak boleh lebih dari hari ini') # tampilkan pesan error
     
     @api.ondelete(at_uninstall=False) # fungsi untuk menghapus data pasien
     def _check_appoinments(self):

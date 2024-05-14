@@ -40,14 +40,14 @@
                                 <field name="tgl_lahir"/>
                                 <field name="umur"/>
                                 <!-- <field name="appoinment_id"/> -->
-                                <!-- <field name="appoinment_count"/> -->
+                                <field name="appoinment_count"/>
                             </group>
                             <group>
                                 
                                 <field name="jenis_kel" invisible="context.get('hide_jenis_kel')"/>
                                 <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'warna'}"/>
                                 <field name="active" invisible="1"/>
-                                <field name="appoinment_count"/>
+                                <!-- <field name="appoinment_count"/> -->
                             </group> 
                             <group name="informasi_lain" string="Informasi lain">
                                 <!-- <field name="parent" invisible="1"/> -->
