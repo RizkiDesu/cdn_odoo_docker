@@ -247,5 +247,85 @@ ploritas= fields.Selection([('0', 'Normal'),('1', 'Low'),('2', 'High'),('3', 'Ve
 </div>
 ```
 ## 31 status bar
+- membuat status bar awal awal buat field selection untuk acuan contoh
+```
+keadaan = fields.Selection([('draf', 'Draft'),('running', 'Berlangsung'),('done', 'Selesai'),('cancel', 'Batal'), string="Keadaan", required=True)
+```
+- view nya
+```
+<form>
+    <header>
+        <field 
+            name="keadaan" 
+            widget="statusbar" 
+            nolabel="1" 
+            statusbar_visible="draf,running,done"
+            options="{'clickable': '1'}"/>
+    </header>
+    <sheet>
+```
 
-## 32 
+## 32 membuat acrtion button
+- mula mula buat action funsinya dulu karena nanti program berjalan mengikuti fungsi ini contoh : 
+```
+def <nama fungsi>(self):
+    print("button test !!!")
+
+```
+- sekarang buat tombolnya di view model nya `bertype opbjek` karena ke fungsi
+```
+<button name="<nama fungsi>" string="Tes Button" type="object" class="oe_highlight"/>
+```
+- tes ke terminal atau docker logs mu
+
+## 33 menambahkan konfirmasi message di button 
+- caranya cukup tambahakan code berikut pada button mu
+```
+confirm="<pesan nya apa>"
+```
+## 34 help mesage
+- memumculkan pesan di field atau yang lain tambahkan 
+```
+help="<pesan nya apa>"
+```
+## 35 hitung umur brdasrkan tanggal lahir 
+- tambahakan library berikut: 
+```
+from datetime import date
+```
+fungsi nya berikut:
+```
+def _hitung_umur_dari_lahir(self):
+        for rec in self:
+            today = date.today()
+            if rec.tanggal_lahir:
+                rec.umur = today.year - rec.tanggal_lahir.year
+            else:
+                rec.umur = 0
+```
+
+## 36 menambahkan penand pelangi di objek button atau sebagainya 
+- tambahakan kode berikut ke fungsi 
+```
+return {
+            'effect': {
+                'fadeout': 'slow',
+                'message': 'Berhasil di klik',
+                'type': 'rainbow_man',
+            }
+        }
+```
+
+## 37 widget bandage dan decoration 
+- bandage untuk menambah penampilan 
+- decoration untuk memberikan warna contoh code 
+```
+<field name="keadaan" 
+                    decoration-success="keadaan == 'done'" 
+                    decoration-info="keadaan == 'draf'" 
+                    decoration-danger="keadaan == 'cancel'" 
+                    decoration-muted="keadaan == 'running'"
+                    widget="badge"/>
+```
+
+## 38 
