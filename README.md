@@ -3,15 +3,15 @@
 * link : `localhost:10016`
 * managae database : `localhost:10016/web/database/selectorweb/database/selector` in login page
 
-## Usage
+## 1 Usage
 
-### CLoning repo
+### a CLoning repo
 
 ``` bash
 git clone https://github.com/RizkiDesu/cdn_odoo_docker.git
 ```
 
-### Biar bisa akses folder dengan bebas(linux)
+### b Biar bisa akses folder dengan bebas(linux)
 
 - **If you get any permission issues**, change the folder permission to make sure that the container is able to access the directory:
 
@@ -21,7 +21,7 @@ sudo chmod -R 777 etc
 sudo chmod -R 777 postgresql
 ```
 
-### Start the container:
+### c Start the container:
 ``` sh
 docker-compose up
 ```
@@ -29,14 +29,14 @@ docker-compose up
 Then open `localhost:10016` to access Odoo 16.0.
 
 
-## SCAFFOLDING Odoo
+## 2 SCAFFOLDING Odoo
 
 ``` sh
 docker exec -it <nama_kontainer> /usr/bin/odoo scaffold <nama-modul> /mnt/extra-addons
 ```
 
 
-## Odoo container management
+## 3 Odoo container management
 
 **Run Odoo**:
 
@@ -55,21 +55,21 @@ docker-compose restart
 ``` bash
 docker-compose down
 ```
-## [tutorial odoo 16](tutor.md)
+## 4 [tutorial odoo 16](tutor.md)
 
-## docker-compose.yml
+## 5 docker-compose.yml
 
 * odoo:16.0
 * postgres:15
 
 
-## refrensi 
+## 6 refrensi 
 - [odoo mates](https://youtube.com/playlist?list=PLqRRLx0cl0hoZM788LH5M8q7KhiXPyuVU&si=MhywVwnZhOpRHCj4)
 - [auto didak](https://youtube.com/playlist?list=PLxnh_lDN7wxenhhZYqYQcB4JRMHtRs-cP&si=LVSFPzDKL2FZ5KWy)
 - [ppt](https://docs.google.com/presentation/d/1puiGoBsSbV-ovwSGJg63DhuzxVi-Klw9/edit#slide=id.p1)
 
 
-## CDN Ttaining screenshots.
+## 7 CDN Ttaining screenshots.
 
 
 <img src="screenshots/posgree.png" width="50%">
