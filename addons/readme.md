@@ -121,8 +121,8 @@ active = fields.Boolean(string='Activate', default=True)
 ```
 
 ## 17 tempat chat 
-- Chatter di Odoo adalah fitur komunikasi dan kolaborasi yang terintegrasi dalam berbagai modul Odoo. Fitur ini memungkinkan pengguna untuk berkomunikasi, berbagi informasi, dan melacak aktivitas terkait dengan dokumen bisnis seperti faktur, penjualan, pembelian, dan tugas proyek. 
-- cara menggunakanya tambahakan deppend `mail` 
+- Chatter adalah fitur komunikasi dan kolaborasi yang terintegrasi dalam berbagai modul Odoo. Fitur ini memungkinkan pengguna untuk berkomunikasi, berbagi informasi, dan melacak aktivitas terkait dengan dokumen bisnis seperti faktur, penjualan, pembelian, dan tugas proyek.
+- cara menggunakanya pertama aialah tambahakan deppend `mail` 
 - tambahakan `_inherit = ['mail.thread','mail.activity.mixin']` di model mu
 - dan tambahkan di view form di bawah sheet
 ```
@@ -137,11 +137,15 @@ active = fields.Boolean(string='Activate', default=True)
 ```
 
 ## 18 cara tracking model mu dan muncul histori
+- tracking adalah teknik untuk melacak perubahan data pada model mu
 - disetiap peribahan model ingin ada perubahan dan ti tampiklan di chatter
 - tambahakan `tracking=True` di model mu
 - contoh `name = fields.Char(string='Nama Pasien', tracking=True)`
 
 ## 19 menambahkan seach panel di odoo 
+- search panel adalah teknik untuk mempermudah pencarian data di odoo
+- tambahakan di view form di bawah sheet
+- contoh
 ```
     <searchpanel>
         <field name="<nama_field>" icon="fa-users" select='multi'/>
@@ -150,6 +154,7 @@ active = fields.Boolean(string='Activate', default=True)
 
 ## 20 Many2one 
 - Dalam Odoo, `Many2one` adalah salah satu jenis field yang digunakan dalam model data untuk merepresentasikan relasi banyak-ke-satu (Many-to-One) antara dua model. 
+- penulisan many2one adalah 
 
 ```
 nama_field = fields.Many2one(comodel_name='<model>', string='<Label>')
@@ -157,6 +162,7 @@ nama_field = fields.Many2one(comodel_name='<model>', string='<Label>')
 - contoh kasus many2one adalah kita sebagai desa yang  memiliki kecamatan
 
 ## 21 date time dan date
+- dalam odoo ada dua jenis field yang digunakan untuk menampilkan tanggal dan waktu yaitu `datetime` dan `date`
 - date time menampilkan tanggal dan waktu penulisan datetime adalah :
 ```
 <field_name> = fields.Datetime('string='<label>'')
@@ -167,18 +173,21 @@ nama_field = fields.Many2one(comodel_name='<model>', string='<Label>')
 ```
 
 ## 22 set default di py
+- dalam odoo kita bisa mengset default value di field yang kita buat 
 - set default bearti ada nilai yang terseting meskipun nanti tidak di isi
 ```
 <nama_field> = fields.Integer(string='<label>')
 ```
 
 ## 23 relate database 
-- untuk mengakses database kalau di odoo model dari yang lain biasanya menggunakan `related` defaultnya read only
-- contoh 
+- dalam odoo kita bisa mengakses database yang lain menggunakan `related`
+- kelemahan related adalah tidak bisa di edit
+- penulisan related adalah: 
 ```
 <variabel> = fields.<jenis_variabel>(related='<model/tabel>.<field/data>')
 ```
 ## 24 compute
+- dalam odoo kita bisa menghitung data yang ada di field yang lain menggunakan `compute` 
 - dalam odoo ada sebuah teknik yang namanya compute berikut contoh simpelnya
 ```
 variabel = fields.Integer(string='angka1') 
@@ -188,6 +197,8 @@ def _2xlipat(self): #selft artinya diri sendiri yaitu model itu sendiri
     self.hasil=self.variabel * self.variabel #variabel di kali variabel
 ```
 ## 25 onchange 
+- dalam odoo kita bisa mengubah field yang lain menggunakan `onchange`
+- onchange adalah teknik yang digunakan untuk mengubah field yang lain berdasarkan field yang di pilih
 - contoh implentasi
 
 ```
@@ -200,12 +211,15 @@ def _onchange_pasien_id(self):
 - field `jabatan_pejabat` akan di ganti menggunakan fungsi `_onchange_pasien_id`
 
 ## 26 penggunakan rec name
+- rec_name adalah teknik untuk menampilkan field yang di inginkan di view
 - saat membat model tanpa field name atau ingin mengcostume name nanti akan ketemu masaalah sehingga hanya memunculkan id olekarena itu penggunaaan rech_name penting contoh implentasi: 
 ```
 _rec_name = '<nama field yang ingin di tampilkan>'
 ```
 
 ## 27 nootebook 
+- notebook adalah teknik untuk membuat tab di view
+- contoh penulisan
 ```
 <notebook>
     <page string="Resep" name="resep">
@@ -222,8 +236,16 @@ _rec_name = '<nama field yang ingin di tampilkan>'
 ```
 
 ## 28 html
+- html adalah teknik untuk menampilkan html di view
+- contoh penulisan
+```
+<field name="deskripsi" widget="html"/>
+```
 
 ## 29 hapus tombol edit delete duplikat
+- untuk menghapus tombol edit delete duplikat tambahkan code berikut di view model mu
+
+```
 - tree
 ```
 <tree create="0" delete="0">
@@ -234,6 +256,8 @@ form create="0" delete="0" edit="0">
 ```
 
 ## 30 prority 
+- priority adalah teknik untuk menampilkan prioritas di view model
+
 - buat seleksi field contoh
 ```
 ploritas= fields.Selection([('0', 'Normal'),('1', 'Low'),('2', 'High'),('3', 'Very High')], string="Priority") 
@@ -247,6 +271,7 @@ ploritas= fields.Selection([('0', 'Normal'),('1', 'Low'),('2', 'High'),('3', 'Ve
 </div>
 ```
 ## 31 status bar
+
 - membuat status bar awal awal buat field selection untuk acuan contoh
 ```
 keadaan = fields.Selection([('draf', 'Draft'),('running', 'Berlangsung'),('done', 'Selesai'),('cancel', 'Batal'), string="Keadaan", required=True)
@@ -265,7 +290,9 @@ keadaan = fields.Selection([('draf', 'Draft'),('running', 'Berlangsung'),('done'
     <sheet>
 ```
 
-## 32 membuat acrtion button
+## 32 membuat action button
+- membuat action button adalah teknik untuk membuat tombol di view model mu
+
 - mula mula buat action funsinya dulu karena nanti program berjalan mengikuti fungsi ini contoh : 
 ```
 def <nama fungsi>(self):
@@ -280,15 +307,17 @@ def <nama fungsi>(self):
 
 ## 33 menambahkan konfirmasi message di button 
 - caranya cukup tambahakan code berikut pada button mu
+- contoh
 ```
 confirm="<pesan nya apa>"
 ```
 ## 34 help mesage
-- memumculkan pesan di field atau yang lain tambahkan 
+- help message adalah pesan yang akan muncul saat di hover di field atau tombol
 ```
 help="<pesan nya apa>"
 ```
 ## 35 hitung umur brdasrkan tanggal lahir 
+- untuk menghitung umur berdasarkan tanggal lahir kita bisa menggunakan fungsi `date`
 - tambahakan library berikut: 
 ```
 from datetime import date
@@ -305,6 +334,7 @@ def _hitung_umur_dari_lahir(self):
 ```
 
 ## 36 menambahkan penand pelangi di objek button atau sebagainya 
+- untuk menambahkan efek pelangi di objek button atau sebagainya kita bisa menggunakan `effect`
 - tambahakan kode berikut ke fungsi 
 ```
 return {
@@ -317,15 +347,93 @@ return {
 ```
 
 ## 37 widget bandage dan decoration 
-- bandage untuk menambah penampilan 
-- decoration untuk memberikan warna contoh code 
+- bandage adalah untuk menambahkan penampilan di field
+- decoration adalah untuk memberikan warna di field
+- contoh penulisan bandage dan decoration
 ```
 <field name="keadaan" 
                     decoration-success="keadaan == 'done'" 
                     decoration-info="keadaan == 'draf'" 
-                    decoration-danger="keadaan == 'cancel'" 
+                    decoration-danger="keadaan =='cancel'" 
                     decoration-muted="keadaan == 'running'"
                     widget="badge"/>
 ```
+`decoration-danger = red`
+`decoration-success = green`
+`decoration-warning = orange`
+`decoration-info = light blue`
+`decoration-muted`
+## 38 decoration di view tree berdasarkan keadaan
+- decoration untuk memberikan warna contoh code 
+```
+<tree decoration-success="keadaan == 'done'" 
+        decoration-info="keadaan == 'draf'" 
+        decoration-danger="keadaan == 'cancel'" 
+        decoration-muted="keadaan == 'on_consultasion'">
+```
 
-## 38 
+## 39 widget list_activity
+- widget list_activity adalah teknik untuk menampilkan activity di view model mu
+- agar lebih menarik di bagian activity tambhakan di field `activity_ids` dari inherit dari `_inherit = ['mail.thread','mail.activity.mixin']`
+```
+widget="list_activity"
+```
+
+## 65 load data xml
+- untuk memuat data xml di odoo kita bisa menggunakan `data` di `__manifest__.py` contoh
+```
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+
+        <record id="<id bebas adal gak sama>" model="<nama_model>">
+            <field name="name"><yang mau di tampilkan></field>
+        </record>
+
+        <record id="pasien_tag_mr" model="cdn.pasien.tag">
+            <field name="name">Mr</field>
+            <field name="active" eval="False"/>
+        </record>
+
+    </data>
+
+</odoo>
+```
+
+## 66 load data csv
+- untuk memuat data csv di odoo kita bisa menggunakan `data` di `__manifest__.py` contoh
+- buat file csv di folder `data` contoh `pasien_tag.csv`
+- tambahkan kode berikut di `__manifest__.py`
+- penulisan file csv berdasarkan model yang di buat contoh : `<nama_model>.csv`
+```
+<cdn.pasien.tag>.csv
+```
+```
+id,name,active
+pasien_tag_ceo,CEO,True
+pasien_tag_vvip,VVIP,False
+pasien_tag_mrs,Mrs,True
+```
+
+## 68 inherit Model In Odoo 
+- Inheritance adalah teknik yang digunakan untuk menambahkan atau mengubah field yang ada di model lain
+- ada 3 jenis inheritance di odoo yaitu `_inherit`, `_inherits`, `_name`
+- `_inherit` adalah teknik yang digunakan untuk menambahkan field yang ada di model lain
+- `_inherits` adalah teknik yang digunakan untuk menambahkan field yang ada di model lain dan membuat model baru
+- `_name` adalah teknik yang digunakan untuk mengubah nama model yang ada di odoo
+- contoh penulisan `_inherit`
+```
+_inherit = 'res.partner'
+```
+- contoh penulisan `_inherits`
+```
+_inherits = {'res.partner': 'partner_id'}
+```
+- contoh penulisan `_name`
+```
+_name = 'res.partner'
+```
+jangan lupa tambahakn `depend` di `__manifest__.py` contoh
+```
+'depends': ['base', 'mail'],
+```
