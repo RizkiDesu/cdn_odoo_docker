@@ -156,7 +156,7 @@
                             <!-- Add your fields here -->
                             <group>
                                 <!-- <field name="name" readonly="1" default='New'/> -->
-                                <field name="pasien_id"/>
+                                <field name="pasien_id" widget="selection"/>
                                 <!-- force_save digunakan umtuk meyimpan paksa filed read only -->
                                 <field name="ref" readonly="1" force_save="1"/>
                                 <field name="jenis_kel"/>
