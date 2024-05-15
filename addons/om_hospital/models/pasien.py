@@ -41,7 +41,12 @@ class CdnPasien(models.Model):
     parent = fields.Char(string='Parrent')
     is_menikah = fields.Selection(string='Menikah', selection=[('menikah', 'Sudah Menikah'), ('single', 'Single'),])
     parent_name = fields.Char(string='Nama Parner')
-     
+    
+    phone = fields.Char(string='Nomor Telepon')
+    email = fields.Char(string='Email')
+    website = fields.Char(string='Website')
+    
+
     
     @api.depends('appoinment_ids')
     def _compute_appoinment_count(self):
@@ -107,7 +112,7 @@ class CdnPasien(models.Model):
         print('test')
         return True
     
-    
+
     is_ulangtahun = fields.Boolean(string='Ulang tahun', compute='_compute_is_ulangtahun')
     def _compute_is_ulangtahun(self):
         is_ulangtahun = False

@@ -66,7 +66,7 @@ docker-compose down
 ## 6 refrensi 
 - [odoo mates](https://youtube.com/playlist?list=PLqRRLx0cl0hoZM788LH5M8q7KhiXPyuVU&si=MhywVwnZhOpRHCj4)
 - [auto didak](https://youtube.com/playlist?list=PLxnh_lDN7wxenhhZYqYQcB4JRMHtRs-cP&si=LVSFPzDKL2FZ5KWy)
-- [ppt](https://docs.google.com/presentation/d/1puiGoBsSbV-ovwSGJg63DhuzxVi-Klw9/edit#slide=id.p1)
+- [ppt](https://drive.google.com/drive/folders/1ADuw4iBJnekfeKB8NNP2LuWCQMSAUt2w)
 
 
 ## 7 CDN Ttaining screenshots.
