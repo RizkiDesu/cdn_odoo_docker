@@ -35,6 +35,7 @@ class CdnPasien(models.Model):
     appoinment_count = fields.Integer(compute='_compute_appoinment_count', string='Appoinment Count', store=True)
     appoinment_ids = fields.One2many(comodel_name='cdn.appointment', inverse_name='pasien_id', string='Appoinments')
     
+    is_ulangtahun = fields.Boolean(string='Ulang tahun', compute='_compute_is_ulangtahun')
     
     
     parent = fields.Char(string='Parrent')
@@ -105,3 +106,23 @@ class CdnPasien(models.Model):
     def action_test (self): 
         print('test')
         return True
+    
+    
+    is_ulangtahun = fields.Boolean(string='Ulang tahun', compute='_compute_is_ulangtahun')
+    def _compute_is_ulangtahun(self):
+        is_ulangtahun = False
+        for rec in self:
+            hari_ini = date.today()
+            print("-----------------")
+            print("tgl ini", hari_ini.day, "== tgl lahir", rec.tgl_lahir.day,
+                  "dan bulan lahir", rec.tgl_lahir.month, "== bulan ini", hari_ini.month,)
+            print("hasil logika :",rec.tgl_lahir.month == hari_ini.month 
+                  and rec.tgl_lahir.day == hari_ini.day)
+            if rec.tgl_lahir: # jika tanggal lahir pasien ada
+                # jika bulan lahir = bulan hari ini dan tanggal lahir = tanggal hari ini maka is_ulangtahun = True
+                if rec.tgl_lahir.month == hari_ini.month and rec.tgl_lahir.day == hari_ini.day:
+                    is_ulangtahun = True
+                else:
+                    is_ulangtahun = False
+            rec.is_ulangtahun = is_ulangtahun
+    

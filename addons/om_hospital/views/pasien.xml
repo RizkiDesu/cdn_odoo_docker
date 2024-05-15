@@ -26,6 +26,17 @@
             <field name="arch" type="xml">
                 <form>
                     <sheet>
+                        <div class="alert alert-info text-center o_form_header" role="alert" 
+                            attrs="{'invisible': [('is_ulangtahun', '!=', True)]}">
+                            <div>
+                                <strong>Hari ini adalah ulangtahun mu</strong>
+                            </div>
+                            <div> 
+                                Kepada : <field name="name" readonly="1"/>
+                            </div>
+                            <a class="close" data-bs-dismiss="alert" href="#">[close]</a>
+                        </div>
+
                         <field name="image" widget="image" class="oe_avatar"/>
                         <div class="oe_title">
                             <h4>
@@ -42,11 +53,13 @@
                                 <field name="umur"/>
                                 <!-- <field name="appoinment_id"/> -->
                                 <field name="appoinment_count" />
+                                <field name="is_ulangtahun" invisible="1"/>
                             </group>
                             <group>
                                 
                                 <field name="jenis_kel" invisible="context.get('hide_jenis_kel')" widget="radio"/>
-                                <field name="tag_ids" widget="many2many_checkboxes" options="{'color_field': 'warna'}"/>
+                                <!-- <field name="tag_ids" widget="many2many_checkboxes" options="{'color_field': 'warna'}"/> -->
+                                <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'warna'}"/>
                                 <field name="active" invisible="1"/>
                                 <!-- <field name="appoinment_count"/> -->
                             </group> 

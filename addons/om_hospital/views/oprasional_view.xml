@@ -10,6 +10,7 @@
                     <!-- Add your fields here -->
                     <field name="operasional_name"/>
                     <field name="doctor_id"/>
+                    <field name="refrensi_record"/>
                     
                 </tree>
             </field>
@@ -26,6 +27,7 @@
                             <!-- Add your fields here -->
                             <field name="operasional_name"/>
                             <field name="doctor_id"/>
+                            <field name="refrensi_record"/>
                             
                         </group>
                     </sheet>

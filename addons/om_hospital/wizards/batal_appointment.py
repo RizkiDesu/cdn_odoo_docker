@@ -44,5 +44,10 @@ class CdnWzBatalapointment(models.TransientModel):
             raise pesan_error(_("Tidak bisa membatalkan appoinment karena sudah melewati batas hari batal"))
 
         self.app_id.state = 'cancel' # mengubah state menjadi cancel
-        # return
+        return {
+            'type': 'ir.actions.client',
+            # 'res_model': 'cdn.appointment',
+            # 'view_mode': 'tree',
+            'tag' : 'reload',
+        }
     

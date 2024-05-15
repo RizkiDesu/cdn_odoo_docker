@@ -9,6 +9,21 @@ class CdnOprasional(models.Model):
 
     doctor_id = fields.Many2one(comodel_name='res.users', string='Doctor')
     operasional_name = fields.Char(string='Name')
+    # refrensi = fields.Reference(string='')
+
+
+
+
+    # refrensi_record = fields.Reference(string='<label>', 
+    #                             selection=[('<model>', '<label>'), ('<model>', '<label>'),])
+
+
+
+    refrensi_record = fields.Reference(string='Record', 
+                                selection=[('cdn.appointment', 'Appointment'), 
+                                           ('cdn.pasien', 'Pasien'),])
+    
+    
 
     # fungsi name get untuk mengambil nama di view model lain
     @api.model
