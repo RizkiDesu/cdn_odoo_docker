@@ -11,9 +11,10 @@
                     
                     <field name="name"/>
                     <field name="ref"/>
-                    <field name="umur"/>
-                    <field name="jenis_kel"/>
-                    <field name="appoinment_count"/>
+                    <field name="umur" avg="Rata Rata Umur"/>
+                    <field name="jenis_kel" />
+                    <field name="appoinment_count" sum="Total Appoinment"/>
+                    <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'warna'}"/>
                 </tree>
             </field>
         </record>
@@ -40,7 +41,7 @@
                                 <field name="tgl_lahir"/>
                                 <field name="umur"/>
                                 <!-- <field name="appoinment_id"/> -->
-                                <field name="appoinment_count"/>
+                                <field name="appoinment_count" />
                             </group>
                             <group>
                                 

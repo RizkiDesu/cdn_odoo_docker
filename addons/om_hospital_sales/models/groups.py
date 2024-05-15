@@ -2,7 +2,7 @@
 from odoo import api, fields, models,_
 
 
-
+# untuk menghapus setting
 class ResGroups(models.Model):
     _inherit = 'res.groups'
     # @api.model
