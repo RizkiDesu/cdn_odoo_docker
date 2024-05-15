@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        <!-- cdn.oprasional tree view -->
+        <record id="cdn_oprasional_view_tree" model="ir.ui.view">
+            <field name="name">cdn.oprasional.view.tree</field>
+            <field name="model">cdn.oprasional</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <!-- Add your fields here -->
+                    <field name="operasional_name"/>
+                    <field name="doctor_id"/>
+                    
+                </tree>
+            </field>
+        </record>
+
+        <!-- cdn.oprasional form view -->
+        <record id="cdn_oprasional_view_form" model="ir.ui.view">
+            <field name="name">cdn.oprasional.view.form</field>
+            <field name="model">cdn.oprasional</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <!-- Add your fields here -->
+                            <field name="operasional_name"/>
+                            <field name="doctor_id"/>
+                            
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- cdn.oprasional action window -->
+        <record id="cdn_oprasional_action" model="ir.actions.act_window">
+            <field name="name">cdn.oprasional.action</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cdn.oprasional</field>
+            <field name="view_mode">tree,form</field>
+
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p><p>
+                    <!-- More details about what a user can do with this object will be OK --> 
+                
+                </p>
+            </field>
+        </record>
+        <menuitem id="oprasional_config_settings_menu" name="Orasional"
+            parent="om_hospital.konfigurasi_menu_categ" sequence="5" 
+            action="cdn_oprasional_action"/>
+        
+    
+    </data>
+    
+</odoo>

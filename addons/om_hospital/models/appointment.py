@@ -14,6 +14,8 @@ class CdnAppointment(models.Model):
     appoinment_time = fields.Datetime(string='Appoinment Time', default=fields.Datetime.now) # tabel waktu appoinment
     jenis_kel       = fields.Selection(related='pasien_id.jenis_kel') # tabel jenis kelamin
     booking_date    = fields.Date(string='Tanggal Booking', default=fields.Date.context_today) # tabel tanggal booking
+    operasi         = fields.Many2one(comodel_name='cdn.oprasional', string='Operasi')
+    
     ref             = fields.Char(string='Refrensi', help="refrenis ke pasien record") # tabel refrensi
     resep           = fields.Html(string='Resep') # tabel resep
     ploritas        = fields.Selection([
