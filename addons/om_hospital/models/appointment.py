@@ -6,6 +6,7 @@ class CdnAppointment(models.Model):
     _inherit        = ['mail.thread','mail.activity.mixin'] # tambahkan mail thread
     _description    = 'Cdn Appointment' # deskripsi tabel di database
     _rec_name       = 'name' 
+    _order          = 'id desc' # bisa, name, age,  asc desc berfungsi untuk mengurutkan data dari yang terbesar ke yang terkecil
 
     name            = fields.Char(string='sequence') # field name
     
