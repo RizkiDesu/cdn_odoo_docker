@@ -157,11 +157,13 @@
                             <group>
                                 <!-- <field name="name" readonly="1" default='New'/> -->
                                 <field name="pasien_id"/>
-                                <field name="ref"/>
+                                <!-- force_save digunakan umtuk meyimpan paksa filed read only -->
+                                <field name="ref" readonly="1" force_save="1"/>
                                 <field name="jenis_kel"/>
                                 <field name="dokter_id" widget="many2one_avatar"/>
                                 <!-- default fokus hanya bisa di pakai 1 setiap form -->
                                 <field name="booking_date" help="tanggal boking" default_focus="1"/> 
+                                
                             </group>
                             <group>
                                 <!-- gak bisa di kasih groups="base.group_no_one" -->
