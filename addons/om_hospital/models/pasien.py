@@ -35,7 +35,7 @@ class CdnPasien(models.Model):
     appoinment_count = fields.Integer(compute='_compute_appoinment_count', string='Appoinment Count', store=True)
     appoinment_ids = fields.One2many(comodel_name='cdn.appointment', inverse_name='pasien_id', string='Appoinments')
     
-    is_ulangtahun = fields.Boolean(string='Ulang tahun', compute='_compute_is_ulangtahun')
+    # is_ulangtahun = fields.Boolean(string='Ulang tahun', compute='_compute_is_ulangtahun')
     
     
     parent = fields.Char(string='Parrent')
@@ -112,8 +112,8 @@ class CdnPasien(models.Model):
         print('test')
         return True
     
-
     is_ulangtahun = fields.Boolean(string='Ulang tahun', compute='_compute_is_ulangtahun')
+    @api.depends('tgl_lahir') # override berfungsi untuk mengutamakan `tgl_lahir` pada `@api.depends
     def _compute_is_ulangtahun(self):
         is_ulangtahun = False
         for rec in self:
