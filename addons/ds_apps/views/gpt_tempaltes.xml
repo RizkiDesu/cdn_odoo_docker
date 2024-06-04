@@ -1,0 +1,56 @@
+<odoo>
+    <template id="person_list" name="Person List">
+        <t t-call="website.layout">
+            <div class="container">
+                <h1>Persons</h1>
+                <a href="/crud/person/create" class="btn btn-primary">Create New Person</a>
+                <table class="table table-striped mt-3">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Age</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="persons" t-as="person">
+                            <tr>
+                                <td><t t-esc="person.name"/></td>
+                                <td><t t-esc="person.email"/></td>
+                                <td><t t-esc="person.age"/></td>
+                                <td>
+                                    <a t-att-href="'/crud/person/edit/' + str(person.id)" class="btn btn-warning">Edit</a>
+                                    <a t-att-href="'/crud/person/delete/' + str(person.id)" class="btn btn-danger">Delete</a>
+                                </td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+            </div>
+        </t>
+    </template>
+
+    <template id="person_form" name="Person Form">
+        <t t-call="website.layout">
+            <div class="container">
+                <h1><t t-if="person">Edit</t><t t-else="">Create</t> Person</h1>
+                <form t-att-action="person and ('/crud/person/update/' + str(person.id)) or '/crud/person/save'" method="post">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" class="form-control" t-att-value="person and person.name or ''" required="required"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" class="form-control" t-att-value="person and person.email or ''"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="age">Age</label>
+                        <input type="number" id="age" name="age" class="form-control" t-att-value="person and person.age or ''"/>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-small"><t t-if="person">Update</t><t t-else="">Save</t></button>
+                </form>
+            </div>
+        </t>
+    </template>
+</odoo>

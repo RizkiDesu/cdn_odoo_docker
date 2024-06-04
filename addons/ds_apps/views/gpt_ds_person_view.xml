@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+    
+        <!-- crud.person tree view -->
+        <record id="crud_person_view_tree" model="ir.ui.view">
+            <field name="name">crud.person.view.tree</field>
+            <field name="model">crud.person</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom"> 
+                    <!-- Add your fields here -->
+                    <field name="name"/>
+                    <field name="email"/>
+                    <field name="age"/>
+                </tree>
+            </field>
+        </record>
+        <!-- crud.person action window -->
+        <record id="crud_person_action" model="ir.actions.act_window">
+            <field name="name">crud.person.action</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">crud.person</field>
+            <field name="view_mode">tree</field>
+        </record>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="data_person_web_menu_act" name="data_input" parent="master_pengaturan_menu_categ" action="crud_person_action" sequence="0"/>
+    
+    </data>
+    
+</odoo>

@@ -20,7 +20,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['base','website'],
 
     # always loaded
     'data': [
@@ -32,6 +32,8 @@
         'views/ds_pejabat.xml',
         'views/ds_anggota.xml',
         'views/ds_hitung.xml',
+        'views/gpt_tempaltes.xml',
+        'views/gpt_ds_person_view.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

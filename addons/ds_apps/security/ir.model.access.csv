@@ -5,5 +5,5 @@ access_desu_pejabat,access_desu_pejabat,model_desu_pejabat,base.group_user,1,1,1
 
 access_desu_hitung,access_desu_hitung,model_desu_hitung,base.group_user,1,1,1,1
 
-
+access_crud_person,access_crud_person,model_crud_person,base.group_user,1,1,1,1
 access_ds_anggota,access_ds_anggota,model_ds_anggota,base.group_user,1,1,1,1
