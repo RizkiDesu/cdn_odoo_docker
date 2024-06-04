@@ -118,11 +118,11 @@ class CdnPasien(models.Model):
         is_ulangtahun = False
         for rec in self:
             hari_ini = date.today()
-            print("-----------------")
-            print("tgl ini", hari_ini.day, "== tgl lahir", rec.tgl_lahir.day,
-                  "dan bulan lahir", rec.tgl_lahir.month, "== bulan ini", hari_ini.month,)
-            print("hasil logika :",rec.tgl_lahir.month == hari_ini.month 
-                  and rec.tgl_lahir.day == hari_ini.day)
+            # print("-----------------")
+            # print("tgl ini", hari_ini.day, "== tgl lahir", rec.tgl_lahir.day,
+            #       "dan bulan lahir", rec.tgl_lahir.month, "== bulan ini", hari_ini.month,)
+            # print("hasil logika :",rec.tgl_lahir.month == hari_ini.month 
+            #       and rec.tgl_lahir.day == hari_ini.day)
             if rec.tgl_lahir: # jika tanggal lahir pasien ada
                 # jika bulan lahir = bulan hari ini dan tanggal lahir = tanggal hari ini maka is_ulangtahun = True
                 if rec.tgl_lahir.month == hari_ini.month and rec.tgl_lahir.day == hari_ini.day:

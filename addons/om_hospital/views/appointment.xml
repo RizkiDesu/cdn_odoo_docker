@@ -98,6 +98,11 @@
                                 type="object" 
                                 class="oe_highlight" 
                                 states="draf"/> <!-- states="draf" -->
+                        <button name="action_share_to_whatsapp" 
+                                string="Share to Whatsapp"
+                                data-hotkey="w" 
+                                type="object" 
+                                class="oe_highlight" />
                                 
                         <button name="action_done" 
                                 data-hotkey="v"

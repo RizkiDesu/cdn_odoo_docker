@@ -57,7 +57,18 @@ class CdnAppointment(models.Model):
     @api.onchange('pasien_id') # fungsi on change untuk mengubah refrensi ketika pasien di ubah
     def _onchange_pasien_id(self):
         self.ref = self.pasien_id.ref # mengubah refrensi menjadi refrensi pasien
-    
+    def action_share_to_whatsapp(self): # fungsi share to whatsapp untuk membagikan data ke whatsapp
+        if not self.pasien_id.phone:
+            
+            raise pesan_error(_("Nomor telepon pasien tidak di temukan"))
+        message = "Halo %s, anda memiliki janji dengan %s pada tanggal %s" % (self.pasien_id.name, self.dokter_id.name, self.appoinment_time) # pesan yang akan di kirim
+        url_whastapp = "https://api.whatsapp.com/send?phone=%s&text=%s" % (self.pasien_id.phone, message) # url whatsapp
+        return {
+            'type': 'ir.actions.act_url',
+            'url': url_whastapp,
+            'target': 'new',
+        }
+
     def action_test(self): # fungsi test untuk menampilkan pesan saat button di klik
         print("button test !!!")
         return {

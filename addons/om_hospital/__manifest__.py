@@ -10,7 +10,7 @@
     'maintainer': 'Odoo Mates',
     'website': 'https://www.odoomates.tech',
     'license': 'AGPL-3',
-    'depends': ['base','mail','product'], # menambahakan dependensi 
+    'depends': ['base','mail','product','contacts'], # menambahakan dependensi 
     'data': [
         # 'security/groups.xml',
         'security/ir.model.access.csv', #menambahkan security ir.model.access.csv 
