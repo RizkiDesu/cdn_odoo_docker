@@ -7,3 +7,4 @@ class Person(models.Model):
     name = fields.Char(string='Name')
     email = fields.Char(string='Email')
     age = fields.Integer(string='Age')
+    image = fields.Binary(string='Image')

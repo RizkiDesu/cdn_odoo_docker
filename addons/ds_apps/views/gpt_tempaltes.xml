@@ -7,6 +7,7 @@
                 <table class="table table-striped mt-3">
                     <thead>
                         <tr>
+                            <th>Image</th>
                             <th>Name</th>
                             <th>Email</th>
                             <th>Age</th>
@@ -16,9 +17,18 @@
                     <tbody>
                         <t t-foreach="persons" t-as="person">
                             <tr>
-                                <td><t t-esc="person.name"/></td>
-                                <td><t t-esc="person.email"/></td>
-                                <td><t t-esc="person.age"/></td>
+                                <td>
+                                    <img t-attf-src="data:image/jpg;base64,{{ person.image }}" style="align:left; width:85px;height:85px;"/>
+                                </td>
+                                <td>
+                                    <t t-esc="person.name"/>
+                                </td>
+                                <td>
+                                    <t t-esc="person.email"/>
+                                </td>
+                                <td>
+                                    <t t-esc="person.age"/>
+                                </td>
                                 <td>
                                     <a t-att-href="'/crud/person/edit/' + str(person.id)" class="btn btn-warning">Edit</a>
                                     <a t-att-href="'/crud/person/delete/' + str(person.id)" class="btn btn-danger">Delete</a>
@@ -35,7 +45,7 @@
         <t t-call="website.layout">
             <div class="container">
                 <h1><t t-if="person">Edit</t><t t-else="">Create</t> Person</h1>
-                <form t-att-action="person and ('/crud/person/update/' + str(person.id)) or '/crud/person/save'" method="post">
+                <form t-att-action="person and ('/crud/person/update/' + str(person.id)) or '/crud/person/save'" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" id="name" name="name" class="form-control" t-att-value="person and person.name or ''" required="required"/>
@@ -48,7 +58,14 @@
                         <label for="age">Age</label>
                         <input type="number" id="age" name="age" class="form-control" t-att-value="person and person.age or ''"/>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-small"><t t-if="person">Update</t><t t-else="">Save</t></button>
+                    <div class="form-group">
+                        <label for="image">Image</label>
+                        <input type="file" id="image" name="image" class="form-control"/>
+                        <t t-if="person and person.image">
+                            <img t-att-src="'data:image/png;base64,' + person.image" class="img-thumbnail mt-2" style="width: 100px; height: auto;"/>
+                        </t>
+                    </div>
+                    <button type="submit" class="btn btn-primary"><t t-if="person">Update</t><t t-else="">Save</t></button>
                 </form>
             </div>
         </t>

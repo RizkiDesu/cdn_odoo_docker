@@ -9,9 +9,11 @@
             <field name="arch" type="xml">
                 <tree editable="bottom"> 
                     <!-- Add your fields here -->
+                    <field name="image" widget="image" class="oe_avatar"/>
                     <field name="name"/>
                     <field name="email"/>
                     <field name="age"/>
+
                 </tree>
             </field>
         </record>
